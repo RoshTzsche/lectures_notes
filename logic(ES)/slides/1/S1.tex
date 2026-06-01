@@ -1,6 +1,6 @@
 \documentclass[10pt, aspectratio=169]{beamer}
 
-% --- Configuración del Tema (Estilo Atractor) ---
+% --- Configuración del Tema ---
 \usetheme{metropolis}
 \usecolortheme{owl} % Fondo oscuro, alto contraste
 \usepackage[spanish]{babel}
@@ -8,17 +8,16 @@
 \usepackage{amsfonts, amsmath, amssymb, amsthm}
 \usepackage{graphicx}
 \usepackage{tikz}
-\usepackage{hyperref}
 
 % --- Colores Personalizados ---
 \definecolor{diagonalred}{RGB}{140, 20, 40}
 \definecolor{mitred}{RGB}{163, 31, 52}
 
 % --- Información del Título ---
-\title{De los Sistemas Formales a la Electrónica Aplicada}
-\subtitle{Clase 1: Fundamentos — Conjuntos y el Infinito}
-\author{TA: Rosh Guadiana P.}
-\date{\today}
+\title{Los Límites de la Razón}
+\subtitle{Sesión 1: Fundamentos — Conjuntos y el Infinito}
+\author{Rosh Guadiana}
+\date{Junio 2026}
 
 \begin{document}
 
@@ -27,168 +26,175 @@
 
 % --- Slide 2: El Punto Cero ---
 \begin{frame}{Motivación: El Punto Cero Formal}
-    \begin{columns}
-            \begin{itemize}
-                \item Todo sistema tecnológico que clasifica información descansa sobre una noción primitiva: la \alert{colección}.
-                \item Sin este vocabulario es imposible definir:
-                \begin{itemize}
-                    \item Un axioma lógico.
-                    \item Una Máquina de Turing.
-                    \item El estado de un cristal de silicio.
-                \end{itemize}
-            \end{itemize}
-            \vspace{0.5cm}
-            \small \textit{"No hay respuestas que memorizar. Solo hay comprensión o no la hay."}
-        \end{column}
-    \end{columns}
+    \begin{center}
+        \Large Todo sistema que procesa información descansa sobre una noción primitiva: 
+        
+        \vspace{0.5cm}
+        \alert{\textbf{La Colección.}}
+        
+        \vspace{1.5cm}
+        \normalsize
+        \textit{"No hay respuestas que memorizar. Solo hay demostración o no la hay."}
+    \end{center}
 \end{frame}
 
-% --- Slide 3: Teoría de Conjuntos ---
-\begin{frame}{Teoría de Conjuntos: El Lenguaje}
+% --- Slide 3: Teoría Ingenua (Cantor, 1874) ---
+\begin{frame}{El Lenguaje: Teoría Ingenua de Conjuntos}
     \begin{columns}
         \begin{column}{0.5\textwidth}
-            Definimos las operaciones que gobiernan la lógica de datos:
+            \textbf{Operaciones Fundamentales}
+            \vspace{0.3cm}
             \begin{itemize}
-                \item \textbf{Unión ($\cup$):} Fusión de mundos.
-                \item \textbf{Intersección ($\cap$):} Consistencia compartida.
-                \item \textbf{Diferencia ($\setminus$):} Exclusión lógica.
-                \item \textbf{Potencia $\mathcal{P}(A)$:} El conjunto de todos los subconjuntos.
+                \large
+                \item $A \cup B$
+                \item $A \cap B$
+                \item $A \setminus B$
+                \item $\mathcal{P}(A)$
             \end{itemize}
-            \begin{block}{Teorema Crucial}
-                $|\mathcal{P}(A)| = 2^{|A|}$ \\
-                \footnotesize La explosión combinatoria nace aquí.
-            \end{block}
         \end{column}
         \begin{column}{0.5\textwidth}
-            \centering
-            \includegraphics[width=0.8\textwidth]{http://googleusercontent.com/image_collection/image_retrieval/12661342568172883927}
-            \\ \small Diagrama de Venn: Operaciones Base
-        \end{column}
-    \end{columns}
-\end{frame}
-
-% --- Slide 4: Paradoja de Russell ---
-\begin{frame}{El Colapso: La Paradoja de Russell}
-    \begin{columns}
-        \begin{column}{0.55\textwidth}
-            ¿Puede un conjunto contenerse a sí mismo?
-            Sea $R$ el conjunto de todos los conjuntos que \alert{no} se contienen a sí mismos:
+            \textbf{El Axioma Implícito (Comprensión Irrestricta):}
+            \vspace{0.3cm}
             \begin{equation*}
-                R = \{x \mid x \notin x\}
+                \exists Y \forall x \, (x \in Y \iff P(x))
             \end{equation*}
-            \textbf{La Contradicción:}
-            \begin{itemize}
-                \item Si $R \in R \implies R \notin R$ (Absurdo)
-                \item Si $R \notin R \implies R \in R$ (Absurdo)
-            \end{itemize}
-            \textit{Lección: Incluso la lógica pura tiene grietas si no se define con rigor.}
+            \vspace{0.5cm}
+            \footnotesize \textit{Todo predicado lógicamente expresable forma un conjunto. El lenguaje crea realidad matemática.}
         \end{column}
-        \begin{column}{0.45\textwidth}
+    \end{columns}
+\end{frame}
+% --- Slide 7: Cantor vs Kronecker ---
+\begin{frame}{Historia: El Dogma contra la Verdad Formal}
+    \begin{columns}
+        \begin{column}{0.6\textwidth}
+            \textit{"Dios hizo los enteros, el resto es obra del hombre."} 
+            \\ \vspace{0.2cm} \hfill --- Leopold Kronecker
+            
+            \vspace{1cm}
+            \textit{"Nadie nos expulsará del paraíso que Cantor ha creado para nosotros."} 
+            \\ \vspace{0.2cm} \hfill --- David Hilbert (1926)
+        \end{column}
+        \begin{column}{0.4\textwidth}
             \centering
-            \includegraphics[width=0.9\textwidth]{http://googleusercontent.com/image_collection/image_retrieval/12052078414567897431}
-            \\ \small ¿Quién afeita al barbero?
+            % AQUÍ VA EL RETRATO DE CANTOR. 
+            \rule{0.7\textwidth}{4cm} % Reemplazar \rule con: \includegraphics[width=0.7\textwidth]{cantor.jpg}
+            \\ \vspace{0.2cm} \small Georg Cantor (1845-1918)
         \end{column}
     \end{columns}
 \end{frame}
 
-% --- Slide 5: Equipolencia ---
+
+% --- Slide 4: Equipolencia ---
 \begin{frame}{Equipolencia: Contar sin Números}
-    \begin{itemize}
-        \item Dos conjuntos tienen el mismo tamaño (cardinalidad) si existe una \textbf{biyección} entre ellos.
-        \item No necesitamos contar hasta el infinito; necesitamos emparejar elementos.
-    \end{itemize}
-    \vspace{0.4cm}
-    \centering
-    \begin{tikzpicture}[scale=1]
-        \node (A1) at (0,2) {$a_1$}; \node (A2) at (0,1) {$a_2$}; \node (A3) at (0,0) {$a_3$};
-        \node (B1) at (3,2) {$b_1$}; \node (B2) at (3,1) {$b_2$}; \node (B3) at (3,0) {$b_3$};
-        \draw[<->, thick, teal] (A1) -- (B1);
-        \draw[<->, thick, teal] (A2) -- (B2);
-        \draw[<->, thick, teal] (A3) -- (B3);
-        \node at (1.5, -0.5) {$f: A \to B$ es biyectiva $\implies |A| = |B|$};
-    \end{tikzpicture}
+    \begin{center}
+        ¿Cómo demostramos que dos colecciones infinitas tienen el mismo tamaño sin poder contarlas?
+        
+        \vspace{0.8cm}
+        \begin{tikzpicture}[scale=1.2]
+            \node (A1) at (0,2) {$a_1$}; \node (A2) at (0,1) {$a_2$}; \node (A3) at (0,0) {$a_3$};
+            \node (B1) at (3,2) {$b_1$}; \node (B2) at (3,1) {$b_2$}; \node (B3) at (3,0) {$b_3$};
+            \draw[<->, thick, teal] (A1) -- (B1);
+            \draw[<->, thick, teal] (A2) -- (B2);
+            \draw[<->, thick, teal] (A3) -- (B3);
+            \node at (1.5, -1) {\large $f: A \to B$ es biyectiva $\iff |A| = |B|$};
+        \end{tikzpicture}
+    \end{center}
 \end{frame}
 
-% --- Slide 6: El Infinito ---
-\begin{frame}{El Infinito no es un Número}
-    Existen diferentes "tamaños" de infinito. 
-    \begin{itemize}
-        \item \textbf{Conjuntos Contables ($|\mathbb{N}|$):} 
-        Podemos listarlos: $\mathbb{Z}$ (enteros) y $\mathbb{Q}$ (racionales) son \alert{del mismo tamaño} que $\mathbb{N}$.
-        \item \textbf{El Continuo ($|\mathbb{R}|$):} 
-        ¿Es posible listar todos los números reales entre 0 y 1?
-    \end{itemize}
-    \begin{exampleblock}{Sorpresa Matemática}
-        $|\mathbb{N}| = |\mathbb{Z}| = |\mathbb{Q}|$ \\
-        A pesar de que $\mathbb{N} \subset \mathbb{Z} \subset \mathbb{Q}$, hay una biyección entre ellos.
-    \end{exampleblock}
+% --- Slide 5: El Infinito ---
+\begin{frame}{Las Jerarquías del Infinito}
+    \begin{center}
+        \Large
+        ¿Cuál es la relación de cardinalidad entre las siguientes estructuras?
+        
+        \vspace{0.8cm}
+        $|\mathbb{N}|$ \quad ? \quad $|\mathbb{Z}|$ \quad ? \quad $|\mathbb{Q}|$
+        
+        \vspace{1.2cm}
+        ¿Y qué ocurre con $|\mathbb{R}|$?
+    \end{center}
 \end{frame}
 
-% --- Slide 7: Argumento Diagonal ---
-\begin{frame}{La Gran Ruptura: Argumento Diagonal}
+% --- Slide 6: Argumento Diagonal ---
+\begin{frame}{La Gran Ruptura: El Argumento Diagonal (1891)}
     \begin{columns}
-        \begin{column}{0.5\textwidth}
-            Georg Cantor (1891) demostró que $|\mathbb{R}| > |\mathbb{N}|$.
-            \vspace{0.2cm}
-            \begin{enumerate}
-                \item Supongamos que tenemos una lista de todos los reales.
-                \item Construimos un número $d$ cuya $n$-ésima cifra difiere de la $n$-ésima cifra del $n$-ésimo número de la lista.
-                \item $d$ \alert{no puede estar} en la lista.
-            \end{enumerate}
-            \textbf{Conclusión:} El infinito de los reales es mayor.
+        \begin{column}{0.4\textwidth}
+            \textbf{Objetivo:} 
+            Demostrar que $|\mathbb{R}| > |\mathbb{N}|$.
+            
+            \vspace{0.5cm}
+            \textbf{Premisa:}
+            Supongamos que existe una lista exhaustiva de todos los reales en $(0,1)$.
         \end{column}
-        \begin{column}{0.5\textwidth}
+        \begin{column}{0.6\textwidth}
             \centering
-            \includegraphics[width=\textwidth]{http://googleusercontent.com/image_collection/image_retrieval/8753770717026798672}
-            \\ \small La matriz de la diagonalización
+            % AQUÍ VA LA IMAGEN DE LA MATRIZ DIAGONAL DE CANTOR
+            \rule{0.9\textwidth}{4cm} % Reemplazar \rule con: \includegraphics[width=0.9\textwidth]{matriz_cantor.png}
+            \\ \vspace{0.2cm} \small \textit{Construcción geométrica del número $d$}
         \end{column}
     \end{columns}
 \end{frame}
 
 % --- Slide 8: El Hilo Rojo ---
-\begin{frame}{El Hilo Rojo: ¿Por qué estamos aquí?}
-    Este argumento diagonal es el \textbf{Hilo Rojo} del curso:
-    \vspace{0.4cm}
-    \begin{itemize}
-        \item \textbf{Hoy:} $|\mathbb{R}| > |\mathbb{N}|$.
-        \item \textbf{Sesión 4:} El Teorema de Incompletitud de Gödel (usando diagonalización).
-        \item \textbf{Sesión 4:} El Problema de la Parada de Turing (usando diagonalización).
-        \item \textbf{Sesión 8:} Los límites físicos del silicio frente a la lógica formal.
-    \end{itemize}
-    \vspace{0.3cm}
-    \centering \footnotesize \textit{Un solo hilo une la naturaleza del infinito con el procesador de tu computadora.}
+\begin{frame}{El Hilo Rojo: La Estructura del Curso}
+    \begin{center}
+        La mecánica de la diagonalización trasciende la Teoría de Conjuntos.
+        
+        \vspace{0.6cm}
+        \large
+        \textbf{Cantor} (Conjuntos: El infinito) \\
+        $\downarrow$ \\
+        \textbf{Gödel} (Metamatemática: Incompletitud) \\
+        $\downarrow$ \\
+        \textbf{Turing} (Computabilidad: El Problema de la Parada) \\
+        $\downarrow$ \\
+        \textbf{CMOS} (Física: Los Límites de la Materia)
+    \end{center}
 \end{frame}
 
-% --- Slide 9: Cantor vs Kronecker ---
-\begin{frame}{Historia: El Conflicto de las Mentes}
-    \begin{columns}
-        \begin{column}{0.6\textwidth}
-            \textbf{Georg Cantor} vs \textbf{Leopold Kronecker}
-            \begin{itemize}
-                \item Kronecker: \textit{"Dios hizo los enteros, el resto es obra del hombre"}.
-                \item Atacó a Cantor sistemáticamente, llamándolo "corruptor de la juventud".
-                \item Cantor terminó en una profunda depresión, pero su verdad prevaleció.
-            \end{itemize}
-            \vspace{0.3cm}
-            \textit{"Nadie nos expulsará del paraíso que Cantor ha creado para nosotros."} \\
-            --- David Hilbert
-        \end{column}
-        \begin{column}{0.4\textwidth}
-            \centering
-            \includegraphics[width=0.8\textwidth]{http://googleusercontent.com/image_collection/image_retrieval/13258698175843262724}
-            \\ \small Georg Cantor (1845-1918)
-        \end{column}
-    \end{columns}
+% --- Slide 9: Paradoja de Russell ---
+\begin{frame}{El Colapso: La Paradoja de Russell (1901)}
+    \begin{center}
+        Sea $R$ el conjunto de todos los conjuntos que no se contienen a sí mismos:
+        
+        \Large
+        \begin{equation*}
+            R = \{x \mid x \notin x\}
+        \end{equation*}
+        
+        \vspace{0.8cm}
+        \alert{\textbf{¿$R \in R$?}}
+    \end{center}
 \end{frame}
 
-% --- Slide 10: Conclusiones ---
-\begin{frame}{Próximos Pasos}
-    \begin{itemize}
-        \item \textbf{Comprensión:} ¿Entiendes por qué $d$ no está en la lista? Si no, no estamos listos para Gödel.
-        \item \textbf{Ejercicio Mental:} Demuestra que $|\mathcal{P}(A)| > |A|$ para un conjunto de 3 elementos.
-    \end{itemize}
-    \vspace{0.8cm}
-    \centering \Large \textbf{Siguiente Clase:} \\ \normalsize Lógica Proposicional: Sintaxis y Semántica
+% --- Slide 10: ZF y la Reconstrucción ---
+\begin{frame}{La Reconstrucción: Zermelo-Fraenkel (ZF)}
+    \begin{center}
+        La destrucción de la Comprensión Irrestricta y el nacimiento del \textbf{Axioma de Separación (Especificación)}:
+        
+        \Large
+        \vspace{0.5cm}
+        \begin{equation*}
+            \forall A \, \exists Y \, \forall x \, (x \in Y \iff x \in A \land P(x))
+        \end{equation*}
+        
+        \normalsize
+        \vspace{0.8cm}
+    \end{center}
+\end{frame}
+
+% --- Slide 11: Conclusiones ---
+\begin{frame}{La Pregunta Final}
+    \begin{center}
+        \Large
+        Demuestra rigurosamente que:
+        
+        \vspace{0.5cm}
+        $|\mathcal{P}(A)| > |A|$
+        
+        \vspace{1.5cm}
+        \normalsize \textit{(Pista: Utiliza el razonamiento diagonal de Cantor aplicado a la Teoría de Conjuntos).}
+    \end{center}
 \end{frame}
 
 \end{document}
