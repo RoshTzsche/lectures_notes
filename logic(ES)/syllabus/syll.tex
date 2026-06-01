@@ -512,43 +512,41 @@ Establecidos los l\'imites te\'oricos del c\'omputo, el siguiente paso es la imp
 % ============================================================
 %  SESIÓN 7
 % ============================================================
-\section{Sesi\'on 7 --- Termodin\'amica L\'ogica: $E_g$ y la Uni\'on PN}
+\section{Sesi\'on 7 --- Termodin\'amica L\'ogica: El L\'imite Mat\'erico}
 
 \begin{prereqs}
-Sesi\'on 6. La dependencia tecnol\'ogica hacia la no-linealidad. Mec\'anica estad\'istica introductoria.
+Sesi\'on 6. La dependencia tecnol\'ogica hacia la no-linealidad.
 \end{prereqs}
 
 \subsection*{Motivaci\'on}
-El dise\~no arquitect\'onico l\'ogico exige un componente capaz de conmutar se\~nales rechazando entrop\'ia t\'ermica. Se procede a modelar matem\'aticamente ese l\'imite: la barrera energ\'etica de banda ($E_g$) y el dopaje de semiconductores como mecanismo f\'isico para inducir asimetr\'ia en la conductividad.
+El dise\~no arquitect\'onico l\'ogico exige un componente capaz de conmutar se\~nales rechazando la entrop\'ia t\'ermica. En lugar de derivar la mec\'anica estad\'istica profunda, nos enfocaremos en la \emph{filosof\'ia f\'isica}: c\'omo la brecha prohibida ($E_g$) a\'isla la conducci\'on del caos termodin\'amico y c\'omo el dopaje rompe la simetr\'ia material para estabilizar el "bit".
 
 \subsection{Contenidos}
 
-\subsubsection{7.1 --- El Cristal y la Estad\'istica de Fermi-Dirac}
+\subsubsection{7.1 --- El Cristal y la Brecha Prohibida}
 \begin{itemize}
-  \item La brecha prohibida (\emph{bandgap}) $E_g$: el umbral de energ\'ia que a\'isla la conducci\'on cu\'antica del reposo t\'ermico.
-  \item Distribución fundamental de fermiones dictada por:
-    \[f(E)=\frac{1}{1+e^{(E-E_F)/k_BT}}\]
-  \item Evaluaci\'on del par\'ametro $n_i(T)$. Demostraci\'on de c\'omo el incremento de la temperatura anula el estado de asilamiento, comprometiendo la viabilidad del c\'omputo.
+  \item La brecha prohibida (\emph{bandgap}) $E_g$: el umbral de energ\'ia que a\'isla la informaci\'on estructurada del ruido t\'ermico.
+  \item La amenaza de la termodin\'amica: c\'omo el incremento de la temperatura tiende a destruir el estado de aislamiento, comprometiendo la viabilidad del c\'omputo.
 \end{itemize}
 
 \subsubsection{7.2 --- Ruptura de Simetr\'ia: Dopaje y la Uni\'on PN}
 \begin{itemize}
-  \item Control mediante dopaje: modulaci\'on del nivel de Fermi ($E_F$) y la explotaci\'on de la Ley de Acci\'on de Masas ($np = n_i^2$) para definir la polaridad mayoritaria de la carga.
-  \item Construcci\'on de la uni\'on PN: la interacci\'on qu\'imica por difusi\'on genera una regi\'on de agotamiento y un campo el\'ectrico de equilibrio ($\mathcal{E}$).
-  \item \textbf{Din\'amica No Lineal del Diodo:} Deducci\'on anal\'itica de c\'omo la polarizaci\'on de la uni\'on arroja una conducci\'on asim\'etrica y exponencial ($I = I_s(e^{V/V_T} - 1)$), cimentando el primer dispositivo de ruptura de linealidad el\'ectrica.
+  \item Control material: el dopaje como m\'etodo f\'isico para inducir asimetr\'ia en un cristal el\'ectricamente neutro.
+  \item La uni\'on PN como frontera termodin\'amica: creaci\'on de la regi\'on de agotamiento y el campo el\'ectrico de equilibrio.
+  \item \textbf{El nacimiento de la no-linealidad:} El diodo no como una ecuaci\'on diferencial abstracta, sino como la primera pieza de materia que logramos obligar a rectificar informaci\'on unidireccionalmente, estabilizando el c\'omputo frente al caos termodin\'amico.
 \end{itemize}
 
 \begin{objetivos}
 \begin{itemize}
-  \item Interpretar la distribuci\'on de Fermi-Dirac para acotar las fronteras termodin\'amicas en las que un bit mantiene integridad l\'ogica.
-  \item Derivar los principios f\'isicos por los cuales la yuxtaposici\'on de semiconductores extruye un comportamiento asim\'etrico de rectificaci\'on.
+  \item Explicar conceptualmente c\'omo la brecha prohibida protege la integridad l\'ogica del bit f\'isico.
+  \item Comprender la necesidad tecnol\'ogica de romper la simetr\'ia el\'ectrica mediante la uni\'on PN para lograr un comportamiento no lineal.
 \end{itemize}
 \end{objetivos}
 
 \begin{lecturas}
 \begin{itemize}
-  \item[$(\star)$] \textbf{Streetman, B. G., \& Banerjee, S. K.} --- \emph{Solid State Electronic Devices}. (Enfoque selectivo en conceptos de banda y operaci\'on t\'ermica de la uni\'on).
-  \item \textbf{Sedra, A. S., \& Smith, K. C.} --- \emph{Microelectronic Circuits}, 7.a ed. Cap\'itulo 4 \S4.1--4.2.
+  \item[$(\star)$] \textbf{Streetman, B. G., \& Banerjee, S. K.} --- \emph{Solid State Electronic Devices}. (Enfoque selectivo y conceptual en $E_g$ y la operaci\'on de la uni\'on, omitiendo derivaciones estad\'isticas duras).
+  \item \textbf{Feynman, R. P.} --- \emph{Feynman Lectures on Computation}. Cap\'itulo 5 (C\'omputo y termodin\'amica).
 \end{itemize}
 \end{lecturas}
 
@@ -557,50 +555,48 @@ El dise\~no arquitect\'onico l\'ogico exige un componente capaz de conmutar se\~
 % ============================================================
 %  SESIÓN 8
 % ============================================================
-\section{Sesi\'on 8 --- El Modus Ponens F\'isico: MOSFET y L\'ogica CMOS}
+\section{Sesi\'on 8 --- El Modus Ponens F\'isico: Arquitectura CMOS}
 
 \begin{prereqs}
-Sesiones 2, 6 y 7. Convergencia del modelo axiom\'atico abstractivo y los dispositivos de uni\'on.
+Sesiones 2, 6 y 7. Convergencia del modelo axiom\'atico abstractivo y los dispositivos de ruptura de simetr\'ia.
 \end{prereqs}
 
 \subsection*{Motivaci\'on}
-La formalizaci\'on axiom\'atica requiere conectivos como el operador NAND, y el an\'alisis termodin\'amico demostr\'o la disponibilidad de interruptores controlables. Esta sesi\'on ensambla la tecnolog\'ia CMOS utilizando campo el\'ectrico de estado s\'olido, cerrando as\'i la trayectoria desde el axioma metamatem\'atico hasta la f\'isica aplicada.
+La formalizaci\'on axiom\'atica requiere conectivos como el operador NAND. Esta sesi\'on ensambla la tecnolog\'ia CMOS utiliz\'andola como el lienzo final, cerrando la trayectoria desde el axioma metamatem\'atico hasta la f\'isica aplicada mediante la pura topolog\'ia de interruptores.
 
 \subsection{Contenidos}
 
-\subsubsection{8.1 --- El Transistor de Efecto de Campo (MOSFET)}
+\subsubsection{8.1 --- El Transistor como Interruptor Ideal}
 \begin{itemize}
-  \item F\'isica del capacitor MOS: descripci\'on de c\'omo el potencial de compuerta ($V_{GS}$) modula electrost\'aticamente la interfaz creando un canal cu\'antico de inversi\'on por encima de $V_{TH}$.
-  \item Reg\'imen de saturaci\'on y la separaci\'on funcional entre se\~nal de control y v\'ia de carga.
+  \item El MOSFET conceptual: descripci\'on de la separaci\'on funcional estricta entre la se\~nal de control (compuerta) y la v\'ia de conducci\'on (canal).
+  \item Abstracci\'on del dispositivo de estado s\'olido a un interruptor controlado por voltaje, eliminando el c\'alculo anal\'itico de saturaci\'on.
 \end{itemize}
 
 \subsubsection{8.2 --- La Arquitectura L\'ogica CMOS}
 \begin{itemize}
-  \item Resoluci\'on topol\'ogica del alto consumo de energ\'ia en redes de conmutaci\'on pasiva.
-  \item Ensamble complementario: La evaluaci\'on de la funci\'on $f$ recae en la red de canal N (Pull-Down), mientras la red de canal P (Pull-Up) garantiza mec\'anicamente la entrega del complemento l\'ogico $\neg f$. 
-  \item Eliminaci\'on de corrientes en estado de reposo y establecimiento de m\'argenes de ruido \'optimos para absorci\'on de fallos sist\'emicos.
+  \item Resoluci\'on topol\'ogica del alto consumo de energ\'ia: c\'omo enga\~nar a las leyes de la termodin\'amica mediante simetr\'ia complementaria.
+  \item Ensamble estructural: La evaluaci\'on de la funci\'on $f$ recae en la red de canal N (Pull-Down), mientras la red de canal P (Pull-Up) garantiza mec\'anicamente la entrega del complemento l\'ogico $\neg f$.
 \end{itemize}
 
 \subsubsection{8.3 --- S\'intesis Final: Implementaci\'on del NAND Universal}
 \begin{itemize}
-  \item Dise\~no esquem\'atico de la compuerta NAND est\'atica mediante transistores.
-  \item \textbf{El arco argumental completo:} Todo dato procesado se reduce a distribuciones probabil\'isticas de carga cu\'antica operando sujetos al l\'imite de Fermi-Dirac, modulados por la red topol\'ogica que encarna las reglas del c\'alculo proposicional, y confinados eternamente a no rebasar el horizonte de completitud delimitado por los teoremas diagonales del siglo XX.
+  \item Taller topol\'ogico: Dise\~no esquem\'atico de la compuerta NAND est\'atica mediante redes de transistores.
+  \item \textbf{El arco argumental completo:} Conexi\'on axiom\'atica de la f\'ormula formal $\neg(A \land B)$ con la carga cu\'antica modulada por voltajes. Demostraci\'on final de c\'omo atrapamos la completitud l\'ogica de Turing y la diagonalizaci\'on de Cantor dentro de un microchip de silicio.
 \end{itemize}
 
 \begin{objetivos}
 \begin{itemize}
-  \item Construir las redes sim\'etricas Pull-Up y Pull-Down de transistores requeridas para sintetizar cualquier postulaci\'on booleana.
-  \item Conectar expl\'icitamente el l\'imite l\'ogico de la M\'aquina de Turing con las limitantes f\'isicas dictadas por el voltaje y la estructura cristalogr\'afica del chip.
+  \item Dise\~nar las redes sim\'etricas Pull-Up y Pull-Down requeridas para sintetizar el operador l\'ogico NAND.
+  \item Conectar expl\'icitamente la abstracci\'on matem\'atica de la completitud funcional con la arquitectura f\'isica del transistor.
 \end{itemize}
 \end{objetivos}
 
 \begin{lecturas}
 \begin{itemize}
-  \item[$(\star)$] \textbf{Sedra, A. S., \& Smith, K. C.} --- \emph{Microelectronic Circuits}, 7.a ed. Cap\'itulo~5 \S5.1--5.2 y Cap\'itulo 14 \S14.1.
+  \item[$(\star)$] \textbf{Sedra, A. S., \& Smith, K. C.} --- \emph{Microelectronic Circuits}, 7.a ed. Cap\'itulo~14 \S14.1 (L\'ogica CMOS Digital).
   \item \textbf{Weste, N. H. E., \& Harris, D.} --- \emph{CMOS VLSI Design}. Cap\'itulo~1.
 \end{itemize}
 \end{lecturas}
-
 \newpage
 
 % ============================================================
@@ -627,6 +623,9 @@ La formalizaci\'on axiom\'atica requiere conectivos como el operador NAND, y el 
 \begin{itemize}
   \item \textbf{Penrose, R.} --- \emph{The Emperor's New Mind}. Oxford University Press, 1989.
   \item \textbf{Nagel, T.} --- ``What Is It Like to Be a Bat?''. \textit{The Philosophical Review}, 1974.
+  \item \textbf{Feynman, R. P.} --- \emph{Feynman Lectures on Computation}. 
+\
+
 \end{itemize}
 
 \subsection*{\'Algebra de Boole y F\'isica del Silicio}
