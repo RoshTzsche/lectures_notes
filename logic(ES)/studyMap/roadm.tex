@@ -1,0 +1,441 @@
+% ============================================================
+%  ROADMAP PERSONAL
+%  Rosh Guadiana — Uso exclusivamente privado
+%  Compilar con: pdflatex (dos pasadas)
+%  Versi\'on: 8 Sesiones (Destilada con Contexto Hist\'orico y Bibliograf\'ia)
+% ============================================================
+
+\documentclass[11pt, letterpaper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{top=2.2cm, bottom=2.5cm, left=2.8cm, right=2.8cm, headheight=22pt}
+\usepackage{amsmath, amssymb}
+\usepackage{booktabs, array}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage[colorlinks=true, linkcolor=roshblue, urlcolor=roshblue]{hyperref}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins, breakable}
+\usepackage{enumitem}
+\usepackage{parskip}
+\usepackage{graphicx}
+\usepackage{mdframed}
+\usepackage{calc}
+
+% --- Colors ---
+\definecolor{roshblue}{RGB}{10, 60, 120}
+\definecolor{roshgreen}{RGB}{20, 100, 50}
+\definecolor{roshorange}{RGB}{180, 80, 0}
+\definecolor{roshred}{RGB}{150, 20, 20}
+\definecolor{lightgray}{RGB}{245, 245, 245}
+\definecolor{warningyellow}{RGB}{255, 248, 220}
+\definecolor{warningborder}{RGB}{200, 150, 0}
+\definecolor{okgreen}{RGB}{230, 245, 230}
+\definecolor{okborder}{RGB}{20, 120, 50}
+\definecolor{historypurple}{RGB}{90, 30, 110}
+\definecolor{refgray}{RGB}{240, 240, 240}
+
+% --- Checkbox command ---
+\newcommand{\cbox}{\makebox[1.2em]{$\square$}}
+\newcommand{\cboxdone}{\makebox[1.2em]{\textcolor{roshgreen}{$\checkmark$}}}
+
+% --- Header ---
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textcolor{roshblue}{\textsc{Roadmap Personal}}}
+\fancyhead[R]{\small\textcolor{roshblue}{Rosh Guadiana --- Privado}}
+\fancyfoot[C]{\small\textcolor{gray}{\thepage}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{\hbox to\headwidth{%
+  \color{roshblue}\leaders\hrule height \headrulewidth\hfill}}
+
+% --- Sections ---
+\titleformat{\section}
+  {\large\bfseries\color{roshblue}}
+  {\thesection.}{0.6em}{}
+  [\vspace{-0.3em}\textcolor{roshblue}{\rule{\linewidth}{0.5pt}}]
+\titleformat{\subsection}
+  {\normalsize\bfseries\color{roshblue!80}}{\thesubsection}{0.5em}{}
+
+% --- Boxes ---
+\newtcolorbox{verificacion}[1]{
+  colback=lightgray, colframe=roshblue,
+  fonttitle=\bfseries\small,
+  title=Rigor Matem\'atico: #1,
+  left=5pt, right=5pt, top=4pt, bottom=4pt,
+  boxrule=0.6pt, breakable}
+  
+\newtcolorbox{historia}[1]{
+  colback=white, colframe=historypurple,
+  fonttitle=\bfseries\small,
+  title=Rigor Hist\'orico y Biogr\'afico: #1,
+  left=5pt, right=5pt, top=4pt, bottom=4pt,
+  boxrule=0.6pt, breakable}
+
+\newtcolorbox{referencias}{
+  colback=refgray, colframe=gray,
+  fonttitle=\bfseries\small\color{darkgray},
+  title=Fuentes y Referencias,
+  left=5pt, right=5pt, top=4pt, bottom=4pt,
+  boxrule=0.4pt, breakable}
+
+\newtcolorbox{advertencia}{
+  colback=warningyellow, colframe=warningborder,
+  fonttitle=\bfseries\small\color{warningborder},
+  title=Atenci\'on,
+  left=5pt, right=5pt, top=4pt, bottom=4pt,
+  boxrule=0.6pt, breakable}
+
+\newtcolorbox{notapersonal}{
+  colback=okgreen, colframe=okborder,
+  fonttitle=\bfseries\small,
+  title=Nota Personal,
+  left=5pt, right=5pt, top=4pt, bottom=4pt,
+  boxrule=0.5pt, breakable}
+
+% --- List styles ---
+\newlist{checklist}{itemize}{2}
+\setlist[checklist]{
+  label=\cbox,
+  leftmargin=2em,
+  itemsep=4pt,
+  topsep=4pt}
+
+\setlist[itemize]{leftmargin=1.4em, itemsep=2pt, topsep=3pt}
+\setlength{\parskip}{5pt}
+
+% ============================================================
+\begin{document}
+
+\begin{titlepage}
+\begin{center}
+\vspace*{1cm}
+{\footnotesize\textsc{\textcolor{gray}{Documento de uso exclusivamente personal}}}
+\vspace{0.5cm}
+\textcolor{roshblue}{\rule{\linewidth}{1pt}}
+\vspace{0.4cm}
+{\LARGE\bfseries\color{roshblue} Roadmap Personal}\\[0.4em]
+{\large\itshape\color{gray} Dominio Matem\'atico, Contexto Hist\'orico y Plan de Estudio}
+\vspace{0.3cm}
+\textcolor{roshblue}{\rule{\linewidth}{1pt}}
+\vspace{1.5cm}
+
+\begin{tcolorbox}[colback=warningyellow, colframe=warningborder, boxrule=0.6pt]
+Este documento contiene lo que debes saber \textbf{sin mirar ning\'un libro}. Si no puedes derivar la f\'ormula o contar la an\'ecdota hist\'orica de memoria, a\'un no est\'as listo para esa sesi\'on.
+\end{tcolorbox}
+\end{center}
+\end{titlepage}
+
+\newpage
+
+% ============================================================
+%  PLAN DE ESTUDIO INTENSIVO (10 DÍAS)
+% ============================================================
+\section{Plan de Estudio Intensivo (10 D\'ias)}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{clp{9.5cm}}
+\toprule
+\textbf{D\'ia} & \textbf{Foco} & \textbf{Objetivo Diario} \\
+\midrule
+1 & Conjuntos y Cantor & Halmos Cap. 1-8. Memorizar estructura de la prueba diagonal. Investigar conflicto Cantor-Kronecker. \\
+2 & L\'ogica Booleana & Derivaciones de completitud funcional (NAND). Leer historia de Boole y su intenci\'on cognitiva. \\
+3 & L\'ogica 1er Orden & Sintaxis, sem\'antica y modelos (Enderton/Deaño). Entender K\"onigsberg 1930 y el choque Hilbert-G\"odel. \\
+4 & G\"odel Formal & Nagel \& Newman Cap. 1-7. Trazar en papel la aritmetizaci\'on de la sintaxis y la f\'ormula G. \\
+5 & Turing y Conciencia & Sipser Cap. 4 y 6. Demostrar el Problema de la Parada. Leer biograf\'ia de Turing y \textit{The Emperor's New Mind} Cap. 10. \\
+6 & El Isomorfismo & Shannon (1938). Entender f\'isicamente por qu\'e la linealidad destruye la se\~nal (ruido y atenuaci\'on). \\
+7 & Fermi-Dirac & Streetman Cap. 3. Derivar la funci\'on de distribuci\'on desde combinatoria/exclusi\'on de Pauli. \\
+8 & La Uni\'on PN & Streetman Cap. 5. Derivaci\'on del potencial built-in y la ecuaci\'on de Shockley. Historia de Bell Labs (1947). \\
+9 & F\'isica del MOSFET & Sedra Cap. 5. Derivaci\'on de corriente de canal largo ($I_D$) y pinzamiento (pinch-off). Historia de Kahng/Atalla (1959). \\
+10 & CMOS L\'ogico & Sedra Cap. 14. Trazar redes Pull-Up/Pull-Down en papel. S\'intesis final del curso. Ensayo general mental. \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\begin{notapersonal}
+No intentes leer los libros de texto completos de portada a contraportada. Ve directamente a los cap\'itulos y secciones exactas marcadas en las referencias de cada sesi\'on. Estudia con pluma en mano: si no lo puedes escribir en una hoja en blanco, no lo has memorizado.
+\end{notapersonal}
+
+\newpage
+
+% ============================================================
+%  SESIÓN 1
+% ============================================================
+\section{Sesi\'on 1 --- Fundamentos y el Infinito}
+
+\begin{verificacion}{Sesi\'on 1}
+\begin{checklist}
+  \item Define formalmente $A\cup B$, $A\cap B$, $A\setminus B$ y el conjunto potencia $\mathcal{P}(A)$.
+  \item Demuestra en papel que $|\mathcal{P}(A)| = 2^{|A|}$ para $A=\{a,b,c\}$.
+  \item Escribe la paradoja de Russell formalmente: $R=\{x \mid x\notin x\}$. Demuestra el colapso.
+  \item Construye la biyecci\'on entre $\mathbb{N}$ y $\mathbb{Z}$ expl\'icitamente.
+  \item Dibuja la matriz diagonal de Cantor y construye el n\'umero $d$ que escapa de la lista.
+\end{checklist}
+\end{verificacion}
+
+\begin{historia}{Sesi\'on 1}
+\begin{checklist}
+  \item \textbf{La carta de Russell a Frege (1902):} Investiga c\'omo Gottlob Frege estaba a punto de publicar el segundo volumen de su obra magna fundando las matem\'aticas enteras, cuando recibi\'o una carta de Bertrand Russell con la paradoja, destruyendo el trabajo de su vida.
+  \item \textbf{Cantor y Kronecker:} Investiga la relaci\'on t\'oxica entre Leopold Kronecker (el finitista que dec\'ia \textit{"Dios hizo los n\'umeros enteros, el resto es obra del hombre"}) y Cantor. C\'omo Kronecker bloque\'o la carrera de Cantor y lo empuj\'o a la depresi\'on.
+\end{checklist}
+\end{historia}
+
+\begin{referencias}
+\textbf{Para Matem\'atica:}
+\begin{itemize}
+    \item Halmos, P. R. --- \textit{Naive Set Theory} (Caps. 1--8).
+    \item Enderton, H. B. --- \textit{Elements of Set Theory} (Cap. 1).
+\end{itemize}
+\textbf{Para Historia:}
+\begin{itemize}
+    \item Aczel, A. D. --- \textit{The Mystery of the Aleph} (Historia de Cantor, su depresi\'on y Kronecker).
+    \item Doxiadis, A. \& Papadimitriou, C. H. --- \textit{Logicomix} (Excelente para el drama humano de Russell, Frege y la paradoja).
+\end{itemize}
+\end{referencias}
+
+\newpage
+
+% ============================================================
+%  SESIÓN 2
+% ============================================================
+\section{Sesi\'on 2 --- L\'ogica Proposicional}
+
+\begin{verificacion}{Sesi\'on 2}
+\begin{checklist}
+  \item Define FBF de manera puramente inductiva.
+  \item Demuestra que Modus Ponens $\{p\to q, p\} \models q$ es una tautolog\'ia usando tabla de verdad.
+  \item \textbf{Crucial:} Demuestra algebraicamente que $\{\text{NAND}\}$ es funcionalmente completo, construyendo $\neg p$ y $p\land q$ solo con NANDs.
+  \item Escribe una prueba de derivaci\'on formal simple para separar $\vdash$ (sintaxis) de $\models$ (sem\'antica).
+\end{checklist}
+\end{verificacion}
+
+\begin{historia}{Sesi\'on 2}
+\begin{checklist}
+  \item \textbf{George Boole y \textit{The Laws of Thought} (1854):} Investiga cu\'al era la verdadera motivaci\'on de Boole. No quer\'ia hacer electr\'onica (no exist\'ia); quer\'ia modelar matem\'aticamente c\'omo funciona el pensamiento de la mente humana.
+  \item \textbf{La tragedia de Boole:} C\'omo muri\'o de neumon\'ia despu\'es de caminar bajo la lluvia y que su esposa (creyendo que el fr\'io curaba los efectos del fr\'io) lo tratara con cubetas de agua helada.
+\end{checklist}
+\end{historia}
+
+\begin{referencias}
+\textbf{Para Matem\'atica:}
+\begin{itemize}
+    \item Deaño, A. --- \textit{Introducci\'on a la l\'ogica formal} (Partes I y II).
+    \item Enderton, H. B. --- \textit{A Mathematical Introduction to Logic} (Cap. 1).
+\end{itemize}
+\textbf{Para Historia:}
+\begin{itemize}
+    \item MacTutor History of Mathematics Archive (St Andrews University) --- \textit{Biograf\'ia de George Boole}.
+    \item Gleick, J. --- \textit{The Information} (Cap\'itulo sobre Boole y su intenci\'on de mecanizar el pensamiento).
+\end{itemize}
+\end{referencias}
+
+\newpage
+
+% ============================================================
+%  SESIÓN 3
+% ============================================================
+\section{Sesi\'on 3 --- L\'ogica de Primer Orden (FOL)}
+
+\begin{verificacion}{Sesi\'on 3}
+\begin{checklist}
+  \item Define firma l\'ogica $\mathcal{L}=(\mathcal{F},\mathcal{P},\text{ar})$ con ejemplos.
+  \item Distingue matem\'aticamente entre variables libres y ligadas en una FBF con cuantificadores.
+  \item Define el concepto de Estructura $\mathfrak{A}$ (dominio e interpretaci\'on).
+  \item Enuncia rigurosamente el Teorema de Completitud de G\"odel (1929) ($\Gamma\models\varphi \Leftrightarrow \Gamma\vdash\varphi$).
+\end{checklist}
+\end{verificacion}
+
+\begin{historia}{Sesi\'on 3}
+\begin{checklist}
+  \item \textbf{El Programa de Hilbert (d\'ecada de 1920):} Investiga el sue\~no de David Hilbert de mecanizar todas las matem\'aticas para probar que estaban libres de contradicci\'on. (Aprende su lema: \textit{"Wir m\"ussen wissen. Wir werden wissen"}).
+  \item \textbf{El Congreso de K\"onigsberg (1930):} El momento en que Hilbert daba su famoso discurso optimista, mientras en una mesa redonda sat\'elite en la misma ciudad, G\"odel (de 24 a\~nos) anunciaba que el sue\~no de Hilbert estaba matem\'aticamente muerto.
+\end{checklist}
+\end{historia}
+
+\begin{referencias}
+\textbf{Para Matem\'atica:}
+\begin{itemize}
+    \item Enderton, H. B. --- \textit{A Mathematical Introduction to Logic} (Cap. 2).
+    \item Marker, D. --- \textit{Model Theory: An Introduction} (Cap. 1, p\'aginas iniciales para rigor de estructuras).
+\end{itemize}
+\textbf{Para Historia:}
+\begin{itemize}
+    \item Dawson, J. W. --- \textit{Logical Dilemmas: The Life and Work of Kurt G\"odel} (Contexto del congreso de K\"onigsberg).
+    \item Reid, C. --- \textit{Hilbert} (Para entender la ambici\'on del Programa de Hilbert).
+\end{itemize}
+\end{referencias}
+
+\newpage
+
+% ============================================================
+%  SESIÓN 4
+% ============================================================
+\section{Sesi\'on 4 --- Metamatem\'atica y Computabilidad}
+
+\begin{verificacion}{Sesi\'on 4}
+\begin{checklist}
+  \item Explica la aritmetizaci\'on de la sintaxis (N\'umeros de G\"odel).
+  \item Escribe la estructura l\'ogica de la oraci\'on $G$ ("Yo no soy demostrable en este sistema").
+  \item Dibuja la misma matriz diagonal para el Problema de la Parada (M\'aquina $H$ vs M\'aquina $D$).
+  \item Enuncia con precisi\'on el 1er y 2do Teorema de Incompletitud.
+\end{checklist}
+\end{verificacion}
+
+\begin{historia}{Sesi\'on 4}
+\begin{checklist}
+  \item \textbf{John von Neumann y G\"odel:} Investiga c\'omo, durante el anuncio de G\"odel en 1930, von Neumann fue el \'unico en la audiencia que entendi\'o inmediatamente las consecuencias destructivas del teorema, arrinconando a G\"odel despu\'es de la charla.
+  \item \textbf{Alan Turing (1936):} Investiga su \textit{paper} "On Computable Numbers". C\'omo Turing invent\'o la computadora conceptualmente (la m\'aquina autom\'atica) s\'olo para probar que el problema de la decisi\'on de Hilbert (\textit{Entscheidungsproblem}) no ten\'ia soluci\'on.
+\end{checklist}
+\end{historia}
+
+\begin{referencias}
+\textbf{Para Matem\'atica:}
+\begin{itemize}
+    \item Sipser, M. --- \textit{Introduction to the Theory of Computation} (Cap. 4 y 6, problema de la parada).
+    \item Nagel, E. \& Newman, J. R. --- \textit{G\"odel's Proof} (Todo el libro es oro para la prueba paso a paso).
+\end{itemize}
+\textbf{Para Historia:}
+\begin{itemize}
+    \item Turing, A. M. (1936) --- \textit{On Computable Numbers, with an Application to the Entscheidungsproblem} (Fuente primaria).
+    \item Hodges, A. --- \textit{Alan Turing: The Enigma} (Mejor biograf\'ia de Turing).
+\end{itemize}
+\end{referencias}
+
+\newpage
+
+% ============================================================
+%  SESIÓN 5
+% ============================================================
+\section{Sesi\'on 5 --- Di\'alogo Perip\'at\'etico}
+
+\begin{historia}{Sesi\'on 5 (Aire Libre)}
+\begin{checklist}
+  \item \textbf{Narrativa entrelazada:} Debes poder contar, sin leer y con ritmo pausado, c\'omo las tres mentes que definieron los l\'imites de la raz\'on (Cantor, G\"odel, Turing) tuvieron finales tr\'agicos.
+  \item \textbf{G\"odel:} Su paranoia, su amistad con Einstein en Princeton (Einstein dec\'ia que iba a la oficina \textit{"solo para tener el privilegio de caminar a casa junto a G\"odel"}), y su muerte pesando 29 kg por inanici\'on por miedo a ser envenenado tras la hospitalizaci\'on de su esposa.
+  \item \textbf{Turing:} Su trabajo fundamental en Bletchley Park rompiendo la m\'aquina Enigma nazi, su juicio por indecencia (homosexualidad) por el mismo gobierno al que salv\'o, la castraci\'on qu\'imica y la manzana con cianuro.
+\end{checklist}
+\end{historia}
+
+\begin{referencias}
+\textbf{Para el Di\'alogo Filos\'ofico:}
+\begin{itemize}
+    \item Hofstadter, D. R. --- \textit{G\"odel, Escher, Bach} (Especialmente Caps. IX, XV, y XX sobre inteligencia artificial y bucles extra\~nos).
+    \item Penrose, R. --- \textit{The Emperor's New Mind} (Cap. 10: Argumento de que la conciencia es no-computable).
+\end{itemize}
+\textbf{Para Biograf\'ias Tr\'agicas:}
+\begin{itemize}
+    \item Goldstein, R. --- \textit{Incompleteness: The Proof and Paradox of Kurt G\"odel} (Los \'ultimos a\~nos de G\"odel en Princeton).
+    \item Hodges, A. --- \textit{Alan Turing: The Enigma} (El juicio y final de Turing).
+\end{itemize}
+\end{referencias}
+
+\newpage
+
+% ============================================================
+%  SESIÓN 6
+% ============================================================
+\section{Sesi\'on 6 --- El Puente (Boole y Shannon)}
+
+\begin{verificacion}{Sesi\'on 6}
+\begin{checklist}
+  \item Explica la equivalencia uno a uno entre funciones l\'ogicas abstractas y redes de interruptores (abierto/cerrado).
+  \item Justifica termodin\'amicamente por qu\'e la linealidad ($V_\text{out}=\alpha V_\text{in}$) destruye la precisi\'on de la se\~nal (amplificaci\'on de ruido sin regeneraci\'on).
+  \item Define asimetr\'ia/no-linealidad como requisito f\'isico absoluto para la retenci\'on de un bit.
+\end{checklist}
+\end{verificacion}
+
+\begin{historia}{Sesi\'on 6}
+\begin{checklist}
+  \item \textbf{Claude Shannon (1938):} Investiga su tesis de maestr\'ia en MIT. C\'omo tom\'o una clase electiva de filosof\'ia sobre \'algebra de Boole (considerada in\'util en ese momento) y not\'o que la l\'ogica simb\'olica encajaba exactamente con el enrutamiento complejo de los rel\'es telef\'onicos mec\'anicos que operaba. Es considerada la tesis de maestr\'ia m\'as influyente de la historia.
+\end{checklist}
+\end{historia}
+
+\begin{referencias}
+\textbf{Para Matem\'atica/F\'isica:}
+\begin{itemize}
+    \item Shannon, C. E. (1938) --- \textit{A Symbolic Analysis of Relay and Switching Circuits} (Trans. AIEE).
+    \item Tanenbaum, A. S. --- \textit{Structured Computer Organization} (Cap. 1, de la l\'ogica al circuito).
+\end{itemize}
+\textbf{Para Historia:}
+\begin{itemize}
+    \item Soni, J. \& Goodman, R. --- \textit{A Mind at Play: How Claude Shannon Invented the Information Age} (La historia de su tesis en MIT).
+\end{itemize}
+\end{referencias}
+
+\newpage
+
+% ============================================================
+%  SESIÓN 7
+% ============================================================
+\section{Sesi\'on 7 --- Termodin\'amica L\'ogica ($E_g$ y Uni\'on PN)}
+
+\begin{verificacion}{Sesi\'on 7}
+\begin{checklist}
+  \item Deriva la funci\'on de Fermi-Dirac asumiendo el principio de exclusi\'on de Pauli (f\'isica estad\'istica).
+  \item Explica $E_g$ como barrera l\'ogica. ¿Qu\'e pasa con $n_i(T)$ si $k_BT \approx E_g$?
+  \item Deriva por qu\'e la difusi\'on de portadores genera el potencial built-in ($V_0$) en la uni\'on PN.
+  \item Demuestra matem\'aticamente c\'omo la polarizaci\'on de la uni\'on arroja la ecuaci\'on asim\'etrica de Shockley ($I_D \propto e^{V/V_T}$).
+\end{checklist}
+\end{verificacion}
+
+\begin{historia}{Sesi\'on 7}
+\begin{checklist}
+  \item \textbf{Bell Labs (1947):} La invenci\'on del primer transistor (de punto de contacto). Investiga la din\'amica t\'oxica entre William Shockley y su equipo (Bardeen y Brattain).
+  \item \textbf{El mes m\'agico:} C\'omo Bardeen y Brattain lograron el efecto el\'ectrico sin Shockley. C\'omo Shockley, furioso por haber sido excluido de la patente, se encerr\'o en una habitaci\'on de hotel en Chicago por semanas y desarroll\'o la teor\'ia completa del transistor de uni\'on bipolar, s\'olo para probar que era superior a ellos.
+\end{checklist}
+\end{historia}
+
+\begin{referencias}
+\textbf{Para Matem\'atica/F\'isica:}
+\begin{itemize}
+    \item Streetman, B. G. \& Banerjee, S. K. --- \textit{Solid State Electronic Devices} (Caps. 3 y 5. La demostraci\'on de Fermi-Dirac est\'a en los ap\'endices termodin\'amicos del Cap. 3).
+    \item Sedra, A. S. \& Smith, K. C. --- \textit{Microelectronic Circuits} (Cap. 4, l\'ogica del diodo).
+\end{itemize}
+\textbf{Para Historia:}
+\begin{itemize}
+    \item Isaacson, W. --- \textit{The Innovators} (Cap. 4: El transistor. Excelente detalle de la pelea de egos en Bell Labs).
+    \item Riordan, M. \& Hoddeson, L. --- \textit{Crystal Fire: The Invention of the Transistor and the Birth of the Information Age}.
+\end{itemize}
+\end{referencias}
+
+\newpage
+
+% ============================================================
+%  SESIÓN 8
+% ============================================================
+\section{Sesi\'on 8 --- El Modus Ponens F\'isico (MOSFET y CMOS)}
+
+\begin{verificacion}{Sesi\'on 8}
+\begin{checklist}
+  \item Dibuja la secci\'on transversal de un MOSFET. Explica c\'omo el $V_{GS}$ genera inversi\'on por efecto de campo.
+  \item Deriva la ecuaci\'on de la corriente de saturaci\'on $I_D$ (pinch-off).
+  \item Dise\~na la red CMOS (Pull-Up y Pull-Down) para un inversor.
+  \item Dise\~na la topolog\'ia CMOS transistorial para la compuerta NAND universal.
+  \item \textbf{El arco final:} Conecta axiom\'aticamente en una sola narraci\'on matem\'atica el s\'imbolo l\'ogico $\neg(A \land B)$ con la carga cu\'antica de la red CMOS.
+\end{checklist}
+\end{verificacion}
+
+\begin{historia}{Sesi\'on 8}
+\begin{checklist}
+  \item \textbf{Dawon Kahng y Martin Atalla (1959):} Investiga c\'omo inventaron el MOSFET (el transistor de efecto de campo, que hoy forma el 99.9\% de la econom\'ia digital) en Bell Labs.
+  \item \textbf{La Ceguera Corporativa:} C\'omo Bell Labs engavet\'o el MOSFET por a\~nos porque la gerencia estaba obsesionada con perfeccionar el transistor bipolar de Shockley. Tuvieron que ser compa\~n\'ias externas (Fairchild, Intel) quienes apostaran por la l\'ogica MOS.
+\end{checklist}
+\end{historia}
+
+\begin{referencias}
+\textbf{Para Matem\'atica/F\'isica:}
+\begin{itemize}
+    \item Sedra, A. S. \& Smith, K. C. --- \textit{Microelectronic Circuits} (Caps. 5 y 14. Aqu\'i est\'a el dise\~no exacto del inversor y NAND en CMOS).
+    \item Weste, N. H. E. \& Harris, D. --- \textit{CMOS VLSI Design} (Cap. 1, topolog\'ias l\'ogicas y consumo nulo de energ\'ia est\'atica).
+\end{itemize}
+\textbf{Para Historia:}
+\begin{itemize}
+    \item Bassett, R. K. --- \textit{To the Digital Age: Research Labs, Start-up Companies, and the Rise of MOS Technology} (La ignorancia de Bell Labs hacia el MOSFET).
+    \item Lojek, B. --- \textit{History of Semiconductor Engineering} (Detalles del trabajo de Atalla y Kahng).
+\end{itemize}
+\end{referencias}
+
+\end{document}

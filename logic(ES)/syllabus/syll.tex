@@ -1,0 +1,638 @@
+% ============================================================
+%  SYLLABUS — De los Sistemas Formales a la Electrónica Aplicada
+%  Teaching Assistant: Rosh Guadiana  
+%  Compilar con: pdflatex (dos pasadas)
+% ============================================================
+
+\documentclass[11pt, letterpaper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{geometry}
+\geometry{top=2.5cm, bottom=2.8cm, left=3.0cm, right=3.0cm, headheight=22pt}
+
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{booktabs, longtable, array, multirow}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage[colorlinks=true, linkcolor=mitred, urlcolor=accentblue, citecolor=darkgray]{hyperref}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins, breakable}
+\usepackage{enumitem}
+\usepackage{parskip}
+\usepackage{graphicx}
+\usepackage{setspace}
+
+% --- Colors ---
+\definecolor{mitred}{RGB}{163, 31, 52}
+\definecolor{darkgray}{RGB}{60, 60, 60}
+\definecolor{lightgray}{RGB}{245, 245, 245}
+\definecolor{accentblue}{RGB}{0, 73, 144}
+\definecolor{outdoorgreen}{RGB}{34, 85, 34}
+\definecolor{diagonalred}{RGB}{140, 20, 40}
+
+% --- Header / Footer ---
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textcolor{darkgray}{\textsc{Los Límites de la Razón}}}
+\fancyhead[R]{\small\textcolor{darkgray}{TA: Rosh Guadiana}}
+\fancyfoot[C]{\small\textcolor{darkgray}{\thepage}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{mitred}\leaders\hrule height \headrulewidth\hfill}}
+
+% --- Section styles ---
+\titleformat{\section}
+  {\large\bfseries\color{mitred}}
+  {\thesection.}{0.6em}{}
+  [\vspace{-0.3em}\textcolor{mitred}{\rule{\linewidth}{0.6pt}}]
+\titleformat{\subsection}
+  {\normalsize\bfseries\color{accentblue}}{\thesubsection}{0.5em}{}
+\titleformat{\subsubsection}
+  {\normalsize\itshape\color{darkgray}}{}{0em}{}
+
+% --- Boxes ---
+\newtcolorbox{objetivos}{
+  colback=lightgray, colframe=mitred,
+  fonttitle=\bfseries\small, title=Objetivos de Aprendizaje,
+  left=4pt, right=4pt, top=4pt, bottom=4pt, boxrule=0.6pt, breakable}
+
+\newtcolorbox{lecturas}{
+  colback=white, colframe=accentblue,
+  fonttitle=\bfseries\small, title=Lecturas ,
+  left=4pt, right=4pt, top=4pt, bottom=4pt, boxrule=0.6pt, breakable}
+
+\newtcolorbox{prereqs}{
+  colback=white, colframe=darkgray,
+  fonttitle=\bfseries\small, title=Prerrequisitos,
+  left=4pt, right=4pt, top=4pt, bottom=4pt, boxrule=0.5pt}
+
+\newtcolorbox{nota}{
+  colback=white, colframe=mitred!40,
+  fonttitle=\bfseries\small, title=Nota Metodol\'ogica,
+  left=4pt, right=4pt, top=4pt, bottom=4pt, boxrule=0.5pt}
+
+% Diagonal thread box 
+\newtcolorbox{diagonal}[1]{
+  colback=diagonalred!6, colframe=diagonalred,
+  fonttitle=\bfseries\small\color{white},
+  coltitle=white, colbacktitle=diagonalred,
+  title=Hilo Rojo \ --- \ El Argumento Diagonal \ (\textit{#1}),
+  left=5pt, right=5pt, top=4pt, bottom=4pt, boxrule=0.7pt, breakable}
+
+% Outdoor session box
+\newtcolorbox{peripatetic}{
+  colback=outdoorgreen!5, colframe=outdoorgreen,
+  fonttitle=\bfseries\small\color{white},
+  coltitle=white, colbacktitle=outdoorgreen,
+  title=Sesi\'on Al Aire Libre,
+  left=5pt, right=5pt, top=4pt, bottom=4pt, boxrule=0.7pt, breakable}
+
+\setlist[itemize]{leftmargin=1.4em, itemsep=2pt, topsep=3pt}
+\setlist[enumerate]{leftmargin=1.4em, itemsep=2pt, topsep=3pt}
+\setlength{\parskip}{5pt}
+
+% ============================================================
+\begin{document}
+
+% ============================================================
+%  PORTADA
+% ============================================================
+\begin{titlepage}
+\begin{center}
+
+\textcolor{mitred}{\rule{\linewidth}{1.2pt}}
+\vspace{0.4cm}
+
+{\LARGE\bfseries Los Límites de la Razón:\\ [0.3em] Del Axioma Matemático al Microchip de Silicio}
+
+\vspace{0.3cm}
+\textcolor{mitred}{\rule{\linewidth}{1.2pt}}
+\vspace{0.6cm}
+
+{\large\itshape Del Lenguaje como Sistema Axiom\'atico\\
+a la F\'isica del Transistor}
+
+\vspace{1.4cm}
+
+\begin{tabular}{ll}
+\textbf{Modalidad:}           & Presencial \\[3pt]
+\textbf{Duraci\'on:}          & 8 sesiones $\times$ 2 horas (16 horas totales) \\[3pt]
+\textbf{Teaching Assistant:}  & Rosh Guadiana \\[3pt]
+\textbf{Prerequisitos:}       & Curiosidad, gusto por matem\'aticas, \'algebra lineal b\'asica \\[3pt]
+\end{tabular}
+
+\vspace{1.6cm}
+
+% --- MANIFIESTO ---
+\begin{tcolorbox}[
+  colback=mitred!4, colframe=mitred,
+  boxrule=0.8pt, left=10pt, right=10pt, top=8pt, bottom=8pt]
+{\small\itshape
+Sabemos que nos mienten. Lo que nadie nos ha ense\~nado es la diferencia entre
+una opini\'on y una demostraci\'on. Este curso existe para corregir eso
+--- y para mostrar que incluso la demostraci\'on tiene l\'imites
+que se pueden probar con rigor.
+
+\medskip
+No hay respuestas que memorizar. Hay una sola exigencia:
+si se afirma, debe demostrarse.}
+\end{tcolorbox}
+
+\vspace{1.2cm}
+
+\begin{tcolorbox}[
+  colback=white, colframe=diagonalred,
+  boxrule=0.6pt, left=8pt, right=8pt, top=6pt, bottom=6pt]
+{\footnotesize\textbf{Hilo rojo del curso:} El argumento diagonal de Cantor. Un solo hilo matem\'atico que conducir\'a desde la naturaleza del infinito hasta los l\'imites fundamentales de la computaci\'on f\'isica.}
+\end{tcolorbox}
+
+\vfill
+{\small\textcolor{darkgray}{Junio 2026}}
+\end{center}
+\end{titlepage}
+
+% ============================================================
+%  TABLE OF CONTENTS
+% ============================================================
+\tableofcontents
+\newpage
+
+% ============================================================
+%  SOBRE EL MÉTODO
+% ============================================================
+\section*{Dinámica del Curso}
+\addcontentsline{toc}{section}{Dinámica del Curso}
+
+
+
+\textbf{1. La frustraci\'on productiva.}
+Se presentar\'an conceptos que no ser\'an asimilados en la primera exposici\'on. Ese es el dise\~no intencional del programa. El objetivo es que la interrogante permanezca, se analice individualmente, y se esclarezca posteriormente mediante el razonamiento estructural. Ese momento de claridad constituye el aprendizaje real.
+
+\textbf{2. La contradicci\'on es bienvenida.}
+Si en cualquier momento se percibe que un postulado est\'a mal demostrado o que existe una falacia en el argumento, debe se\~nalarse. Todo cuestionamiento con base argumentativa es fomentado y representa exactamente el tipo de an\'alisis que este curso busca producir.
+
+
+\vspace{2cm}
+
+\begin{center}
+\textcolor{mitred}{\rule{0.5\linewidth}{0.6pt}}\\[0.4em]
+{\small\itshape ``Dios existe porque la Matem\'atica es consistente,\\
+y el Diablo existe porque no podemos demostrarlo.''}\\[0.3em]
+{\footnotesize --- Andr\'e Weil}\\[0.8em]
+{\small\itshape ``El universo no puede ser le\'ido hasta que hayamos aprendido\\
+su lenguaje y nos hayamos familiarizado con los caracteres en que est\'a escrito.\\
+Est\'a escrito en lenguaje matem\'atico.''}\\[0.3em]
+{\footnotesize --- Galileo Galilei, \textit{Il Saggiatore} (1623)}\\
+\textcolor{mitred}{\rule{0.5\linewidth}{0.6pt}}
+\end{center}
+
+
+\newpage
+
+% ============================================================
+%  MAPA CONCEPTUAL
+% ============================================================
+\title{Arco Narrativo del Curso}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.45}
+\begin{tabular}{clcc}
+\toprule
+\textbf{Ses.} & \textbf{T\'itulo} & \textbf{Abstracci\'on} & \textbf{Hilo Diagonal} \\
+\midrule
+1  & Fundamentos: Conjuntos y el Infinito        & $\uparrow$ M\'axima & \textcolor{diagonalred}{\textbf{I}} \\
+2  & L\'ogica Proposicional: Sintaxis y Sem\'antica & & \\
+3  & L\'ogica de Primer Orden y Modelos          & & \\
+4  & Incompletitud y Computabilidad              & & \textcolor{diagonalred}{\textbf{II} y \textbf{III}} \\
+\midrule
+\multicolumn{4}{c}{\textcolor{outdoorgreen}{\textbf{--- Sesi\'on 5: Di\'alogo al Aire Libre ---}}} \\
+\midrule
+6  & \textit{El Puente}: Boole, Shannon y L\'imites & $\downarrow$ Creciente & \\
+7  & Termodin\'amica L\'ogica: $E_g$ y la Uni\'on PN & & \\
+8  & El Modus Ponens F\'isico: MOSFET y CMOS     & $\downarrow$ M\'inima & \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\vspace{0.4em}
+\end{nota}
+
+\newpage
+
+% ============================================================
+%  SESIÓN 1
+% ============================================================
+\section{Sesi\'on 1 --- Fundamentos: Conjuntos y el Infinito}
+
+\begin{prereqs}
+Ninguno. Este es el punto cero formal del curso.
+\end{prereqs}
+
+\subsection*{Motivaci\'on}
+Los sistemas tecnol\'ogicos que clasifican y relacionan informaci\'on descansan sobre una noci\'on primitiva: la \emph{colecci\'on}. Sin este vocabulario es imposible definir rigurosamente un axioma, una m\'aquina de Turing o el estado de un cristal. Esta sesi\'on funda el andamiaje entero.
+
+\subsection{Contenidos}
+
+\subsubsection{1.1 --- Teor\'ia de Conjuntos y la Paradoja de Russell}
+\begin{itemize}
+  \item Operaciones formales: $\cup, \cap, \setminus$ y el conjunto potencia $\mathcal{P}(A)$.
+  \item \textbf{Paradoja de Russell:} el conjunto $R=\{x \mid x\notin x\}$ y el colapso del sistema ingenuo.
+\end{itemize}
+
+\subsubsection{1.2 --- Relaciones, Funciones y Equipolencia}
+\begin{itemize}
+  \item Funciones inyectivas, sobreyectivas y biyectivas como herramientas l\'ogicas de conteo.
+  \item Conjuntos contables ($|\mathbb{N}|=|\mathbb{Z}|=|\mathbb{Q}|$) vs.\ incontables ($|\mathbb{R}|$).
+\end{itemize}
+
+\begin{diagonal}{Primera aparici\'on}
+\textbf{El argumento diagonal de Cantor (1891):} Al suponer que es posible listar exhaustivamente todos los n\'umeros reales entre 0 y 1 ($r_1, r_2, \ldots$), se construye un n\'umero $d$ cuya $n$-\'esima cifra decimal difiere de la $n$-\'esima cifra de $r_n$. Por dise\~no, $d$ no est\'a en la lista. Conclusi\'on: $|\mathbb{R}|>|\mathbb{N}|$. El continuo escapa a lo contable.
+
+\medskip
+\textit{N\'otese la estructura geom\'etrica: un objeto construido deliberadamente para diferir de cada elemento de una lista pretendidamente completa.}
+\end{diagonal}
+
+\begin{objetivos}
+\begin{itemize}
+  \item Escribir definiciones matem\'aticas utilizando notaci\'on formal est\'andar.
+  \item Demostrar rigurosamente que $|\mathcal{P}(A)|>|A|$ para cualquier conjunto.
+  \item Reconocer la estructura matricial subyacente en el argumento diagonal.
+\end{itemize}
+\end{objetivos}
+
+\begin{lecturas}
+\begin{itemize}
+  \item[$(\star)$] \textbf{Halmos, P. R.} --- \emph{Naive Set Theory}. Cap\'itulos 1--8.
+  \item[$(\star)$] \textbf{Hofstadter, D. R.} --- \emph{G\"odel, Escher, Bach}. Cap\'itulo I ``MU-puzzle''.
+\end{itemize}
+\end{lecturas}
+
+\newpage
+
+% ============================================================
+%  SESIÓN 2
+% ============================================================
+\section{Sesi\'on 2 --- L\'ogica Proposicional: Sintaxis y Sem\'antica}
+
+\begin{prereqs}
+Sesi\'on 1. Noci\'on de funci\'on y recursi\'on.
+\end{prereqs}
+
+\subsection*{Motivaci\'on}
+Antes de materializar compuertas l\'ogicas en silicio, se requiere formalizar la l\'ogica abstracta aislada del significado humano. Esta sesi\'on separa estrictamente las reglas de formaci\'on (sintaxis) de su respectiva interpretaci\'on (sem\'antica).
+
+\subsection{Contenidos}
+
+\subsubsection{2.1 --- El Lenguaje como Sistema Formal}
+\begin{itemize}
+  \item Alfabeto $\Sigma$ y el conjunto de cadenas $\Sigma^*$.
+  \item Sintaxis del c\'alculo proposicional: variables y conectivos ($\neg, \land, \lor, \to, \leftrightarrow$).
+  \item F\'ormula Bien Formada (FBF) definida mediante recursi\'on.
+\end{itemize}
+
+\subsubsection{2.2 --- Sem\'antica: Valuaciones}
+\begin{itemize}
+  \item Valuaci\'on $v:\text{VAR}\to\{0,1\}$. 
+  \item Tautolog\'ia, contradicci\'on y consecuencia sem\'antica ($\Gamma\models\varphi$).
+  \item \textbf{Completitud funcional:} demostraci\'on de c\'omo el operador $\{\text{NAND}\}$ basta para expresar la totalidad del universo proposicional.
+\end{itemize}
+
+\subsubsection{2.3 --- Teor\'ia de la Demostraci\'on}
+\begin{itemize}
+  \item Modus Ponens: $\dfrac{\varphi\;\;\varphi\to\psi}{\psi}$.
+  \item Derivaci\'on formal ($\Gamma\vdash\varphi$). La prueba concebida como una transformaci\'on puramente mec\'anica de s\'imbolos.
+  \item \textbf{Teorema de Correcci\'on:} Si una f\'ormula se puede probar sint\'acticamente, es sem\'anticamente verdadera ($\Gamma\vdash\varphi \Rightarrow \Gamma\models\varphi$).
+\end{itemize}
+
+\begin{objetivos}
+\begin{itemize}
+  \item Distinguir sin ambig\"uedad entre los procesos de derivaci\'on ($\vdash$) y verdad ($\models$).
+  \item Demostrar algebraicamente la completitud funcional del operador NAND.
+\end{itemize}
+\end{objetivos}
+
+\begin{lecturas}
+\begin{itemize}
+  \item[$(\star)$] \textbf{Enderton, H. B.} --- \emph{A Mathematical Introduction to Logic}. Cap\'itulo~1.
+  \item \textbf{Deaño, A.} --- \emph{Introducci\'on a la l\'ogica formal}. Parte I y II.
+\end{itemize}
+\end{lecturas}
+
+\newpage
+
+% ============================================================
+%  SESIÓN 3
+% ============================================================
+\section{Sesi\'on 3 --- L\'ogica de Primer Orden y Teor\'ia de Modelos}
+
+\begin{prereqs}
+Sesi\'on 2. Dominio del C\'alculo Proposicional.
+\end{prereqs}
+
+\subsection*{Motivaci\'on}
+La l\'ogica proposicional carece del alcance expresivo para formular aseveraciones aritm\'eticas universales. Para proveer a las matem\'aticas de un lenguaje formal capaz de auto-an\'alisis, se requiere la incorporaci\'on de cuantificadores estructurales.
+
+\subsection{Contenidos}
+
+\subsubsection{3.1 --- Sintaxis de la L\'ogica de Primer Orden (FOL)}
+\begin{itemize}
+  \item Firma l\'ogica $\mathcal{L}=(\mathcal{F},\mathcal{P},\text{ar})$.
+  \item T\'erminos, predicados y cuantificadores ($\forall, \exists$). 
+  \item Diferencia fundamental y mec\'anica entre variables libres y ligadas.
+\end{itemize}
+
+\subsubsection{3.2 --- Estructuras y Satisfacibilidad}
+\begin{itemize}
+  \item El concepto formal de Estructura $\mathfrak{A}$: dominio y su interpretaci\'on.
+  \item Satisfacibilidad rigurosa: $\mathfrak{A}\models_s\varphi$.
+\end{itemize}
+
+\subsubsection{3.3 --- Los L\'imites de la Forma}
+\begin{itemize}
+  \item \textbf{Completitud (G\"odel 1929):} $\Gamma\models\varphi \Leftrightarrow \Gamma\vdash\varphi$. En FOL, la sintaxis captura y acota perfectamente a la sem\'antica.
+  \item \textbf{Compacidad y L\"owenheim-Skolem:} Consecuencias metamatem\'aticas y la existencia de modelos no est\'andar de la aritm\'etica.
+\end{itemize}
+
+\begin{objetivos}
+\begin{itemize}
+  \item Formalizar enunciados matem\'aticos empleando sintaxis estricta de FOL.
+  \item Comprender la equivalencia estructural demostrada por G\"odel en 1929, fundamental para los teoremas limitativos posteriores.
+\end{itemize}
+\end{objetivos}
+
+\begin{lecturas}
+\begin{itemize}
+  \item[$(\star)$] \textbf{Enderton, H. B.} --- \emph{A Mathematical Introduction to Logic}. Cap\'itulo~2.
+  \item[$(\star)$] \textbf{Hofstadter, D. R.} --- \emph{G\"odel, Escher, Bach}. Cap\'itulo~XIV.
+\end{itemize}
+\end{lecturas}
+
+\newpage
+
+% ============================================================
+%  SESIÓN 4
+% ============================================================
+\section{Sesi\'on 4 --- Metamatem\'atica, Incompletitud y Computabilidad}
+
+\begin{prereqs}
+Sesiones 1 y 3. Distinci\'on entre $\vdash$ y $\models$, y comprensi\'on t\'ecnica de la diagonalizaci\'on.
+\end{prereqs}
+
+\subsection*{Motivaci\'on}
+Esta sesi\'on aborda la inc\'ognita central de la metamatem\'atica: \emph{¿puede un sistema formal decidir aut\'onomamente su propia verdad?} Se unifican los teoremas de G\"odel y el Problema de la Parada de Turing, exponi\'endolos como instancias del Argumento Diagonal de Cantor operando sobre la sintaxis computacional.
+
+\subsection{Contenidos}
+
+\subsubsection{4.1 --- La Aritmetizaci\'on de la Sintaxis}
+\begin{itemize}
+  \item Axiomas de Peano y N\'umeros de G\"odel ($\ulcorner\varphi\urcorner\in\mathbb{N}$).
+  \item El sistema auto-referencial: formulaci\'on del predicado de demostraci\'on $\text{Dem}(x,y)$.
+\end{itemize}
+
+\begin{diagonal}{Segunda y Tercera aparici\'on --- La Explosi\'on}
+La mec\'anica del l\'imite matem\'atico se revela como una topolog\'ia recurrente: utilizar las propias reglas del sistema para concebir un objeto que dicho sistema es incapaz de absorber.
+
+\textbf{G\"odel (1931):} Se construye una f\'ormula $G$ que afirma: \textit{"Esta f\'ormula no pertenece al conjunto de teoremas demostrables de este sistema"}. Si el sistema la demuestra, incurre en contradicci\'on. Si no la demuestra, el sistema queda marcado como incompleto. Por ende, $T \not\vdash G$ y $T \not\vdash \neg G$.
+
+\textbf{Turing (1936):} Se postula la existencia de una m\'aquina $H$ con la capacidad de decidir si cualquier programa se detiene. Se dise\~na entonces una m\'aquina $D$ que consulta a $H$ sobre su propio comportamiento, y procede a ejecutar exactamente la acci\'on contraria. $D$ escapa por l\'ogica intr\'inseca a las predicciones de $H$.
+
+\medskip
+\textit{Se trata de la aplicaci\'on estructural de la l\'ogica de Cantor. La incompletitud axiom\'atica y la indecidibilidad computacional son isomorfas.}
+\end{diagonal}
+
+\subsubsection{4.2 --- Implicaciones Fundamentales}
+\begin{itemize}
+  \item \textbf{Segundo Teorema de Incompletitud:} Queda comprobado que ning\'un sistema formal lo suficientemente robusto posee la capacidad de demostrar su propia consistencia axiom\'atica.
+  \item Se demuestra que el conjunto de aceptaci\'on de Turing $A_\text{TM}=\{\langle M,w\rangle\mid M\text{ acepta }w\}$ es inherentemente indecidible.
+\end{itemize}
+
+\begin{objetivos}
+\begin{itemize}
+  \item Identificar el isomorfismo l\'ogico estricto entre las pruebas de Cantor, G\"odel y Turing.
+  \item Demostrar matem\'aticamente la indecidibilidad inherente al Problema de la Parada.
+\end{itemize}
+\end{objetivos}
+
+\begin{lecturas}
+\begin{itemize}
+  \item[$(\star)$] \textbf{Sipser, M.} --- \emph{Introduction to the Theory of Computation}. Cap\'itulo~4.
+  \item[$(\star)$] \textbf{Nagel, E., \& Newman, J. R.} --- \emph{G\"odel's Proof}. Cap\'itulos V--VII.
+\end{itemize}
+\end{lecturas}
+
+\newpage
+
+% ============================================================
+%  SESIÓN 5 — PERIPATÉTICA
+% ============================================================
+\section{Sesi\'on 5 --- El Infinito, la Conciencia y los L\'imites}
+
+\begin{peripatetic}
+Sin sal\'on, sin pizarr\'on. Al aire libre. Se expone una narrativa contextual, se formula una cuesti\'on anal\'itica central y se abre el espacio al an\'alisis conjunto. El prop\'osito no consiste en alcanzar un consenso algor\'itmico, sino en procesar las implicaciones de la Sesi\'on 4 sobre la fenomenolog\'ia y la percepci\'on intelectual.
+\end{peripatetic}
+
+\vspace{0.5em}
+
+\subsection*{La Narrativa}
+Se aborda el recorrido hist\'orico y las consecuencias personales padecidas por Georg Cantor tras postular la teor\'ia de los infinitos m\'ultiples y la diagonalizaci\'on, enfrent\'andose al dogmatismo matem\'atico de Kronecker. Esta historia sirve como pre\'ambulo para analizar el peso filos\'ofico de aislar la estructura l\'ogica que fundamentar\'ia las crisis axiom\'aticas del siglo XX.
+
+\subsection*{La Pregunta Central}
+\begin{tcolorbox}[colback=outdoorgreen!5, colframe=outdoorgreen, boxrule=0.7pt, left=8pt, right=8pt, top=6pt, bottom=6pt]
+{\itshape ``Si las redes neuronales biol\'ogicas operan bajo principios f\'isicos computables, los teoremas de G\"odel y Turing dictaminan la existencia de verdades que la estructura cognitiva ser\'ia incapaz de demostrar algor\'itmicamente desde su propia constituci\'on.
+
+Sin embargo, al observar la f\'ormula $G$ de G\"odel, se adquiere la \emph{comprensi\'on} metamatem\'atica externa de su veracidad.
+
+¿Sugiere este fen\'omeno que la conciencia humana es capaz de procesar heur\'isticas no-computables (Penrose)? ¿O es dicha sensaci\'on de "comprensi\'on" una propiedad emergente e ilusoria producto de una arquitectura cognitiva fundamentada en bucles extra\~nos auto-referenciales (Hofstadter)?''}
+
+\medskip
+\hfill --- Apertura al di\'alogo.
+\end{tcolorbox}
+
+\begin{lecturas}
+\begin{itemize}
+  \item[$(\star)$] \textbf{Hofstadter, D. R.} --- \emph{G\"odel, Escher, Bach}. Cap\'itulos sobre Bucles Extra\~nos (pp.\ 684--742).
+  \item \textbf{Penrose, R.} --- \emph{The Emperor's New Mind}. Cap\'itulo~10.
+  \item \textbf{Nagel, T.} --- ``What Is It Like to Be a Bat?''. \textit{The Philosophical Review}, 1974.
+\end{itemize}
+\end{lecturas}
+
+\newpage
+
+% ============================================================
+%  SESIÓN 6 — EL PUENTE
+% ============================================================
+\section{Sesi\'on 6 --- \textit{El Puente}: Boole, Shannon y los L\'imites Mat\'ericos}
+
+\textcolor{mitred}{\textbf{Inicia el descenso a la f\'isica. La transici\'on de la l\'ogica a la materia.}}
+
+\begin{prereqs}
+Sesiones 2 y 4. Entendimiento riguroso de completitud funcional (NAND) y m\'aquinas de Turing.
+\end{prereqs}
+
+\subsection*{Motivaci\'on}
+Establecidos los l\'imites te\'oricos del c\'omputo, el siguiente paso es la implementaci\'on f\'isica. Shannon prob\'o la correspondencia isomorfa entre rel\'es f\'isicos y el \'algebra booleana. A\'un m\'as cr\'itico es comprender por qu\'e la estabilizaci\'on de estados l\'ogicos demanda imperativamente el uso de sistemas con din\'amicas f\'isicas no lineales.
+
+\subsection{Contenidos}
+
+\subsubsection{6.1 --- El Isomorfismo de Shannon (1938)}
+\begin{itemize}
+  \item \'Algebra de Boole $(B,+,\cdot,\bar{\phantom{x}},0,1)$.
+  \item Formulaci\'on del mapeo directo y bidireccional entre la abstracci\'on de funciones l\'ogicas y las topolog\'ias el\'ectricas de conmutaci\'on.
+\end{itemize}
+
+\subsubsection{6.2 --- Anatom\'ia del C\'omputo Secuencial}
+\begin{itemize}
+  \item An\'alisis de la arquitectura de Von Neumann concebida como una m\'aquina de Turing finita instanciada.
+  \item Funci\'on del reloj, los biestables (registros) y la sincronizaci\'on del ciclo de instrucci\'on.
+\end{itemize}
+
+\subsubsection{6.3 --- La F\'isica del "Bit" y la No-Linealidad Necesaria}
+\begin{itemize}
+  \item El bit no es un s\'imbolo idealizado; constituye un \emph{grado de libertad termodin\'amico} estabilizado f\'isicamente.
+  \item \textbf{La insuficiencia de los sistemas lineales:} Todo sistema el\'ectrico pasivo y lineal ($V_\text{out}=\alpha V_\text{in}$) sufre atenuaci\'on y degrada la precisi\'on de la se\~nal progresivamente por adici\'on de ruido t\'ermico.
+  \item \textbf{La exigencia de no-linealidad:} La regeneraci\'on de estados asim\'etricos ("1" y "0") requiere invariablemente la implementaci\'on de materiales con curvas de ganancia altamente no lineales. Los conductores met\'alicos simples son insuficientes.
+\end{itemize}
+
+\begin{objetivos}
+\begin{itemize}
+  \item Demostrar algebraicamente la equivalencia funcional entre conectivos proposicionales y circuitos.
+  \item Justificar termodin\'amica y el\'ectricamente por qu\'e el hardware digital robusto rechaza topolog\'ias de componentes puramente pasivos.
+\end{itemize}
+\end{objetivos}
+
+\begin{lecturas}
+\begin{itemize}
+  \item[$(\star)$] \textbf{Shannon, C. E.} (1938) --- ``A Symbolic Analysis of Relay and Switching Circuits''.
+  \item \textbf{Tanenbaum, A. S., \& Austin, T.} --- \emph{Structured Computer Organization}. Cap\'itulo~1.
+\end{itemize}
+\end{lecturas}
+
+\newpage
+
+% ============================================================
+%  SESIÓN 7
+% ============================================================
+\section{Sesi\'on 7 --- Termodin\'amica L\'ogica: $E_g$ y la Uni\'on PN}
+
+\begin{prereqs}
+Sesi\'on 6. La dependencia tecnol\'ogica hacia la no-linealidad. Mec\'anica estad\'istica introductoria.
+\end{prereqs}
+
+\subsection*{Motivaci\'on}
+El dise\~no arquitect\'onico l\'ogico exige un componente capaz de conmutar se\~nales rechazando entrop\'ia t\'ermica. Se procede a modelar matem\'aticamente ese l\'imite: la barrera energ\'etica de banda ($E_g$) y el dopaje de semiconductores como mecanismo f\'isico para inducir asimetr\'ia en la conductividad.
+
+\subsection{Contenidos}
+
+\subsubsection{7.1 --- El Cristal y la Estad\'istica de Fermi-Dirac}
+\begin{itemize}
+  \item La brecha prohibida (\emph{bandgap}) $E_g$: el umbral de energ\'ia que a\'isla la conducci\'on cu\'antica del reposo t\'ermico.
+  \item Distribución fundamental de fermiones dictada por:
+    \[f(E)=\frac{1}{1+e^{(E-E_F)/k_BT}}\]
+  \item Evaluaci\'on del par\'ametro $n_i(T)$. Demostraci\'on de c\'omo el incremento de la temperatura anula el estado de asilamiento, comprometiendo la viabilidad del c\'omputo.
+\end{itemize}
+
+\subsubsection{7.2 --- Ruptura de Simetr\'ia: Dopaje y la Uni\'on PN}
+\begin{itemize}
+  \item Control mediante dopaje: modulaci\'on del nivel de Fermi ($E_F$) y la explotaci\'on de la Ley de Acci\'on de Masas ($np = n_i^2$) para definir la polaridad mayoritaria de la carga.
+  \item Construcci\'on de la uni\'on PN: la interacci\'on qu\'imica por difusi\'on genera una regi\'on de agotamiento y un campo el\'ectrico de equilibrio ($\mathcal{E}$).
+  \item \textbf{Din\'amica No Lineal del Diodo:} Deducci\'on anal\'itica de c\'omo la polarizaci\'on de la uni\'on arroja una conducci\'on asim\'etrica y exponencial ($I = I_s(e^{V/V_T} - 1)$), cimentando el primer dispositivo de ruptura de linealidad el\'ectrica.
+\end{itemize}
+
+\begin{objetivos}
+\begin{itemize}
+  \item Interpretar la distribuci\'on de Fermi-Dirac para acotar las fronteras termodin\'amicas en las que un bit mantiene integridad l\'ogica.
+  \item Derivar los principios f\'isicos por los cuales la yuxtaposici\'on de semiconductores extruye un comportamiento asim\'etrico de rectificaci\'on.
+\end{itemize}
+\end{objetivos}
+
+\begin{lecturas}
+\begin{itemize}
+  \item[$(\star)$] \textbf{Streetman, B. G., \& Banerjee, S. K.} --- \emph{Solid State Electronic Devices}. (Enfoque selectivo en conceptos de banda y operaci\'on t\'ermica de la uni\'on).
+  \item \textbf{Sedra, A. S., \& Smith, K. C.} --- \emph{Microelectronic Circuits}, 7.a ed. Cap\'itulo 4 \S4.1--4.2.
+\end{itemize}
+\end{lecturas}
+
+\newpage
+
+% ============================================================
+%  SESIÓN 8
+% ============================================================
+\section{Sesi\'on 8 --- El Modus Ponens F\'isico: MOSFET y L\'ogica CMOS}
+
+\begin{prereqs}
+Sesiones 2, 6 y 7. Convergencia del modelo axiom\'atico abstractivo y los dispositivos de uni\'on.
+\end{prereqs}
+
+\subsection*{Motivaci\'on}
+La formalizaci\'on axiom\'atica requiere conectivos como el operador NAND, y el an\'alisis termodin\'amico demostr\'o la disponibilidad de interruptores controlables. Esta sesi\'on ensambla la tecnolog\'ia CMOS utilizando campo el\'ectrico de estado s\'olido, cerrando as\'i la trayectoria desde el axioma metamatem\'atico hasta la f\'isica aplicada.
+
+\subsection{Contenidos}
+
+\subsubsection{8.1 --- El Transistor de Efecto de Campo (MOSFET)}
+\begin{itemize}
+  \item F\'isica del capacitor MOS: descripci\'on de c\'omo el potencial de compuerta ($V_{GS}$) modula electrost\'aticamente la interfaz creando un canal cu\'antico de inversi\'on por encima de $V_{TH}$.
+  \item Reg\'imen de saturaci\'on y la separaci\'on funcional entre se\~nal de control y v\'ia de carga.
+\end{itemize}
+
+\subsubsection{8.2 --- La Arquitectura L\'ogica CMOS}
+\begin{itemize}
+  \item Resoluci\'on topol\'ogica del alto consumo de energ\'ia en redes de conmutaci\'on pasiva.
+  \item Ensamble complementario: La evaluaci\'on de la funci\'on $f$ recae en la red de canal N (Pull-Down), mientras la red de canal P (Pull-Up) garantiza mec\'anicamente la entrega del complemento l\'ogico $\neg f$. 
+  \item Eliminaci\'on de corrientes en estado de reposo y establecimiento de m\'argenes de ruido \'optimos para absorci\'on de fallos sist\'emicos.
+\end{itemize}
+
+\subsubsection{8.3 --- S\'intesis Final: Implementaci\'on del NAND Universal}
+\begin{itemize}
+  \item Dise\~no esquem\'atico de la compuerta NAND est\'atica mediante transistores.
+  \item \textbf{El arco argumental completo:} Todo dato procesado se reduce a distribuciones probabil\'isticas de carga cu\'antica operando sujetos al l\'imite de Fermi-Dirac, modulados por la red topol\'ogica que encarna las reglas del c\'alculo proposicional, y confinados eternamente a no rebasar el horizonte de completitud delimitado por los teoremas diagonales del siglo XX.
+\end{itemize}
+
+\begin{objetivos}
+\begin{itemize}
+  \item Construir las redes sim\'etricas Pull-Up y Pull-Down de transistores requeridas para sintetizar cualquier postulaci\'on booleana.
+  \item Conectar expl\'icitamente el l\'imite l\'ogico de la M\'aquina de Turing con las limitantes f\'isicas dictadas por el voltaje y la estructura cristalogr\'afica del chip.
+\end{itemize}
+\end{objetivos}
+
+\begin{lecturas}
+\begin{itemize}
+  \item[$(\star)$] \textbf{Sedra, A. S., \& Smith, K. C.} --- \emph{Microelectronic Circuits}, 7.a ed. Cap\'itulo~5 \S5.1--5.2 y Cap\'itulo 14 \S14.1.
+  \item \textbf{Weste, N. H. E., \& Harris, D.} --- \emph{CMOS VLSI Design}. Cap\'itulo~1.
+\end{itemize}
+\end{lecturas}
+
+\newpage
+
+% ============================================================
+%  BIBLIOGRAFÍA CONSOLIDADA
+% ============================================================
+\section{Bibliografía}
+
+\subsection*{L\'ogica, Conjuntos y Fundamentos}
+\begin{itemize}
+  \item \textbf{Halmos, P. R.} --- \emph{Naive Set Theory}. Springer, 1974.
+  \item \textbf{Enderton, H. B.} --- \emph{A Mathematical Introduction to Logic}, 2.a ed. Academic Press, 2001.
+  \item \textbf{Deaño, A.} --- \emph{Introducci\'on a la l\'ogica formal}. Alianza Editorial, 1999.
+\end{itemize}
+
+\subsection*{Metamatem\'atica, Incompletitud y Computabilidad}
+\begin{itemize}
+	
+  \item \textbf{Hofstadter, D. R.} --- \emph{G\"odel, Escher, Bach: An Eternal Golden Braid}. Basic Books, 1979. \textit{[Lectura transversal obligatoria.]}
+  \item \textbf{Nagel, E., \& Newman, J. R.} --- \emph{G\"odel's Proof}, ed.\ revisada. NYU Press, 2001.
+  \item \textbf{Sipser, M.} --- \emph{Introduction to the Theory of Computation}, 3.a ed. Cengage, 2012.
+\end{itemize}
+
+\subsection*{Filosof\'ia de la Conciencia y el Computo}
+\begin{itemize}
+  \item \textbf{Penrose, R.} --- \emph{The Emperor's New Mind}. Oxford University Press, 1989.
+  \item \textbf{Nagel, T.} --- ``What Is It Like to Be a Bat?''. \textit{The Philosophical Review}, 1974.
+\end{itemize}
+
+\subsection*{\'Algebra de Boole y F\'isica del Silicio}
+\begin{itemize}
+  \item \textbf{Shannon, C. E.} (1938) --- ``A Symbolic Analysis of Relay and Switching Circuits''.
+  \item \textbf{Streetman, B. G., \& Banerjee, S. K.} --- \emph{Solid State Electronic Devices}, 7.a ed. Pearson, 2015. 
+  \item \textbf{Sedra, A. S., \& Smith, K. C.} --- \emph{Microelectronic Circuits}, 7.a ed. Oxford University Press, 2014. 
+\end{itemize}
+\end{document}

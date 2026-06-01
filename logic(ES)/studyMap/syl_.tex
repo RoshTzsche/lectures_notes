@@ -1,0 +1,1025 @@
+% ============================================================
+%  SYLLABUS — De los Sistemas Formales a la Electrónica Aplicada
+%  Teaching Assistant: Rosh Guadiana
+%  Compilar con: pdflatex (dos pasadas)
+% ============================================================
+
+\documentclass[11pt, letterpaper]{article}
+
+% --- Encoding ---
+\usepackage[utf8]{inputenc}
+% babel not available in this installation
+
+% --- Typography ---
+%\usepackage{lmodern}
+%\usepackage{microtype}
+
+% --- Geometry ---
+\usepackage[
+  top=2.5cm, bottom=2.8cm,
+  left=3.0cm, right=3.0cm,
+  headheight=20pt
+]{geometry}
+
+% --- Math ---
+\usepackage{amsmath, amssymb, amsthm}
+
+% --- Tables ---
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{multirow}
+
+% --- Color ---
+\usepackage[dvipsnames]{xcolor}
+\definecolor{mitred}{RGB}{163, 31, 52}
+\definecolor{darkgray}{RGB}{60, 60, 60}
+\definecolor{lightgray}{RGB}{245, 245, 245}
+\definecolor{accentblue}{RGB}{0, 73, 144}
+\definecolor{rulecolor}{RGB}{200, 200, 200}
+
+% --- Header / Footer ---
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\textcolor{darkgray}{\textsc{Sistemas Formales y Electrónica Aplicada}}}
+\fancyhead[R]{\small\textcolor{darkgray}{TA: Rosh Guadiana}}
+\fancyfoot[C]{\small\textcolor{darkgray}{\thepage}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\headrule}{\hbox to\headwidth{\color{mitred}\leaders\hrule height \headrulewidth\hfill}}
+
+% --- Sections styling ---
+\usepackage{titlesec}
+\titleformat{\section}
+  {\large\bfseries\color{mitred}}
+  {\thesection.}{0.6em}{}
+  [\vspace{-0.3em}\textcolor{mitred}{\rule{\linewidth}{0.6pt}}]
+
+\titleformat{\subsection}
+  {\normalsize\bfseries\color{accentblue}}
+  {\thesubsection}{0.5em}{}
+
+\titleformat{\subsubsection}
+  {\normalsize\itshape\color{darkgray}}
+  {}{0em}{}
+
+% --- Hyperlinks ---
+\usepackage[
+  colorlinks=true,
+  linkcolor=mitred,
+  urlcolor=accentblue,
+  citecolor=darkgray
+]{hyperref}
+
+% --- Boxes / Environments ---
+\usepackage{tcolorbox}
+\tcbuselibrary{skins, breakable}
+
+\newtcolorbox{objetivos}{
+  colback=lightgray,
+  colframe=mitred,
+  fonttitle=\bfseries\small,
+  title=Objetivos de Aprendizaje,
+  left=4pt, right=4pt, top=4pt, bottom=4pt,
+  boxrule=0.6pt,
+  breakable
+}
+
+\newtcolorbox{lecturas}{
+  colback=white,
+  colframe=accentblue,
+  fonttitle=\bfseries\small,
+  title=Lecturas Obligatorias,
+  left=4pt, right=4pt, top=4pt, bottom=4pt,
+  boxrule=0.6pt,
+  breakable
+}
+
+\newtcolorbox{prereqs}{
+  colback=white,
+  colframe=darkgray,
+  fonttitle=\bfseries\small,
+  title=Prerrequisitos Formales,
+  left=4pt, right=4pt, top=4pt, bottom=4pt,
+  boxrule=0.5pt
+}
+
+\newtcolorbox{nota}{
+  colback=white,
+  colframe=mitred!40,
+  fonttitle=\bfseries\small,
+  title=Nota Metodológica,
+  left=4pt, right=4pt, top=4pt, bottom=4pt,
+  boxrule=0.5pt
+}
+
+% --- Enumitem ---
+\usepackage{enumitem}
+\setlist[itemize]{leftmargin=1.4em, itemsep=2pt, topsep=3pt}
+\setlist[enumerate]{leftmargin=1.4em, itemsep=2pt, topsep=3pt}
+
+% --- Misc ---
+\usepackage{parskip}
+\setlength{\parskip}{5pt}
+\usepackage{graphicx}
+\usepackage{setspace}
+
+% ============================================================
+\begin{document}
+
+% ============================================================
+%  COVER PAGE
+% ============================================================
+\begin{titlepage}
+\begin{center}
+
+\vspace*{1.2cm}
+
+{\footnotesize\textsc{\textcolor{darkgray}{Ingeniería y Ciencias Físicas — Curso Propedéutico}}}
+
+\vspace{0.5cm}
+\textcolor{mitred}{\rule{\linewidth}{1.2pt}}
+\vspace{0.4cm}
+
+{\LARGE\bfseries De los Sistemas Formales\\[0.3em]
+a la Electrónica Aplicada}
+
+\vspace{0.3cm}
+\textcolor{mitred}{\rule{\linewidth}{1.2pt}}
+
+\vspace{1.0cm}
+
+{\large\itshape Del Lenguaje como Sistema Axiomático\\
+a la Física del Transistor}
+
+\vspace{1.8cm}
+
+\begin{tabular}{ll}
+\textbf{Modalidad:}        & Presencial intensiva \\[3pt]
+\textbf{Duración:}         & 10 sesiones $\times$ 2 horas (20 horas totales) \\[3pt]
+\textbf{Nivel:}            & Universitario (1.º–2.º año, Ingeniería / Física) \\[3pt]
+\textbf{Teaching Assistant:} & Rosh Guadiana \\[3pt]
+\textbf{Idioma:}           & Español (terminología técnica en inglés cuando aplique) \\[3pt]
+\textbf{Prerequisitos:}    & Cálculo diferencial I, Álgebra lineal básica \\
+\end{tabular}
+
+\vspace{2.0cm}
+
+\begin{nota}
+Este syllabus es un documento vivo. Los tiempos por tema son aproximaciones;
+el instructor ajustará el ritmo según la velocidad de asimilación del grupo.
+Las lecturas marcadas con $(\star)$ son \textbf{absolutamente obligatorias};
+las demás son de profundización recomendada.
+\end{nota}
+
+\vfill
+
+{\small\textcolor{darkgray}{Versión 1.0 — \today}}
+
+\end{center}
+\end{titlepage}
+
+% ============================================================
+%  TABLE OF CONTENTS
+% ============================================================
+\tableofcontents
+\newpage
+
+% ============================================================
+%  PREFACIO PEDAGÓGICO
+% ============================================================
+\section*{Prefacio Pedagógico}
+\addcontentsline{toc}{section}{Prefacio Pedagógico}
+
+Este curso responde a una pregunta deceptivamente simple: \emph{¿de dónde viene el ``1'' y el ``0'' de una computadora?}
+
+La respuesta exige atravesar tres capas de realidad que rara vez se enseñan juntas:
+
+\begin{enumerate}
+  \item \textbf{La capa sintáctica.} El lenguaje y la lógica existen como sistemas de manipulación de símbolos que no dependen de ningún significado. Aquí aprenderemos a razonar \emph{sobre} los sistemas formales.
+
+  \item \textbf{La capa semántica.} La lógica adquiere poder cuando mapeamos sus símbolos a objetos del mundo. Demostraremos que ese mapeo tiene límites precisos y demostrables (Gödel), y que cualquier sistema de cómputo físico hereda esos límites.
+
+  \item \textbf{La capa física.} El ``1'' y el ``0'' son una ilusión macroscópica generada por el control térmico de electrones en una red cristalina de silicio. Esta ilusión se sostiene sólo dentro de un rango de temperatura y potencial eléctrico. Fuera de ese rango, la lógica \emph{literalmente} deja de existir.
+\end{enumerate}
+
+El curso avanza en ese orden, bajando el nivel de abstracción sesión a sesión, hasta llegar al transistor MOSFET como \textbf{implementación física del Modus Ponens}.
+
+\subsection*{Sobre los huecos intencionales}
+Se ha suprimido deliberadamente la mecánica cuántica profunda (ecuación de Schrödinger, pozos de potencial). El \emph{bandgap} se trata como una energía de activación termodinámica; los electrones como partículas estadísticas. Este enfoque es suficiente para el objetivo del curso y evita introducir un formalismo de 15 semanas en dos sesiones.
+
+\newpage
+
+% ============================================================
+%  EVALUACIÓN
+% ============================================================
+\section{Evaluación y Entregables}
+
+\begin{center}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Componente} & \textbf{Peso} & \textbf{Sesión de entrega} \\
+\midrule
+Problema semanal (5 en total) & 30\% & Sesiones 2, 4, 5, 7, 9 \\
+Ejercicio numérico ``El Puente'' & 20\% & Sesión 7 \\
+Examen parcial (sesiones 1–5)   & 20\% & Sesión 6 \\
+Proyecto final (sesiones 6–10)  & 25\% & Sesión 10 \\
+Participación y asistencia       & 5\%  & Continua \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection*{Criterio de acreditación}
+Promedio ponderado $\geq 70$ sobre 100. No se elimina ningún componente.
+
+\subsection*{Proyecto final}
+Diseño y simulación de una compuerta lógica completa (NAND o NOR en CMOS) acompañada de:
+\begin{itemize}
+  \item Derivación formal de su tabla de verdad desde el cálculo proposicional.
+  \item Modelado eléctrico del MOSFET ($I_D$--$V_{GS}$) con parámetros numéricos reales.
+  \item Análisis de estabilidad de la celda de inversión usando el plano $s$.
+\end{itemize}
+
+\newpage
+
+% ============================================================
+%  MAPA CONCEPTUAL DEL CURSO
+% ============================================================
+\section{Arco Narrativo del Curso}
+
+El siguiente esquema muestra la dependencia conceptual entre las diez sesiones.
+Cada bloque \emph{requiere} los anteriores para ser inteligible.
+
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{cll}
+\toprule
+\textbf{Sesión} & \textbf{Título} & \textbf{Abstracción} \\
+\midrule
+1 & Fundamentos: Conjuntos y Estructuras Matemáticas   & $\uparrow$ Máxima \\
+2 & Lenguajes Formales y la Jerarquía de Chomsky        & \\
+3 & Lógica Proposicional: Sintaxis y Semántica          & \\
+4 & Lógica de Primer Orden y Teoría de Modelos          & \\
+5 & Metamatemática, Gödel y Computabilidad              & \\
+\midrule
+\multicolumn{3}{c}{\textcolor{mitred}{\textbf{------- EL PUENTE (Sesión 6) -------}}} \\
+\midrule
+6 & Álgebra de Boole, Máquinas de Turing y Silicio      & $\downarrow$ Creciente \\
+7 & Semiconductores: Estadística de Fermi-Dirac         & \\
+8 & La Unión PN y el Diodo: Termodinámica de No Equilibrio & \\
+9 & El MOSFET y las Compuertas CMOS                     & \\
+10 & Sistemas Dinámicos y Filtros en el Dominio $s$     & $\downarrow$ Mínima \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\newpage
+
+% ============================================================
+%  SESIÓN 1
+% ============================================================
+\section{Sesión 1 — Fundamentos: Conjuntos, Relaciones y Estructuras}
+
+\begin{prereqs}
+Ninguno. Esta sesión es el punto cero formal del curso.
+\end{prereqs}
+
+\subsection*{Motivación}
+Todo sistema formal —incluyendo la aritmética, la lógica y los circuitos digitales— descansa sobre una noción primitiva de \emph{colección} y de \emph{relación entre objetos}. Sin este vocabulario común es imposible definir con rigor un alfabeto, una función de transición de estados, o una distribución de probabilidad sobre energías.
+
+\subsection{Contenidos}
+
+\subsubsection{1.1 — Teoría Ingenua de Conjuntos y la Paradoja de Russell}
+\begin{itemize}
+  \item Conjuntos como colecciones no ordenadas: notación por extensión y comprensión.
+  \item Operaciones: unión $A\cup B$, intersección $A\cap B$, complemento $\bar{A}$, diferencia $A\setminus B$.
+  \item El conjunto potencia $\mathcal{P}(A)$ y su cardinalidad $2^{|A|}$.
+  \item \textbf{Paradoja de Russell:} El conjunto $R=\{x \mid x\notin x\}$ y por qué la teoría ingenua colapsa.
+  \item Motivación (sin desarrollo formal) hacia los axiomas ZFC como solución.
+\end{itemize}
+
+\subsubsection{1.2 — Relaciones y Funciones}
+\begin{itemize}
+  \item Producto cartesiano $A\times B$. Relación binaria como subconjunto de $A\times B$.
+  \item Propiedades: reflexividad, simetría, transitividad. Relaciones de equivalencia y orden parcial.
+  \item Función como relación funcional. Inyectividad, sobreyectividad, biyectividad.
+  \item \textbf{Composición} $g\circ f$ y su relevancia para la composición de compuertas lógicas.
+\end{itemize}
+
+\subsubsection{1.3 — Cardinalidad e Infinito}
+\begin{itemize}
+  \item Conjuntos finitos vs.\ infinitos. Biyección como criterio de equipotencia.
+  \item $|\mathbb{N}|=|\mathbb{Z}|=|\mathbb{Q}|$ (contables) vs.\ $|\mathbb{R}|$ (incontable).
+  \item Argumento diagonal de Cantor (versión conjuntos): $\mathcal{P}(\mathbb{N})$ no es biyectable con $\mathbb{N}$.
+  \item Anticipo: el mismo argumento diagonal reaparecerá en las sesiones 2 y 5.
+\end{itemize}
+
+\begin{objetivos}
+Al finalizar esta sesión el alumno será capaz de:
+\begin{itemize}
+  \item Escribir definiciones matemáticas usando notación de conjuntos estándar.
+  \item Distinguir entre relación y función; identificar propiedades de orden y equivalencia.
+  \item Explicar por qué la paradoja de Russell requiere un sistema axiomático formal.
+  \item Aplicar el argumento diagonal para demostrar que $|\mathcal{P}(A)|>|A|$.
+\end{itemize}
+\end{objetivos}
+
+\begin{lecturas}
+\begin{itemize}
+  \item[$(\star)$] \textbf{Halmos, P. R.} — \emph{Naive Set Theory}. Capítulos 1--8 (pp.\ 1--44). \textit{Lectura principal.}
+  \item[$(\star)$] \textbf{Deaño, A.} — \emph{Introducción a la lógica formal}. Capítulo 1: «Nociones previas», pp.\ 1--18.
+  \item \textbf{Enderton, H. B.} — \emph{Elements of Set Theory}. Capítulo 1 (pp.\ 1--19) para el tratamiento axiomático ligero.
+  \item \textbf{Hofstadter, D. R.} — \emph{Gödel, Escher, Bach}. Capítulo I «MU-puzzle», pp.\ 3--27. \textit{Lectura motivacional.}
+\end{itemize}
+\end{lecturas}
+
+\newpage
+
+% ============================================================
+%  SESIÓN 2
+% ============================================================
+\section{Sesión 2 — Lenguajes Formales y la Jerarquía de Chomsky}
+
+\begin{prereqs}
+Sesión 1 completa. Dominio de la notación de conjuntos y el concepto de función.
+\end{prereqs}
+
+\subsection*{Motivación}
+Un lenguaje de programación, un protocolo de comunicación y el DNA comparten una misma estructura: son \emph{cadenas generadas por reglas}. La lingüística matemática formaliza esa intuición y produce una clasificación de poderes expresivos que predice exactamente qué clase de máquina puede reconocer cada tipo de lenguaje.
+
+\subsection{Contenidos}
+
+\subsubsection{2.1 — Alfabetos, Cadenas y el Monoide Libre}
+\begin{itemize}
+  \item Alfabeto $\Sigma$: conjunto finito no vacío de símbolos.
+  \item Cadena (palabra): secuencia finita de símbolos. Cadena vacía $\varepsilon$.
+  \item Cerradura de Kleene $\Sigma^*$ y cerradura positiva $\Sigma^+$ como monoides libres.
+  \item Operaciones: concatenación, longitud $|\cdot|$, potencia $w^k$, reverso $w^R$.
+  \item Lenguaje $L\subseteq\Sigma^*$. Operaciones entre lenguajes (unión, concatenación, estrella de Kleene).
+\end{itemize}
+
+\subsubsection{2.2 — Gramáticas Formales}
+\begin{itemize}
+  \item Definición: $G=(V,\Sigma,R,S)$ con variables $V$, terminales $\Sigma$, reglas de producción $R$ y símbolo inicial $S$.
+  \item Relación de derivación $\Rightarrow$, derivación en $n$ pasos $\Rightarrow^n$ y cerradura reflexivo-transitiva $\Rightarrow^*$.
+  \item Lenguaje generado $L(G)=\{w\in\Sigma^*\mid S\Rightarrow^* w\}$.
+\end{itemize}
+
+\subsubsection{2.3 — La Jerarquía de Chomsky}
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{clll}
+\toprule
+\textbf{Tipo} & \textbf{Gramática} & \textbf{Autómata reconocedor} & \textbf{Restricción en $R$}\\
+\midrule
+3 & Regular          & Autómata finito (DFA/NFA)         & $A\to aB$ ó $A\to a$ \\
+2 & Libre de contexto & Autómata de pila (PDA)            & $A\to\gamma$ \\
+1 & Sensible al contexto & Autómata acotado linealmente (LBA) & $|\alpha|\leq|\beta|$ \\
+0 & Sin restricción  & Máquina de Turing                 & Ninguna \\
+\bottomrule
+\end{tabular}
+\end{center}
+\begin{itemize}
+  \item Contención estricta: $\mathcal{L}_3 \subsetneq \mathcal{L}_2 \subsetneq \mathcal{L}_1 \subsetneq \mathcal{L}_0$.
+  \item Ejemplo canónico de cada tipo.
+  \item Anticipo: las gramáticas de Tipo 0 corresponden a la computabilidad de la sesión 5.
+\end{itemize}
+
+\subsubsection{2.4 — Sintaxis vs.\ Semántica: El Divorcio Conceptual}
+\begin{itemize}
+  \item Una gramática asigna \emph{estructura} a una cadena sin asignarle \emph{significado}.
+  \item Ejemplo lingüístico de Chomsky: \textit{«Colorless green ideas sleep furiously»} es gramaticalmente correcta y semánticamente vacía.
+  \item El mismo fenómeno en matemáticas: $\forall x\,(P(x)\Rightarrow Q(x))$ es un esquema sintáctico vacío hasta que interpretamos $P$ y $Q$.
+\end{itemize}
+
+\begin{objetivos}
+\begin{itemize}
+  \item Construir gramáticas formales para lenguajes simples y demostrar su tipo en la jerarquía.
+  \item Distinguir con precisión entre sintaxis (reglas de formación) y semántica (interpretación).
+  \item Relacionar cada tipo de gramática con su autómata reconocedor equivalente.
+\end{itemize}
+\end{objetivos}
+
+\begin{lecturas}
+\begin{itemize}
+  \item[$(\star)$] \textbf{Sipser, M.} — \emph{Introduction to the Theory of Computation}, 3ª ed. Capítulo 1 (pp.\ 31--82) y Capítulo 2 §2.1--2.2 (pp.\ 101--130).
+  \item[$(\star)$] \textbf{Chomsky, N.} — \emph{Syntactic Structures}. Capítulos 1--3 (pp.\ 11--48). \textit{Fuente primaria.}
+  \item \textbf{Hopcroft, J. E., Motwani, R., \& Ullman, J. D.} — \emph{Introduction to Automata Theory, Languages, and Computation}, 3ª ed. Capítulo 1 (pp.\ 25--47) para la formalización algebraica.
+  \item \textbf{Hofstadter, D. R.} — \emph{Gödel, Escher, Bach}. Capítulo II «Meaning and Form in Mathematics», pp.\ 46--65.
+\end{itemize}
+\end{lecturas}
+
+\newpage
+
+% ============================================================
+%  SESIÓN 3
+% ============================================================
+\section{Sesión 3 — Lógica Proposicional: Sintaxis, Semántica y Tablas de Verdad}
+
+\begin{prereqs}
+Sesiones 1 y 2. Especialmente: noción de función, cadena bien formada, distinción sintaxis/semántica.
+\end{prereqs}
+
+\subsection*{Motivación}
+La lógica proposicional es el sistema formal más pequeño capaz de modelar el razonamiento deductivo. Antes de generalizar (sesión 4) es imprescindible dominarlo con rigor: su sistema axiomático, su semántica por tablas de verdad y los métodos de prueba serán la base de todo lo que sigue —incluyendo la Sesión 5 (incompletitud) y la Sesión 6 (álgebra de Boole).
+
+\subsection{Contenidos}
+
+\subsubsection{3.1 — Sintaxis del Cálculo Proposicional}
+\begin{itemize}
+  \item Variables proposicionales $p, q, r, \ldots$ y conectivos: $\neg, \land, \lor, \to, \leftrightarrow$.
+  \item Definición inductiva de Fórmula Bien Formada (FBF). Árbol de análisis sintáctico.
+  \item Prioridad y paréntesis. Notación polaca como ejemplo de gramática libre de contexto.
+  \item Formas normales: Forma Normal Conjuntiva (CNF) y Disyuntiva (DNF).
+\end{itemize}
+
+\subsubsection{3.2 — Semántica: Valuaciones y Tablas de Verdad}
+\begin{itemize}
+  \item Valuación $v: \text{VAR}\to\{0,1\}$ como función de interpretación.
+  \item Extensión de $v$ a todas las FBF por inducción estructural.
+  \item Tautología, contradicción y contingencia.
+  \item Consecuencia semántica $\Gamma\models\varphi$ y equivalencia lógica $\varphi\equiv\psi$.
+  \item Completitud funcional: $\{\neg,\land\}$, $\{\neg,\lor\}$ y $\{\text{NAND}\}$ como conjuntos completos.
+\end{itemize}
+
+\subsubsection{3.3 — Sistema de Prueba: Cálculo de Secuentes}
+\begin{itemize}
+  \item Reglas de inferencia: Modus Ponens ($\frac{\varphi\;\;\varphi\to\psi}{\psi}$), introducción/eliminación de $\land$, $\lor$, $\to$.
+  \item Derivación formal $\Gamma\vdash\varphi$.
+  \item Demostración por reducción al absurdo (RAA).
+  \item Inducción proposicional: demostrar propiedades de \emph{todas} las FBFs.
+  \item \textbf{Teorema de corrección:} si $\Gamma\vdash\varphi$ entonces $\Gamma\models\varphi$.
+  \item Anticipo del teorema de completitud (Gödel 1929, no demostrado aquí): el recíproco también vale.
+\end{itemize}
+
+\subsubsection{3.4 — Mapeo al Español Natural}
+\begin{itemize}
+  \item Traducción sistemática de oraciones a FBFs.
+  \item Falacias formales vs.\ errores semánticos.
+  \item Por qué el lenguaje natural es \emph{ambiguo} y los sistemas formales son \emph{precisos}.
+\end{itemize}
+
+\begin{objetivos}
+\begin{itemize}
+  \item Construir y verificar FBFs mediante tablas de verdad y mediante derivación formal.
+  \item Demostrar si un argumento es válido usando el cálculo de secuentes.
+  \item Demostrar la completitud funcional de $\{\text{NAND}\}$ —resultado que reaparecerá en la Sesión 6.
+\end{itemize}
+\end{objetivos}
+
+\begin{lecturas}
+\begin{itemize}
+  \item[$(\star)$] \textbf{Deaño, A.} — \emph{Introducción a la lógica formal}. Partes I y II (pp.\ 19--120). \textit{Referencia principal en español.}
+  \item[$(\star)$] \textbf{Enderton, H. B.} — \emph{A Mathematical Introduction to Logic}, 2ª ed. Capítulo 1 «Sentential Logic» (pp.\ 1--60).
+  \item \textbf{Mendelson, E.} — \emph{Introduction to Mathematical Logic}, 6ª ed. Capítulo 1 (pp.\ 1--44) para el sistema axiomático de Hilbert.
+  \item \textbf{Hofstadter, D. R.} — \emph{Gödel, Escher, Bach}. Capítulo VIII «How Typographical Number Theory Arises», pp.\ 204--231.
+\end{itemize}
+\end{lecturas}
+
+\newpage
+
+% ============================================================
+%  SESIÓN 4
+% ============================================================
+\section{Sesión 4 — Lógica de Primer Orden y Teoría de Modelos}
+
+\begin{prereqs}
+Sesión 3 completa. La lógica proposicional debe estar dominada; esta sesión la extiende cuantificando sobre objetos.
+\end{prereqs}
+
+\subsection*{Motivación}
+La lógica proposicional no puede expresar «todo número natural tiene un sucesor» ni «existe un electrón con energía $E > E_g$». La lógica de primer orden (FOL) añade cuantificadores y variables de individuo, alcanzando el poder expresivo necesario para la matemática y la física. Es también el lenguaje en que Gödel formuló su teorema.
+
+\subsection{Contenidos}
+
+\subsubsection{4.1 — Sintaxis de la Lógica de Primer Orden}
+\begin{itemize}
+  \item Firma lógica $\mathcal{L}=(\mathcal{F},\mathcal{P},\text{ar})$: símbolos de función, predicado y su aridad.
+  \item Términos: variables, constantes, términos compuestos (definición inductiva).
+  \item Fórmulas atómicas y FBFs con cuantificadores $\forall$ y $\exists$.
+  \item Variables libres vs.\ ligadas. Sustitución libre de variable $\varphi[t/x]$.
+  \item Oración (sentence): FBF sin variables libres.
+\end{itemize}
+
+\subsubsection{4.2 — Semántica: Estructuras e Interpretaciones}
+\begin{itemize}
+  \item Estructura $\mathfrak{A}=(A, \{f^{\mathfrak{A}}\}, \{P^{\mathfrak{A}}\})$: dominio de discurso, interpretación de funciones y predicados.
+  \item Asignación $s: \text{Var}\to A$ y satisfacibilidad $\mathfrak{A}\models_s\varphi$.
+  \item Verdad en una estructura: $\mathfrak{A}\models\sigma$ (para oraciones).
+  \item Modelo de un conjunto de oraciones $\Gamma$. Consecuencia lógica $\Gamma\models\varphi$.
+  \item Equivalencia lógica y leyes de De Morgan cuantificadas:
+    \[\neg\forall x\,P(x)\equiv\exists x\,\neg P(x)\]
+\end{itemize}
+
+\subsubsection{4.3 — Teoría de la Demostración en FOL}
+\begin{itemize}
+  \item Reglas adicionales: introducción/eliminación de $\forall$ y $\exists$ (Cálculo de Secuentes de Gentzen, versión simplificada).
+  \item Prueba por inducción matemática como esquema de eliminación de $\forall$ sobre $\mathbb{N}$.
+  \item Demostración de que la inducción \emph{no es derivable} dentro de la aritmética de primer orden sin axiomas adicionales —anticipo directo de Gödel.
+\end{itemize}
+
+\subsubsection{4.4 — Teoría de Modelos: Resultados Esenciales (sin demostración)}
+\begin{itemize}
+  \item \textbf{Teorema de Completitud de Gödel (1929):} $\Gamma\models\varphi\;\Leftrightarrow\;\Gamma\vdash\varphi$.
+  \item \textbf{Teorema de Compacidad:} si todo subconjunto finito de $\Gamma$ tiene modelo, entonces $\Gamma$ tiene modelo.
+  \item \textbf{Teorema de Löwenheim-Skolem:} una teoría consistente con un modelo infinito tiene modelos de todo cardinal infinito. Implicación: \emph{la aritmética no puede caracterizar a $\mathbb{N}$ unívocamente en FOL}.
+  \item Discusión: ¿Qué significa que la aritmética tenga «modelos no estándar»?
+\end{itemize}
+
+\begin{objetivos}
+\begin{itemize}
+  \item Formalizar enunciados matemáticos y físicos en FOL y verificar su satisfacibilidad en una estructura dada.
+  \item Distinguir entre demostración sintáctica ($\vdash$) y consecuencia semántica ($\models$).
+  \item Enunciar y comprender las implicaciones del teorema de completitud y de compacidad.
+\end{itemize}
+\end{objetivos}
+
+\begin{lecturas}
+\begin{itemize}
+  \item[$(\star)$] \textbf{Enderton, H. B.} — \emph{A Mathematical Introduction to Logic}, 2ª ed. Capítulo 2 «First-Order Logic» (pp.\ 68--164). \textit{Referencia central.}
+  \item[$(\star)$] \textbf{Deaño, A.} — \emph{Introducción a la lógica formal}. Parte III «Cálculo de predicados» (pp.\ 121--200).
+  \item \textbf{Marker, D.} — \emph{Model Theory: An Introduction}. Capítulo 1 (pp.\ 1--30), sólo para el tratamiento de estructuras e interpretaciones.
+  \item \textbf{Hofstadter, D. R.} — \emph{Gödel, Escher, Bach}. Capítulo XIV «On Formally Undecidable Propositions», pp.\ 438--460. \textit{Preparación para la sesión 5.}
+\end{itemize}
+\end{lecturas}
+
+\newpage
+
+% ============================================================
+%  SESIÓN 5
+% ============================================================
+\section{Sesión 5 — Metamatemática, Incompletitud y Computabilidad}
+
+\begin{prereqs}
+Sesiones 1--4 completas. Especialmente: distinción $\vdash$ vs.\ $\models$, aritmética en FOL, argumento diagonal de Cantor.
+\end{prereqs}
+
+\subsection*{Motivación}
+Esta sesión responde a la pregunta: ¿puede un sistema formal decidir su propia verdad? La respuesta negativa de Gödel (1931) tiene una traducción directa al problema de la parada de Turing (1936), que a su vez es el límite fundamental de \emph{cualquier} computadora que se construya, independientemente de su velocidad o tecnología.
+
+\subsection{Contenidos}
+
+\subsubsection{5.1 — La Aritmética de Peano como Sistema Formal}
+\begin{itemize}
+  \item Los axiomas de Peano en FOL: sucesor, adición, multiplicación, inducción.
+  \item Expresividad: codificación de la sintaxis como aritmética (aritmetización de Gödel).
+  \item Número de Gödel de una fórmula: $\ulcorner\varphi\urcorner\in\mathbb{N}$.
+\end{itemize}
+
+\subsubsection{5.2 — El Primer Teorema de Incompletitud}
+\begin{itemize}
+  \item Predicado de demostración $\text{Dem}(x,y)$: «$y$ es el número de una prueba de $x$».
+  \item Construcción de la oración de Gödel $G$: «$G$ no es demostrable».
+  \item Argumento diagonal: si $\vdash G$, hay contradicción; si $\vdash\neg G$, la teoría es $\omega$-inconsistente.
+  \item \textbf{Resultado:} toda teoría $T$ que extienda la aritmética de Peano, sea consistente y recursivamente axiomatizable es \emph{incompleta}: hay oraciones verdaderas en $\mathbb{N}$ que $T$ no puede demostrar.
+\end{itemize}
+
+\subsubsection{5.3 — El Segundo Teorema de Incompletitud}
+\begin{itemize}
+  \item Oración $\text{Cons}(T)$: «$T$ es consistente» (expresable en aritmética).
+  \item \textbf{Resultado:} $T\not\vdash\text{Cons}(T)$. Ningún sistema suficientemente fuerte puede demostrar su propia consistencia.
+  \item Implicación filosófica: el programa de Hilbert es inalcanzable.
+\end{itemize}
+
+\subsubsection{5.4 — Computabilidad y el Problema de la Parada}
+\begin{itemize}
+  \item Máquina de Turing (definición formal mínima): $M=(Q,\Sigma,\Gamma,\delta,q_0,q_{\text{acc}},q_{\text{rej}})$.
+  \item Función computable y lenguaje decidible vs.\ reconocible.
+  \item \textbf{Teorema (Turing 1936):} el problema de la parada $A_{\text{TM}}=\{\langle M,w\rangle\mid M\text{ acepta }w\}$ es indecidible.
+  \item Demostración por diagonalización (paralelo exacto con Cantor y Gödel).
+  \item \textbf{Tesis de Church-Turing:} toda función «efectivamente computable» es Turing-computable.
+  \item Transición: la Máquina de Turing es un modelo abstracto; el silicio es su implementación física.
+\end{itemize}
+
+\begin{objetivos}
+\begin{itemize}
+  \item Reconstruir el argumento diagonal en sus tres instancias: Cantor (sesión 1), Gödel (5.2) y Turing (5.4), e identificar la estructura común.
+  \item Enunciar con precisión el primer y segundo teorema de Gödel y sus hipótesis.
+  \item Demostrar la indecidibilidad del problema de la parada.
+  \item Explicar por qué estos resultados son límites \emph{físicos}, no sólo matemáticos.
+\end{itemize}
+\end{objetivos}
+
+\begin{lecturas}
+\begin{itemize}
+  \item[$(\star)$] \textbf{Sipser, M.} — \emph{Introduction to the Theory of Computation}, 3ª ed. Capítulo 4 «Decidability» (pp.\ 165--196) y Capítulo 6 §6.1--6.2 (pp.\ 238--247). \textit{Tratamiento más accesible de la indecidibilidad.}
+  \item[$(\star)$] \textbf{Hofstadter, D. R.} — \emph{Gödel, Escher, Bach}. Capítulos IX, X, XI y XIV (pp.\ 260--290 y 438--460). \textit{Indispensable.}
+  \item \textbf{Nagel, E., \& Newman, J. R.} — \emph{Gödel's Proof}, ed.\ revisada. Capítulos V--VII (pp.\ 51--100). \textit{La demostración más clara en formato breve.}
+  \item \textbf{Enderton, H. B.} — \emph{A Mathematical Introduction to Logic}. §2.7 «Representability in Arithmetic» (pp.\ 196--221) para la aritmetización formal.
+\end{itemize}
+\end{lecturas}
+
+\newpage
+
+% ============================================================
+%  SESIÓN 6  — EL PUENTE
+% ============================================================
+\section{Sesión 6 — \textit{El Puente}: Álgebra de Boole, Máquinas de Turing y la Física del Silicio}
+
+\textcolor{mitred}{\textbf{Clase de transición. El nivel de abstracción comienza a descender.}}
+
+\begin{prereqs}
+Sesiones 1--5 completas. Esta sesión sintetiza toda la primera mitad y abre la segunda.
+\end{prereqs}
+
+\subsection*{Motivación}
+Hemos demostrado que la lógica tiene límites infranqueables (Gödel) y que la computación universal es formalmente posible (Turing). ¿Cómo se materializa esa computación en átomos? Esta sesión responde en tres pasos: primero reducimos la lógica a álgebra (Boole/Shannon); luego mostramos que cualquier cómputo reducible a operaciones booleanas sobre bits; finalmente demostramos que esos bits sólo existen porque el silicio tiene una propiedad termodinámica muy específica: el \emph{bandgap}.
+
+\subsection{Contenidos}
+
+\subsubsection{6.1 — Álgebra de Boole}
+\begin{itemize}
+  \item Álgebra de Boole $(B,+,\cdot,\bar{\phantom{x}},0,1)$: axiomas de Huntington.
+  \item Relación con la lógica proposicional: $\{0,1\}\cong\{F,V\}$, las operaciones coinciden.
+  \item Funciones booleanas de $n$ variables: hay $2^{2^n}$ funciones posibles.
+  \item Teorema de Shannon (1938): toda función booleana es implementable con AND, OR, NOT.
+  \item Corolario: $\{\text{NAND}\}$ es funcionalmente completo (demostrado en sesión 3, ahora con consecuencias físicas).
+  \item Circuitos combinacionales como grafos dirigidos acíclicos de compuertas.
+\end{itemize}
+
+\subsubsection{6.2 — De la Máquina de Turing al Circuito Digital}
+\begin{itemize}
+  \item Circuito secuencial: añade memoria (biestables $D$). Estado = cinta de Turing.
+  \item La CPU como Máquina de Turing finita (aproximación): contador de programa, registros, ALU.
+  \item Por qué la fisicalidad no supera los límites de Turing: cualquier CPU ejecuta un lenguaje recursivamente enumerable.
+\end{itemize}
+
+\subsubsection{6.3 — La Ilusión del Bit: Por qué se Necesita No-Linealidad}
+\begin{itemize}
+  \item Un bit requiere un sistema físico biestable con \emph{regeneración}: el ruido no puede degradarlo.
+  \item Dispositivo lineal (resistencia): $V_\text{out}=\alpha V_\text{in}$ —no puede rechazar ruido, no sirve.
+  \item Dispositivo no lineal con ganancia: puede amplificar la separación entre estados y restaurarla.
+  \item Conclusión: la lógica binaria exige un sustrato material no lineal.
+\end{itemize}
+
+\subsubsection{6.4 — Química del Silicio y el Bandgap como Energía de Activación}
+\begin{itemize}
+  \item Silicio a $0\,\text{K}$: 4 electrones de valencia, 4 enlaces covalentes perfectos. Sin portadores libres.
+  \item El \emph{bandgap} $E_g = 1{,}12\,\text{eV}$ es la energía mínima para romper un enlace covalente y liberar un electrón.
+  \item Analogía termodinámica: $E_g$ es la barrera de activación de la reacción Si-enlace $\rightleftharpoons$ Si-libre + hueco.
+  \item A temperatura $T>0\,\text{K}$, la agitación térmica (energía $\sim k_B T$) rompe algunos enlaces.
+  \item A $T=300\,\text{K}$: $k_B T \approx 26\,\text{meV} \ll E_g$. La fracción de enlaces rotos es minúscula y controlable.
+  \item \textbf{Ejercicio numérico central (entregable):}
+    Demostrar a qué temperatura $T^*$ la concentración intrínseca $n_i(T)$ alcanza el umbral dopante
+    $n_d = 10^{16}\,\text{cm}^{-3}$, es decir, el chip «olvida» su lógica:
+    \[n_i(T)\approx\sqrt{N_c N_v}\,\exp\!\left(-\frac{E_g}{2k_BT}\right)\]
+\end{itemize}
+
+\begin{objetivos}
+\begin{itemize}
+  \item Demostrar que toda función booleana es realizable con compuertas NAND.
+  \item Justificar por qué un sistema físico de lógica binaria exige no-linealidad con ganancia.
+  \item Calcular numéricamente la temperatura de colapso lógico de un chip de silicio dopado.
+  \item Enunciar el nexo completo: Gödel $\to$ Turing $\to$ Boole $\to$ Silicio.
+\end{itemize}
+\end{objetivos}
+
+\begin{lecturas}
+\begin{itemize}
+  \item[$(\star)$] \textbf{Shannon, C. E.} (1938) — «A Symbolic Analysis of Relay and Switching Circuits». \textit{Transactions of the AIEE}, 57, pp.\ 713--723. \textit{Artículo original, accesible online.}
+  \item[$(\star)$] \textbf{Streetman, B. G., \& Banerjee, S. K.} — \emph{Solid State Electronic Devices}, 7ª ed. Capítulo 2 §2.1--2.3 (pp.\ 31--60): estructura cristalina, enlace covalente y concepto de \emph{bandgap}.
+  \item \textbf{Tanenbaum, A. S., \& Austin, T.} — \emph{Structured Computer Organization}, 6ª ed. Capítulo 1 (pp.\ 1--35) para la arquitectura como implementación de Turing.
+  \item \textbf{Minsky, M.} — \emph{Computation: Finite and Infinite Machines}. Capítulo 1 (pp.\ 1--30).
+\end{itemize}
+\end{lecturas}
+
+\newpage
+
+% ============================================================
+%  SESIÓN 7
+% ============================================================
+\section{Sesión 7 — Semiconductores: Estadística de Fermi-Dirac y Dopaje}
+
+\begin{prereqs}
+Sesión 6. Especialmente: concepto de \emph{bandgap} como barrera termodinámica, cálculo de $n_i(T)$.
+\end{prereqs}
+
+\subsection*{Motivación}
+El cálculo del chip que «olvida» su lógica (sesión 6) requirió la función $n_i(T)$. Esta sesión la deriva desde primeros principios de la mecánica estadística y muestra cómo el dopaje permite al ingeniero controlar la concentración de portadores con precisión de varios órdenes de magnitud.
+
+\subsection{Contenidos}
+
+\subsubsection{7.1 — La Distribución de Fermi-Dirac}
+\begin{itemize}
+  \item Motivación estadística: ¿cuál es la probabilidad de que un estado de energía $E$ esté ocupado por un electrón en equilibrio térmico?
+  \item Principio de exclusión de Pauli: dos fermiones no pueden ocupar el mismo estado.
+  \item Resultado:
+    \[f(E)=\frac{1}{1+e^{(E-E_F)/k_BT}}\]
+  \item El nivel de Fermi $E_F$: energía a la que la probabilidad de ocupación es exactamente $\frac{1}{2}$.
+  \item Límites: $T\to 0$ (función escalón) y $T\to\infty$ (distribución de Maxwell-Boltzmann).
+  \item Aproximación de Boltzmann cuando $E-E_F\gg k_BT$: $f(E)\approx e^{-(E-E_F)/k_BT}$.
+\end{itemize}
+
+\subsubsection{7.2 — Densidad de Estados y Concentración de Portadores}
+\begin{itemize}
+  \item Densidad de estados efectiva en la banda de conducción $N_c$ y en la de valencia $N_v$.
+  \item Concentración de electrones en conducción:
+    \[n = N_c\,e^{-(E_c-E_F)/k_BT}\]
+  \item Concentración de huecos:
+    \[p = N_v\,e^{-(E_F-E_v)/k_BT}\]
+  \item Producto de portadores en equilibrio (demostración):
+    \[np = N_c N_v\,e^{-E_g/k_BT} = n_i^2(T)\]
+\end{itemize}
+
+\subsubsection{7.3 — Dopaje y Equilibrio Químico}
+\begin{itemize}
+  \item Donadores (fósforo, grupo V): aportan electrones. Concentración $N_D$.
+  \item Aceptores (boro, grupo III): aportan huecos. Concentración $N_A$.
+  \item Condición de neutralidad eléctrica: $n + N_A^- = p + N_D^+$.
+  \item Tipo N ($N_D\gg N_A$, $N_D\gg n_i$): $n\approx N_D$, $p\approx n_i^2/N_D$.
+  \item Tipo P ($N_A\gg N_D$, $N_A\gg n_i$): $p\approx N_A$, $n\approx n_i^2/N_A$.
+  \item \textbf{Ley de acción de masas} $np=n_i^2$: análogo exacto de la constante de equilibrio $K_{eq}$ en cinética química.
+\end{itemize}
+
+\begin{objetivos}
+\begin{itemize}
+  \item Derivar $f(E)$ desde el principio de exclusión de Pauli y maximización de entropía.
+  \item Calcular $n$, $p$ y $E_F$ para un semiconductor dopado a temperatura ambiente.
+  \item Verificar numéricamente la ley $np=n_i^2$ para silicio tipo N y tipo P.
+\end{itemize}
+\end{objetivos}
+
+\begin{lecturas}
+\begin{itemize}
+  \item[$(\star)$] \textbf{Streetman, B. G., \& Banerjee, S. K.} — \emph{Solid State Electronic Devices}, 7ª ed. Capítulo 3 «Energy Bands and Charge Carriers in Semiconductors» (pp.\ 61--120). \textit{Referencia principal.}
+  \item[$(\star)$] \textbf{Kittel, C., \& Kroemer, H.} — \emph{Thermal Physics}, 2ª ed. Capítulo 7 «Fermi and Bose Gases» (pp.\ 155--182) para la derivación estadística de $f(E)$.
+  \item \textbf{Neamen, D. A.} — \emph{Semiconductor Physics and Devices}, 4ª ed. Capítulo 4 «The Semiconductor in Equilibrium» (pp.\ 107--156).
+\end{itemize}
+\end{lecturas}
+
+\newpage
+
+% ============================================================
+%  SESIÓN 8
+% ============================================================
+\section{Sesión 8 — La Unión PN y el Diodo: Termodinámica de No Equilibrio}
+
+\begin{prereqs}
+Sesión 7. Concentraciones de portadores, nivel de Fermi, ley de acción de masas.
+\end{prereqs}
+
+\subsection*{Motivación}
+Yuxtaponer dos semiconductores de tipo opuesto crea espontáneamente una barrera de potencial. Aplicar un voltaje externo controla esa barrera y produce el flujo unidireccional de carga: el rectificador. Este comportamiento no lineal es el primer ladrillo del interruptor lógico.
+
+\subsection{Contenidos}
+
+\subsubsection{8.1 — Formación de la Unión PN y la Región de Agotamiento}
+\begin{itemize}
+  \item Al unir P y N: los portadores mayoritarios difunden cruzando la unión.
+  \item Queda una zona sin portadores libres (región de agotamiento, ancho $W$) con carga fija $\pm eN_{D,A}$.
+  \item Campo eléctrico interno $\mathcal{E}(x)$ de la región de agotamiento (solución de Poisson).
+  \item Potencial de contacto (potencial built-in):
+    \[V_0 = \frac{k_BT}{q}\ln\frac{N_A N_D}{n_i^2}\]
+  \item \textbf{Principio de maximización de entropía:} la difusión ocurre exactamente hasta que el gradiente de potencial químico cancela el gradiente eléctrico.
+\end{itemize}
+
+\subsubsection{8.2 — Corrientes en No Equilibrio: Difusión y Arrastre}
+\begin{itemize}
+  \item Corriente de difusión: $J_n^{\text{dif}}=eD_n\dfrac{dn}{dx}$,\quad$J_p^{\text{dif}}=-eD_p\dfrac{dp}{dx}$ (Ley de Fick).
+  \item Corriente de arrastre: $J_n^{\text{arr}}=e\mu_n n\mathcal{E}$,\quad$J_p^{\text{arr}}=e\mu_p p\mathcal{E}$.
+  \item Relación de Einstein (derivación desde el principio de equilibrio):
+    \[\frac{D_n}{\mu_n}=\frac{D_p}{\mu_p}=\frac{k_BT}{q}=V_T\]
+  \item Voltaje térmico $V_T\approx 25{,}9\,\text{mV}$ a $300\,\text{K}$.
+\end{itemize}
+
+\subsubsection{8.3 — La Ecuación de Shockley}
+\begin{itemize}
+  \item Con polarización directa $V_A>0$: la barrera se reduce, los minoritarios se inyectan.
+  \item Condiciones de borde para portadores minoritarios en exceso $\delta p(x)$, $\delta n(x)$.
+  \item Solución de la ecuación de difusión para minoritarios: perfil exponencial con longitud de difusión $L_p=\sqrt{D_p\tau_p}$.
+  \item Derivación de la corriente total de saturación $I_s$ e integración:
+    \[I_D = I_s\left(e^{V_A/V_T}-1\right)\]
+  \item La no-linealidad es exactamente la que requería la sesión 6.
+\end{itemize}
+
+\begin{objetivos}
+\begin{itemize}
+  \item Calcular $V_0$ y el ancho de agotamiento $W$ para una unión P$^+$N dada.
+  \item Derivar la relación de Einstein desde condiciones de equilibrio.
+  \item Obtener la ecuación de Shockley a partir de las ecuaciones de transporte y condiciones de borde.
+\end{itemize}
+\end{objetivos}
+
+\begin{lecturas}
+\begin{itemize}
+  \item[$(\star)$] \textbf{Streetman, B. G., \& Banerjee, S. K.} — \emph{Solid State Electronic Devices}, 7ª ed. Capítulos 5 «Junctions» (pp.\ 163--220).
+  \item[$(\star)$] \textbf{Sedra, A. S., \& Smith, K. C.} — \emph{Microelectronic Circuits}, 7ª ed. Capítulo 4 «Diodes» §4.1--4.4 (pp.\ 155--196). \textit{Tratamiento de ingeniería más directo.}
+  \item \textbf{Sze, S. M., \& Ng, K. K.} — \emph{Physics of Semiconductor Devices}, 3ª ed. Capítulo 2 (pp.\ 79--124) para el tratamiento riguroso de la ecuación de continuidad.
+\end{itemize}
+\end{lecturas}
+
+\newpage
+
+% ============================================================
+%  SESIÓN 9
+% ============================================================
+\section{Sesión 9 — El Transistor MOSFET y las Compuertas CMOS}
+
+\begin{prereqs}
+Sesiones 7 y 8. Portadores, campo eléctrico en la unión, concepto de control por voltaje.
+\end{prereqs}
+
+\subsection*{Motivación}
+El MOSFET es el dispositivo más fabricado en la historia: $\sim 10^{22}$ transistores producidos a la fecha de este curso. Entender su modelo cuantitativo, derivado directamente de la física de semiconductores, es entender cómo la lógica de la sesión 3 se implementa en silicio.
+
+\subsection{Contenidos}
+
+\subsubsection{9.1 — Estructura y Operación Cualitativa del MOSFET}
+\begin{itemize}
+  \item Geometría: compuerta (gate), óxido (SiO$_2$), canal, fuente (source), drenador (drain), sustrato.
+  \item El MOSFET como capacitor controlado por voltaje: $V_{GS}$ induce carga en el canal.
+  \item Tensión umbral $V_{TH}$: voltaje de compuerta mínimo para formar el canal de inversión.
+  \item Regiones de operación: corte ($V_{GS}<V_{TH}$), triodo, saturación.
+\end{itemize}
+
+\subsubsection{9.2 — Derivación de la Ecuación de Corriente}
+\begin{itemize}
+  \item Carga de inversión por unidad de área: $Q_n(x)=-C_{ox}(V_{GS}-V_{TH}-V(x))$.
+  \item Corriente de arrastre en el canal: $I_D=\mu_n Q_n(x)W\mathcal{E}(x)$.
+  \item Integración a lo largo del canal (longitud $L$):
+    \[\text{Región triodo: }I_D=\mu_n C_{ox}\frac{W}{L}\!\left[(V_{GS}-V_{TH})V_{DS}-\frac{V_{DS}^2}{2}\right]\]
+  \item Punto de saturación ($V_{DS}=V_{GS}-V_{TH}$) y corriente de saturación:
+    \[I_D=\frac{1}{2}\mu_n C_{ox}\frac{W}{L}(V_{GS}-V_{TH})^2\]
+  \item El transistor PMOS: dualidad de huecos, corrientes negativas, misma derivación con $\mu_p$.
+\end{itemize}
+
+\subsubsection{9.3 — Implementación Lógica CMOS}
+\begin{itemize}
+  \item Par CMOS: NMOS (red Pull-Down) + PMOS (red Pull-Up). Consumo estático nulo en estado estacionario.
+  \item Inversor CMOS: análisis estático de la curva de transferencia.
+  \item Compuerta NAND de 2 entradas: derivación de la tabla de verdad desde las redes P/D.
+  \item Compuerta NOR de 2 entradas.
+  \item \textbf{Cierre conceptual:} la red Pull-Down implementa la función booleana directa; la Pull-Up implementa su complemento. Modus Ponens en silicio.
+  \item Ruido, márgenes de ruido y regeneración: por qué la curva de transferencia del inversor CMOS garantiza los estados lógicos (retorno a sesión 6.3).
+\end{itemize}
+
+\begin{objetivos}
+\begin{itemize}
+  \item Derivar la ecuación de saturación del MOSFET a partir del modelo de carga de canal.
+  \item Diseñar la red Pull-Up / Pull-Down para una función lógica arbitraria de 2 variables.
+  \item Calcular los márgenes de ruido de un inversor CMOS dado $\mu_n C_{ox}(W/L)$ y $V_{DD}$.
+\end{itemize}
+\end{objetivos}
+
+\begin{lecturas}
+\begin{itemize}
+  \item[$(\star)$] \textbf{Sedra, A. S., \& Smith, K. C.} — \emph{Microelectronic Circuits}, 7ª ed. Capítulo 5 «MOS Field-Effect Transistors» §5.1--5.4 (pp.\ 230--300) y §14.1--14.3 (pp.\ 740--770) para CMOS.
+  \item[$(\star)$] \textbf{Streetman, B. G., \& Banerjee, S. K.} — \emph{Solid State Electronic Devices}, 7ª ed. Capítulo 6 «Field-Effect Transistors» (pp.\ 255--310).
+  \item \textbf{Weste, N. H. E., \& Harris, D.} — \emph{CMOS VLSI Design}, 4ª ed. Capítulo 1 (pp.\ 1--40) para la perspectiva de diseño de sistema.
+\end{itemize}
+\end{lecturas}
+
+\newpage
+
+% ============================================================
+%  SESIÓN 10
+% ============================================================
+\section{Sesión 10 — Sistemas Dinámicos y Filtros en el Dominio $s$}
+
+\begin{prereqs}
+Sesión 9; cálculo diferencial e integral, ecuaciones diferenciales ordinarias de primer y segundo orden.
+\end{prereqs}
+
+\subsection*{Motivación}
+Los circuitos analógicos (amplificadores, fuentes de alimentación, lazos de control de la velocidad de reloj) no son estáticos: responden en el tiempo. La Transformada de Laplace convierte ecuaciones diferenciales en álgebra, permitiendo analizar estabilidad y diseñar filtros de forma sistemática. Es también el formalismo detrás del control de carga de baterías y la estabilización de amplificadores operacionales.
+
+\subsection{Contenidos}
+
+\subsubsection{10.1 — Modelado Dinámico de Circuitos}
+\begin{itemize}
+  \item Ecuaciones constitutivas: $v_R=Ri$, $v_L=L\dot{i}$, $i_C=C\dot{v}$.
+  \item Circuito RLC serie: ecuación diferencial de segundo orden.
+  \item Amplificador operacional ideal: modelo de espacio de estados de primer orden.
+\end{itemize}
+
+\subsubsection{10.2 — La Transformada de Laplace}
+\begin{itemize}
+  \item Definición y región de convergencia (ROC):
+    \[\mathcal{L}\{f(t)\}=F(s)=\int_0^\infty f(t)\,e^{-st}\,dt,\quad s\in\mathbb{C}\]
+  \item Pares fundamentales: escalón $u(t)$, impulso $\delta(t)$, exponencial $e^{-at}u(t)$, seno, coseno.
+  \item Propiedades: linealidad, desplazamiento temporal, diferenciación ($\mathcal{L}\{\dot{f}\}=sF(s)-f(0^-)$), integración.
+  \item Transformada inversa: fracciones parciales con polos simples, complejos conjugados y repetidos.
+\end{itemize}
+
+\subsubsection{10.3 — El Plano $s$ y Funciones de Transferencia}
+\begin{itemize}
+  \item Función de transferencia $H(s)=Y(s)/X(s)$ con condiciones iniciales nulas.
+  \item Polos y ceros: factorización de $H(s)$.
+  \item Estabilidad BIBO: todos los polos en el semiplano izquierdo abierto ($\text{Re}(s)<0$).
+  \item Respuesta al impulso $h(t)=\mathcal{L}^{-1}\{H(s)\}$ y convolución.
+  \item Respuesta en frecuencia: $H(j\omega)=H(s)|_{s=j\omega}$, módulo y fase.
+\end{itemize}
+
+\subsubsection{10.4 — Filtros Activos de Segundo Orden}
+\begin{itemize}
+  \item Función de transferencia bicuadrática general:
+    \[H(s)=\frac{a_2s^2+a_1s+a_0}{s^2+(\omega_0/Q)s+\omega_0^2}\]
+  \item Parámetros: frecuencia natural $\omega_0$ y factor de calidad $Q$ (relación con amortiguamiento $\zeta=1/2Q$).
+  \item Topología Sallen-Key: diseño algebraico de filtros pasa-bajas, pasa-altas y pasa-banda con amplificadores operacionales.
+  \item Diagramas de Bode: construcción asintótica, pendiente $\pm 20n\,\text{dB/dec}$, caída de $-3\,\text{dB}$ en la frecuencia de corte.
+  \item \textbf{Caso de estudio:} filtro de suavizado para la señal de salida de un convertidor DC-DC, vinculado al MOSFET de la sesión 9.
+\end{itemize}
+
+\begin{objetivos}
+\begin{itemize}
+  \item Obtener la función de transferencia de un circuito RLC y de un filtro Sallen-Key.
+  \item Localizar polos y ceros en el plano $s$ y deducir estabilidad y comportamiento transitorio.
+  \item Construir diagramas de Bode para funciones de segundo orden.
+  \item Diseñar un filtro pasa-bajas de segundo orden con especificaciones de $\omega_0$ y $Q$ dadas.
+\end{itemize}
+\end{objetivos}
+
+\begin{lecturas}
+\begin{itemize}
+  \item[$(\star)$] \textbf{Oppenheim, A. V., \& Willsky, A. S.} — \emph{Signals and Systems}, 2ª ed. Capítulo 9 «The Laplace Transform» (pp.\ 654--720). \textit{Tratamiento matemático riguroso.}
+  \item[$(\star)$] \textbf{Sedra, A. S., \& Smith, K. C.} — \emph{Microelectronic Circuits}, 7ª ed. Capítulo 16 «Filters and Tuned Amplifiers» §16.1--16.5 (pp.\ 857--910). \textit{Aplicación a filtros activos.}
+  \item \textbf{Ogata, K.} — \emph{Modern Control Engineering}, 5ª ed. Capítulo 2 §2.1--2.4 (pp.\ 17--55) para el modelado en espacio de estados y la estabilidad.
+  \item \textbf{Chen, C.-T.} — \emph{Linear System Theory and Design}, 4ª ed. Capítulo 4 (pp.\ 155--200) para el análisis de polos/ceros y la respuesta en frecuencia con rigor matemático.
+\end{itemize}
+\end{lecturas}
+
+\newpage
+
+% ============================================================
+%  BIBLIOGRAFÍA CONSOLIDADA
+% ============================================================
+\section{Bibliografía Consolidada}
+
+\subsection*{Lógica, Conjuntos y Fundamentos}
+\begin{itemize}
+  \item \textbf{Halmos, P. R.} — \emph{Naive Set Theory}. Springer, 1974. ISBN: 978-0-387-90104-6.
+  \item \textbf{Enderton, H. B.} — \emph{A Mathematical Introduction to Logic}, 2ª ed. Academic Press, 2001. ISBN: 978-0-12-238452-3.
+  \item \textbf{Enderton, H. B.} — \emph{Elements of Set Theory}. Academic Press, 1977. ISBN: 978-0-12-238440-0.
+  \item \textbf{Deaño, A.} — \emph{Introducción a la lógica formal}. Alianza Editorial, 1999. ISBN: 978-84-206-8139-5. \textit{[Principal referencia en español].}
+  \item \textbf{Mendelson, E.} — \emph{Introduction to Mathematical Logic}, 6ª ed. CRC Press, 2015. ISBN: 978-1-4822-3772-6.
+  \item \textbf{Marker, D.} — \emph{Model Theory: An Introduction}. Springer, 2002. ISBN: 978-0-387-98760-6.
+\end{itemize}
+
+\subsection*{Metamatemática, Incompletitud y Computabilidad}
+\begin{itemize}
+  \item \textbf{Hofstadter, D. R.} — \emph{Gödel, Escher, Bach: An Eternal Golden Braid}. Basic Books, 1979. ISBN: 978-0-465-02656-2. \textit{[Indispensable, lectura transversal].}
+  \item \textbf{Nagel, E., \& Newman, J. R.} — \emph{Gödel's Proof}, ed.\ revisada. NYU Press, 2001. ISBN: 978-0-8147-5816-8.
+  \item \textbf{Sipser, M.} — \emph{Introduction to the Theory of Computation}, 3ª ed. Cengage, 2012. ISBN: 978-1-133-18779-0. \textit{[Referencia principal para lenguajes y computabilidad].}
+  \item \textbf{Hopcroft, J. E., Motwani, R., \& Ullman, J. D.} — \emph{Introduction to Automata Theory, Languages, and Computation}, 3ª ed. Pearson, 2006. ISBN: 978-0-321-46225-1.
+  \item \textbf{Minsky, M. L.} — \emph{Computation: Finite and Infinite Machines}. Prentice-Hall, 1967.
+\end{itemize}
+
+\subsection*{Lingüística Matemática}
+\begin{itemize}
+  \item \textbf{Chomsky, N.} — \emph{Syntactic Structures}, 2ª ed. Mouton de Gruyter, 2002. ISBN: 978-3-11-017279-9. \textit{[Fuente primaria].}
+\end{itemize}
+
+\subsection*{Álgebra de Boole y Arquitectura}
+\begin{itemize}
+  \item \textbf{Shannon, C. E.} (1938) — «A Symbolic Analysis of Relay and Switching Circuits». \textit{Transactions of the AIEE}, 57, pp.\ 713--723.
+  \item \textbf{Tanenbaum, A. S., \& Austin, T.} — \emph{Structured Computer Organization}, 6ª ed. Pearson, 2012. ISBN: 978-0-13-291652-3.
+\end{itemize}
+
+\subsection*{Física de Semiconductores y Electrónica}
+\begin{itemize}
+  \item \textbf{Streetman, B. G., \& Banerjee, S. K.} — \emph{Solid State Electronic Devices}, 7ª ed. Pearson, 2015. ISBN: 978-0-13-335424-1. \textit{[Referencia principal para semiconductores].}
+  \item \textbf{Neamen, D. A.} — \emph{Semiconductor Physics and Devices: Basic Principles}, 4ª ed. McGraw-Hill, 2012. ISBN: 978-0-07-352958-5.
+  \item \textbf{Sze, S. M., \& Ng, K. K.} — \emph{Physics of Semiconductor Devices}, 3ª ed. Wiley, 2007. ISBN: 978-0-471-14323-9. \textit{[Tratamiento avanzado].}
+  \item \textbf{Kittel, C., \& Kroemer, H.} — \emph{Thermal Physics}, 2ª ed. Freeman, 1980. ISBN: 978-0-7167-1088-2.
+  \item \textbf{Sedra, A. S., \& Smith, K. C.} — \emph{Microelectronic Circuits}, 7ª ed. Oxford University Press, 2014. ISBN: 978-0-19-933913-6. \textit{[Referencia principal para circuitos].}
+  \item \textbf{Weste, N. H. E., \& Harris, D.} — \emph{CMOS VLSI Design}, 4ª ed. Pearson, 2011. ISBN: 978-0-321-54774-3.
+\end{itemize}
+
+\subsection*{Señales y Sistemas}
+\begin{itemize}
+  \item \textbf{Oppenheim, A. V., \& Willsky, A. S.} — \emph{Signals and Systems}, 2ª ed. Prentice Hall, 1997. ISBN: 978-0-13-814757-0. \textit{[Referencia principal para Laplace].}
+  \item \textbf{Ogata, K.} — \emph{Modern Control Engineering}, 5ª ed. Pearson, 2010. ISBN: 978-0-13-615673-4.
+  \item \textbf{Chen, C.-T.} — \emph{Linear System Theory and Design}, 4ª ed. Oxford University Press, 2012. ISBN: 978-0-19-995957-0.
+\end{itemize}
+
+\newpage
+
+% ============================================================
+%  POLÍTICA DEL CURSO
+% ============================================================
+\section{Políticas del Curso}
+
+\subsection{Asistencia}
+Se requiere asistencia mínima del 80\% (8 de 10 sesiones). Las ausencias por causas de fuerza mayor deben notificarse \emph{antes} de la sesión. No existen recuperaciones de problemas semanales entregados fuera de fecha.
+
+\subsection{Integridad Académica}
+Todo trabajo entregado debe ser producto del trabajo propio o del equipo declarado. El uso de asistentes de inteligencia artificial generativa como herramienta de apoyo está permitido bajo la condición de que el alumno pueda defender y explicar cada paso de su solución en cualquier momento. La entrega de trabajo no propio sin atribución será sancionada conforme al reglamento institucional.
+
+\subsection{Comunicación}
+Las consultas técnicas se canalizan preferentemente en sesión. Para dudas entre sesiones, el TA establece un horario de atención semanal de 1 hora. Las preguntas por correo electrónico recibirán respuesta en un plazo máximo de 48 horas en días hábiles.
+
+\subsection{Materiales}
+Las notas de clase se distribuyen en formato PDF tras cada sesión. No se garantiza la disponibilidad de copias físicas de los libros; se recomienda acceso a las bibliotecas digital e impresa de la institución.
+
+\vspace{1.5cm}
+
+\begin{center}
+\textcolor{mitred}{\rule{0.5\linewidth}{0.6pt}}\\[0.3em]
+{\small\textit{«El universo no puede ser leído hasta que hayamos aprendido su lenguaje\\
+y nos hayamos familiarizado con los caracteres en que está escrito.\\
+Está escrito en lenguaje matemático.»}}\\[0.3em]
+{\footnotesize — Galileo Galilei, \textit{Il Saggiatore} (1623)}\\
+\textcolor{mitred}{\rule{0.5\linewidth}{0.6pt}}
+\end{center}
+
+\end{document}
