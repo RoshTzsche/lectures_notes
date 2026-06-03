@@ -1,6 +1,6 @@
 \documentclass[10pt, aspectratio=169]{beamer}
 
-% --- Configuración del Tema (Estilo Atractor) ---
+% --- Configuración del Tema ---
 \usetheme{metropolis}
 \usecolortheme{owl} % Fondo oscuro, alto contraste
 \usepackage[spanish]{babel}
@@ -8,166 +8,203 @@
 \usepackage{amsfonts, amsmath, amssymb, amsthm}
 \usepackage{graphicx}
 \usepackage{tikz}
-\usepackage{hyperref}
-\usepackage{array}
 
 % --- Colores Personalizados ---
 \definecolor{diagonalred}{RGB}{140, 20, 40}
 \definecolor{mitred}{RGB}{163, 31, 52}
 
 % --- Información del Título ---
-\title{De los Sistemas Formales a la Electrónica Aplicada}
-\subtitle{Clase 2: Lógica Proposicional: Sintaxis y Semántica}
-\author{TA: Rosh Guadiana P.}
-\date{\today}
+\title{Los Límites de la Razón}
+\subtitle{Sesión 2: Lógica Abstracta y el NAND Universal}
+\author{Rosh Guadiana}
+\date{Junio 2026}
 
 \begin{document}
 
 % --- Slide 1: Título ---
 \maketitle
 
-% --- Slide 2: El Sistema MIU ---
-\begin{frame}{El Sistema MIU y la Sintaxis Pura}
-    \begin{columns}
-        \begin{column}{0.5\textwidth}
-            \textbf{Un Sistema Formal Puro}
-            \begin{itemize}
-                \item Los símbolos $M, I, U$ \alert{no significan nada}; son marcas vacías.
-                \item La derivación opera a ciegas, separada del significado humano.
-                \item \textbf{El misterio:} ¿Se puede derivar la cadena \textbf{MU}?
-            \end{itemize}
-            \vspace{0.2cm}
-            \end{block}
-        \end{column}
-        \begin{column}{0.5\textwidth}
-            \begin{exampleblock}{Definición del Sistema (GEB)}
-                \textbf{Alfabeto:} $\{M, I, U\}$ \\
-                \textbf{Axioma Inicial:} $MI$ \\
-                \textbf{Reglas de Inferencia:}
-                \begin{enumerate}
-                    \item $xI \to xIU$
-                    \item $Mx \to Mxx$
-                    \item $xIIIy \to xUy$
-                    \item $xUUy \to xy$
-                \end{enumerate}
-            \end{exampleblock}
-        \end{column}
-    \end{columns}
+% --- Slide 2: Motivación ---
+\begin{frame}{Motivación: La Tragedia de Boole}
+    \begin{center}
+        \vspace{0.5cm}
+        
+        \alert{\textbf{La Gran Separación:}}
+        
+        \vspace{0.3cm}
+        \normalsize
+        Debemos separar estrictamente las reglas de formación mecánica (\textbf{sintaxis}) de su respectiva interpretación humana (\textbf{semántica}).
+        
+        \vspace{1.0cm}
+        \textit{"La máquina procesa la forma; la mente proyecta el fondo."}
+    \end{center}
 \end{frame}
 
-% --- Slide 3: Escher y Figura/Fondo ---
-\begin{frame}{Escher, Figura/Fondo y las Negaciones}
-    \begin{columns}
-        \begin{column}{0.55\textwidth}
-            En la lógica formal existe una dualidad análoga al arte de Escher:
-            \begin{itemize}
-                \item \textbf{La Figura (Espacio Positivo):} El conjunto de todos los \alert{teoremas} que nuestras reglas construyen.
-                \item \textbf{El Fondo (Espacio Negativo):} El conjunto de los \alert{no-teoremas} que las reglas rechazan (ej. MU).
-            \end{itemize}
-            \vspace{0.4cm}
-            \textit{¿Acaso la figura contiene la misma información que su fondo?} \\
-            \vspace{0.2cm}
-            \footnotesize Generar verdades mecánicamente no nos da un método automático para identificar todas las falsedades. Esta asimetría detonará la \textbf{Incompletitud de Gödel}.
-        \end{column}
-        \begin{column}{0.45\textwidth}
-            \centering
-            % Sustituir por la imagen local de Escher cuando compiles
-            \includegraphics[width=0.9\textwidth]{example-image}
-            \\ \small \textit{Day and Night} - M.C. Escher
-        \end{column}
-    \end{columns}
+% --- Slide 3: El Sistema Formal (MIU) ---
+\begin{frame}{Marcas Vacías: El Sistema MIU}
+    \begin{center}
+        \Large \textbf{El Juego de las Formas}
+    \end{center}
+    
+    \vspace{0.4cm}
+    \begin{itemize}
+        \large
+        \item \textbf{Alfabeto:} $\Sigma = \{M, I, U\}$
+        \item \textbf{Axioma:} $MI$
+        \item \textbf{Reglas de Inferencia:}
+        \begin{enumerate}
+            \normalsize
+            \item $xI \to xIU$
+            \item $Mx \to Mxx$
+            \item $III \to U$
+            \item $UU \to \emptyset$
+        \end{enumerate}
+    \end{itemize}
+
+    \vspace{0.6cm}
+    \begin{center}
+        \alert{\large ¿Es posible derivar la cadena $MU$?}
+    \end{center}
 \end{frame}
 
-% --- Slide 4: Boole y la Separación ---
-\begin{frame}{Boole y la Gran Separación ($\vdash$ vs $\models$)}
-    \textbf{Objetivo de Boole (1854):} Matematizar las Leyes del Pensamiento. \\
+% --- Slide 4: Escher 1 ---
+\begin{frame}{La Forma y el Fondo}
+\begin{center}
+    \includegraphics[height=0.95\textheight]{../../assets/mosaic2.jpeg} \\
     \vspace{0.3cm}
-    Debemos ejecutar la \alert{Gran Separación}:
-    \begin{columns}
-        \begin{column}{0.45\textwidth}
-            \begin{block}{Sintaxis (Derivación) $\vdash$}
-                Manipulación mecánica de \textbf{Fórmulas Bien Formadas (FBF)}.
-                \begin{itemize}
-                    \item Reglas estructurales.
-                    \item Operación puramente tipográfica.
-                \end{itemize}
-            \end{block}
-        \end{column}
-        \begin{column}{0.1\textwidth}
-            \centering \Large $\Longleftrightarrow$
-        \end{column}
-        \begin{column}{0.45\textwidth}
-            \begin{block}{Semántica (Verdad) $\models$}
-                Asignación de valores del mundo real mediante \textbf{Valuaciones}.
-                \begin{itemize}
-                    \item Tablas de verdad.
-                    \item Interpretación del significado.
-                \end{itemize}
-            \end{block}
-        \end{column}
-    \end{columns}
-    \vspace{0.4cm}
-    \centering
-    \textbf{Teorema de Corrección:} Si manipulas correctamente los símbolos mecánicos ($\vdash$), alcanzarás una verdad semántica indudable ($\models$).
+\end{center}
+\end{frame}
+\begin{frame}{La Forma y el Fondo}
+\begin{center}
+    \includegraphics[height=0.85\textheight]{../../assets/figurefigure.jpeg} \\
+    \vspace{0.3cm}
+\small \textit{FIGURE-FIGURE} (1975) -- Scott E. Kim.
+\end{center}
 \end{frame}
 
-% --- Slide 5: Semántica Práctica ---
-\begin{frame}{Ejemplo Semántico: Modus Ponens}
-    \centering
-    Verificando la validez semántica del Modus Ponens ($p \to q, p \models q$) mediante tablas de verdad:
-    \vspace{0.4cm}
-    
-    \renewcommand{\arraystretch}{1.3}
-    \begin{tabular}{|c|c|c|c|c|}
-        \hline
-        $p$ & $q$ & $p \to q$ & $(p \to q) \land p$ & $((p \to q) \land p) \to q$ \\
-        \hline
-        V & V & V & V & \textbf{V} \\
-        V & F & F & F & \textbf{V} \\
-        F & V & V & F & \textbf{V} \\
-        F & F & V & F & \textbf{V} \\
-        \hline
-    \end{tabular}
-    \vspace{0.4cm}
-    
-    \textit{La tautología final confirma que la regla de inferencia sintáctica preserva la verdad semántica.}
+
+
+\begin{frame}{La Forma y el Fondo}
+    \begin{center}
+        % Nota: Ajusta la ruta a tu directorio de imágenes
+        \includegraphics[height=0.75\textheight]{../../assets/day-and-night.jpg} \\
+        \vspace{0.3cm}
+        \small \textit{Day and Night} (1938) -- M.C. Escher. \\ 
+        \footnotesize \textit{La interdependencia de la figura (sintaxis) y el fondo (semántica).}
+    \end{center}
 \end{frame}
 
-% --- Slide 6: El Clímax NAND ---
-\begin{frame}{El Clímax: La Completitud Funcional del NAND}
+% --- Slide 5: Escher 2 ---
+\begin{frame}{La Forma y el Fondo}
+    \begin{center}
+        \includegraphics[height=0.75\textheight]{../../assets/sky-and-water.jpg} \\
+        \vspace{0.3cm}
+        \small \textit{Sky and Water I} (1938) -- M.C. Escher. \\
+        \footnotesize \textit{Transición estructural: cuando las marcas vacías adquieren significado.}
+    \end{center}
+\end{frame}
+
+% --- Slide 6: Escher 3 ---
+\begin{frame}{La Forma y el Fondo}
+    \begin{center}
+        \includegraphics[height=0.75\textheight]{../../assets/drawing-hands.jpg} \\
+        \vspace{0.3cm}
+        \small \textit{Drawing Hands} (1948) -- M.C. Escher. \\
+        \footnotesize \textit{Recursión formal: el sistema que se define a sí mismo.}
+    \end{center}
+\end{frame}
+
+% --- Slide 7: El Lenguaje y Sintaxis ---
+\begin{frame}{2.1 El Lenguaje como Sistema Formal}
+    \textbf{Sintaxis del Cálculo Proposicional}
+    
+    \vspace{0.4cm}
+    \begin{itemize}
+        \item \textbf{Alfabeto} $\Sigma$ y el conjunto infinito de todas las cadenas posibles $\Sigma^*$.
+        \item \textbf{Variables lógicas:} $p, q, r, \dots$
+        \item \textbf{Conectivos:} $\neg, \land, \lor, \to, \leftrightarrow$
+    \end{itemize}
+
+    \vspace{0.6cm}
+    \alert{\textbf{Fórmula Bien Formada (FBF) por Recursión:}}
+    \begin{enumerate}
+        \item Toda variable proposicional es una FBF.
+        \item Si $\varphi$ es una FBF, entonces $(\neg\varphi)$ es una FBF.
+        \item Si $\varphi$ y $\psi$ son FBFs, entonces $(\varphi * \psi)$ es una FBF (donde $*$ es un conectivo binario).
+    \end{enumerate}
+\end{frame}
+
+% --- Slide 8: Semántica ---
+\begin{frame}{2.2 Semántica: El Mundo del Significado}
+    \begin{center}
+        \Large Asignando "Verdad" a marcas vacías.
+        
+        \vspace{0.4cm}
+        \begin{equation*}
+            v: \text{VAR} \to \{0, 1\}
+        \end{equation*}
+        \normalsize
+    \end{center}
+    
+    \vspace{0.4cm}
+    \begin{itemize}
+        \item \textbf{Tautología:} Verdadera bajo toda valuación posible ($v(\varphi) = 1$).
+        \item \textbf{Contradicción:} Falsa bajo toda valuación posible ($v(\varphi) = 0$).
+        \item \textbf{Consecuencia Semántica ($\Gamma \models \varphi$):} Si todas las fórmulas en $\Gamma$ son verdaderas, entonces obligatoriamente $\varphi$ es verdadera.
+    \end{itemize}
+\end{frame}
+
+% --- Slide 9: Teoría de la Demostración ---
+\begin{frame}{2.3 Teoría de la Demostración}
     \begin{columns}
         \begin{column}{0.4\textwidth}
-            Cualquier fórmula proposicional, por compleja que sea, puede expresarse con \textbf{un solo operador universal}: el \alert{NAND} ($p \uparrow q$). \\
-            \vspace{0.4cm}
-            \renewcommand{\arraystretch}{1.2}
-            \begin{tabular}{|c|c|c|}
-                \hline
-                $p$ & $q$ & $p \uparrow q$ \\
-                \hline
-                V & V & F \\
-                V & F & V \\
-                F & V & V \\
-                F & F & V \\
-                \hline
-            \end{tabular}
+            \textbf{El Motor Mecánico}
+            \vspace{0.5cm}
+            
+            \large
+            Modus Ponens:
+            \begin{equation*}
+                \frac{\varphi \quad \varphi \to \psi}{\psi}
+            \end{equation*}
         \end{column}
         \begin{column}{0.6\textwidth}
-            \begin{exampleblock}{Derivaciones Algebraicas}
-                \textbf{1. Negación (NOT):} $\neg p$
-                \begin{equation*}
-                    \neg p \equiv p \uparrow p
-                \end{equation*}
-                
-                \textbf{2. Conjunción (AND):} $p \land q$
-                \begin{align*}
-                    p \land q &\equiv \neg(p \uparrow q) \\
-                              &\equiv (p \uparrow q) \uparrow (p \uparrow q)
-                \end{align*}
-            \end{exampleblock}
+            \textbf{Derivación Formal ($\Gamma \vdash \varphi$)}
+            
             \vspace{0.3cm}
-            \footnotesize \textbf{Hacia la Sesión 8:} Abandonaremos el pizarrón. Usaremos transistores de silicio para construir físicamente esta compuerta NAND, capturando la lógica del universo dentro de la materia.
+            \small La prueba concebida no como un acto de iluminación humana, sino como una \textbf{transformación puramente mecánica de símbolos} basada en reglas previas.
+            
+            \vspace{0.6cm}
+            \alert{\textbf{Teorema de Corrección (Soundness):}}
+            \begin{equation*}
+                \Gamma \vdash \varphi \implies \Gamma \models \varphi
+            \end{equation*}
+            \footnotesize \textit{Si una fórmula se puede probar sintácticamente por la máquina, entonces es semánticamente verdadera en el universo.}
         \end{column}
     \end{columns}
+\end{frame}
+
+% --- Slide 10: El Clímax (NAND) ---
+\begin{frame}{El Clímax: Completitud Funcional}
+    \begin{center}
+        \Large
+        ¿Es posible expresar la totalidad del universo proposicional con una sola pieza?
+        
+        \vspace{0.5cm}
+        \alert{\textbf{El Operador NAND ($\uparrow$)}}
+    \end{center}
+    
+    \vspace{0.5cm}
+    \textbf{Reto Algebraico:} Construye el universo abstracto.
+    \begin{itemize}
+        \item Expresa $\neg p$ usando únicamente $p \uparrow q$
+        \item Expresa $p \land q$ usando únicamente $\uparrow$
+        \item Expresa $p \lor q$ usando únicamente $\uparrow$
+    \end{itemize}
+    
+    \vspace{0.5cm}
+    \begin{center}
+        \textit{Con un solo bloque, fundamos las bases del cómputo moderno.}
+    \end{center}
 \end{frame}
 
 \end{document}
