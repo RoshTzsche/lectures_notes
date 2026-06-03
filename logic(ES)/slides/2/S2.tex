@@ -15,7 +15,7 @@
 
 % --- Información del Título ---
 \title{Los Límites de la Razón}
-\subtitle{Sesión 2: Lógica Abstracta y el NAND Universal}
+\subtitle{Sesión 2: Lógica Proposicional: Sintaxis y Semántica}
 \author{Rosh Guadiana}
 \date{Junio 2026}
 
@@ -23,9 +23,36 @@
 
 % --- Slide 1: Título ---
 \maketitle
-
 % --- Slide 2: Motivación ---
-\begin{frame}{Motivación: La Tragedia de Boole}
+\begin{frame}{La Tragedia de Boole}
+    \begin{columns}
+        % Columna Izquierda: George Boole
+        \begin{column}{0.45\textwidth}
+            \begin{center}
+                % Reemplaza con la ruta de tu imagen
+                \includegraphics[height=0.8\textheight]{../../assets/george-boole.jpg} \\
+                \vspace{0.2cm}
+                \textbf{George Boole} \\
+                \small (1815 -- 1864)
+            \end{center}
+        \end{column}
+        
+        % Columna Derecha: Mary Everest Boole
+        \begin{column}{0.45\textwidth}
+            \begin{center}
+                % Reemplaza con la ruta de tu imagen
+                \includegraphics[height=0.8\textheight]{../../assets/mary-everest.jpg} \\
+                \vspace{0.2cm}
+                \textbf{Mary Everest Boole} \\
+                \small (1832 -- 1916)
+            \end{center}
+        \end{column}
+    \end{columns}
+    
+    \vspace{0.5cm}
+\end{frame}
+% --- Slide 2: Motivación ---
+\begin{frame}{La Tragedia de Boole}
     \begin{center}
         \vspace{0.5cm}
         
@@ -63,7 +90,8 @@
 
     \vspace{0.6cm}
     \begin{center}
-        \alert{\large ¿Es posible derivar la cadena $MU$?}
+        \alert{\large Ejercicio: derivar la cadena $MU$}
+
     \end{center}
 \end{frame}
 
@@ -113,8 +141,15 @@
         \footnotesize \textit{Recursión formal: el sistema que se define a sí mismo.}
     \end{center}
 \end{frame}
+\begin{frame}{La Forma y el Fondo}
+	\begin{center}
+		\alert{\large ¿Definir reglas para la figura nos da 
+		automáticamente un método para identificar el fondo?}
 
-% --- Slide 7: El Lenguaje y Sintaxis ---
+	\end{center}
+	\end{frame}
+
+	% --- Slide 7: El Lenguaje y Sintaxis ---
 \begin{frame}{2.1 El Lenguaje como Sistema Formal}
     \textbf{Sintaxis del Cálculo Proposicional}
     
@@ -137,7 +172,7 @@
 % --- Slide 8: Semántica ---
 \begin{frame}{2.2 Semántica: El Mundo del Significado}
     \begin{center}
-        \Large Asignando "Verdad" a marcas vacías.
+        \Large Asignando "Verdad", a marcas vacías.
         
         \vspace{0.4cm}
         \begin{equation*}
@@ -184,7 +219,7 @@
 \end{frame}
 
 % --- Slide 10: El Clímax (NAND) ---
-\begin{frame}{El Clímax: Completitud Funcional}
+\begin{frame}{Completitud Funcional}
     \begin{center}
         \Large
         ¿Es posible expresar la totalidad del universo proposicional con una sola pieza?
@@ -206,5 +241,10 @@
         \textit{Con un solo bloque, fundamos las bases del cómputo moderno.}
     \end{center}
 \end{frame}
+\begin{frame}{El Sueño Frustrado de la Humanidad}
+    \begin{center}
+        \Large \textbf{¿Podemos mecanizar el alma y la razón?}
+    \end{center}
 
+\end{frame}
 \end{document}
