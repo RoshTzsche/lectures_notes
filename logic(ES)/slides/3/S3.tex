@@ -1,0 +1,199 @@
+\documentclass[10pt, aspectratio=169]{beamer}
+
+% --- Configuración del Tema ---
+\usetheme{metropolis}
+\usecolortheme{owl} % Fondo oscuro, alto contraste
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsfonts, amsmath, amssymb, amsthm}
+\usepackage{graphicx}
+\usepackage{tikz}
+
+% --- Colores Personalizados ---
+\definecolor{diagonalred}{RGB}{140, 20, 40}
+\definecolor{mitred}{RGB}{163, 31, 52}
+
+% --- Información del Título ---
+\title{Los Límites de la Razón}
+\subtitle{Sesión 3: Lógica de primer orden y teoría de modelos}
+\author{Rosh Guadiana}
+\date{Junio 2026}
+
+\begin{document}
+
+% --- Slide 1: Título ---
+\maketitle
+
+% --- Slide 2: El Puente Roto (Parte 1) ---
+\begin{frame}{El Puente Roto: La insuficiencia de Boole}
+    \begin{center}
+        \Large \textit{"Todo número par mayor que 2 es la suma de dos primos"}
+        
+        \vspace{0.8cm}
+        \textbf{Traducción en Lógica Proposicional:}
+        
+        \vspace{0.4cm}
+        \Huge $p$
+    \end{center}
+\end{frame}
+
+% --- Slide 3: El Puente Roto (Parte 2) ---
+\begin{frame}{La necesidad de un bisturí}
+    \vspace{0.5cm}
+    \Large
+    La Lógica Proposicional es opaca; trata pensamientos hipercomplejos como bloques indivisibles. 
+    
+    \vspace{0.8cm}
+    \alert{\textbf{El siguiente paso:}} \\
+    \normalsize
+    \vspace{0.3cm}
+    Para que la matemática se autoanalice, necesitamos romper el átomo proposicional usando \textbf{cuantificadores} ($\forall, \exists$) y \textbf{variables} para ver su estructura interna.
+\end{frame}
+
+% --- Slide 4: La Asfixia del Vacío (Parte 1) ---
+\begin{frame}{La Asfixia del Vacío}
+    \begin{center}
+        \Large ¿Verdadero o Falso?
+        
+        \vspace{1.2cm}
+        \huge
+        $\forall x \exists y \ R(x, y) \to \exists y \forall x \ R(x, y)$
+    \end{center}
+\end{frame}
+
+% --- Slide 5: La Asfixia del Vacío (Parte 2) ---
+\begin{frame}{El pecado capital de la lógica}
+    \vspace{0.5cm}
+    \Large
+    Inyectarle un "mundo" a símbolos tipográficos completamente vacíos.
+    
+    \vspace{0.8cm}
+    \normalsize
+    En la Lógica de Primer Orden (FOL), los cuantificadores y las variables no valen nada sin una \textbf{Firma Lógica} y un \textbf{Dominio}. 
+    
+    \vspace{0.4cm}
+    \alert{El sistema formal evalúa diseños que tienen forma, pero no contenido.}
+\end{frame}
+
+% --- Slide 6: Sintaxis y Firma Lógica (Parte 1) ---
+\begin{frame}{Sintaxis y la Firma Lógica ($\mathcal{L}$)}
+    \begin{center}
+        \huge $\mathcal{L} = (\mathcal{F}, \mathcal{P}, ar)$
+    \end{center}
+    
+    \vspace{0.8cm}
+    \Large \textbf{El vocabulario de la máquina:}
+    \normalsize
+    \vspace{0.3cm}
+    \begin{itemize}
+        \setlength\itemsep{0.3cm}
+        \item $\mathcal{F}$: Conjunto de símbolos de \textbf{funciones}.
+        \item $\mathcal{P}$: Conjunto de símbolos de \textbf{predicado}.
+        \item $ar$: La \textbf{aridad} (número de argumentos) de cada símbolo.
+    \end{itemize}
+\end{frame}
+
+% --- Slide 7: Sintaxis y Firma Lógica (Parte 2) ---
+\begin{frame}{El estado de las variables}
+    \vspace{0.5cm}
+    \Large \alert{\textbf{Anatomía de las variables:}}
+    
+    \vspace{0.6cm}
+    \normalsize
+    \begin{itemize}
+        \setlength\itemsep{0.6cm}
+        \item \textbf{Variables Libres:}\\ 
+        Esperando recibir un valor (un significado).
+        \item \textbf{Variables Ligadas:}\\ 
+        Atrapadas por la dictadura de un cuantificador ($\forall x$ o $\exists x$).
+    \end{itemize}
+\end{frame}
+
+% --- Slide 8: Semántica (Parte 1) ---
+\begin{frame}{La Semántica y el Mundo}
+    \begin{center}
+        \vspace{0.5cm}
+        \Large \textbf{Estructura} $\mathfrak{A}$ = Dominio + Interpretación
+        
+        \vspace{1.2cm}
+        \huge
+        $\mathfrak{A} \models \varphi$
+    \end{center}
+\end{frame}
+
+% --- Slide 9: Semántica (Parte 2) ---
+\begin{frame}{El anclaje del significado}
+    \vspace{0.5cm}
+    \Large
+    Para que la sintaxis cobre vida, necesitamos inyectarle un \textbf{Universo de Discurso} (Dominio) y mapear cada símbolo vacío a una relación real en ese universo.
+    
+    \vspace{0.8cm}
+    \normalsize
+    \alert{Las verdades matemáticas no flotan en el vacío; existen \textbf{únicamente} relativas a un modelo.}
+\end{frame}
+
+% --- Slide 10: El Programa de Hilbert (Parte 1) ---
+\begin{frame}{El Delirio de Omnisciencia}
+    \begin{columns}
+        \begin{column}{0.4\textwidth}
+            \begin{center}
+                % Recuerda ajustar la ruta de esta imagen
+                \includegraphics[height=0.6\textheight]{ruta/a/hilbert.jpg} \\
+                \vspace{0.2cm}
+                \textbf{David Hilbert}
+            \end{center}
+        \end{column}
+        \begin{column}{0.6\textwidth}
+            \begin{center}
+                \Large \textit{"Wir müssen wissen. \\ Wir werden wissen."}
+                
+                \vspace{0.4cm}
+                \normalsize (Debemos saber. Sabremos.)
+            \end{center}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% --- Slide 11: El Programa de Hilbert (Parte 2) ---
+\begin{frame}{El sueño absolutista (1920s)}
+    \vspace{0.5cm}
+    \Large \textbf{El Programa de Hilbert:}
+    
+    \vspace{0.6cm}
+    \normalsize
+    Mecanizar toda la matemática usando el lenguaje impecable de la Lógica de Primer Orden (FOL). 
+    
+    \vspace{0.6cm}
+    \alert{\textbf{El objetivo:}} \\
+    Erradicar cualquier intuición humana y probar de forma puramente sintáctica que el sistema estaba libre de contradicciones.
+\end{frame}
+
+% --- Slide 12: El Clímax (Parte 1) ---
+\begin{frame}{La victoria efímera}
+    \begin{center}
+        \Large \textbf{Teorema de Completitud de Gödel (1929)}
+        
+        \vspace{0.8cm}
+        \huge
+        $\Gamma \models \varphi \iff \Gamma \vdash \varphi$
+    \end{center}
+    
+    \vspace{0.8cm}
+    \normalsize
+    La máquina sintáctica ($\vdash$) logra capturar toda la semántica ($\models$). El mundo creyó que Hilbert había ganado.
+\end{frame}
+
+% --- Slide 13: El Clímax (Parte 2) ---
+\begin{frame}{El Susurro que Mató a Hilbert}
+    \vspace{0.5cm}
+    \Large \textbf{Congreso de Königsberg (1930):}
+    
+    \vspace{0.6cm}
+    \normalsize
+    Mientras Hilbert daba un discurso glorioso proclamando la victoria de su programa, en una mesa redonda, un joven Gödel anunciaba en voz baja su \textit{Teorema de Incompletitud}... 
+    
+    \vspace{0.8cm}
+    \alert{\Large El sueño de Hilbert estaba matemáticamente muerto.}
+\end{frame}
+
+\end{document}
