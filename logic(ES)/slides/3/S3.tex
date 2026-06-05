@@ -24,10 +24,30 @@
 % --- Slide 1: Título ---
 \maketitle
 
-% --- Slide 2: El Puente Roto (Parte 1) ---
+% --- Slide 2: El Triunfo de la Lógica Proposicional ---
+\begin{frame}{El Triunfo de la Lógica Proposicional}
+    \begin{center}
+        \Large \textbf{La fuerza de la estructura pura}
+        
+        \vspace{0.4cm}
+        \normalsize
+        El gran logro de George Boole fue demostrar que la verdad puede calcularse manipulando únicamente la \textbf{sintaxis}, ignorando por completo el significado de las palabras.
+        
+        \vspace{0.6cm}
+        \huge
+        $p \lor (\lnot p \land q) \equiv p$
+        
+        \vspace{0.6cm}
+        \normalsize
+    \end{center}
+    
+    \vspace{0.2cm}
+\end{frame}
+
+% --- Slide 3: El Puente Roto (Parte 1) ---
 \begin{frame}{El Puente Roto: La insuficiencia de Boole}
     \begin{center}
-        \Large \textit{"Todo número par mayor que 2 es la suma de dos primos"}
+        \Large \textit{"Todos los seres humanos son mortales"}
         
         \vspace{0.8cm}
         \textbf{Traducción en Lógica Proposicional:}
@@ -37,7 +57,7 @@
     \end{center}
 \end{frame}
 
-% --- Slide 3: El Puente Roto (Parte 2) ---
+% --- Slide 4: El Puente Roto (Parte 2) ---
 \begin{frame}{La necesidad de un bisturí}
     \vspace{0.5cm}
     \Large
@@ -49,8 +69,40 @@
     \vspace{0.3cm}
     Para que la matemática se autoanalice, necesitamos romper el átomo proposicional usando \textbf{cuantificadores} ($\forall, \exists$) y \textbf{variables} para ver su estructura interna.
 \end{frame}
+\begin{frame}{El estado de las variables}
+    \vspace{0.5cm}
+    \Large \alert{\textbf{Anatomía de las variables:}}
+    
+    \vspace{0.6cm}
+    \normalsize
+    \begin{itemize}
+        \setlength\itemsep{0.6cm}
+        \item \textbf{Variables Libres:}\\ 
+        Esperando recibir un valor (un significado).
+        \item \textbf{Variables Ligadas:}\\ 
+        Atrapadas por la dictadura de un cuantificador ($\forall x$ o $\exists x$).
+    \end{itemize}
+\end{frame}
 
-% --- Slide 4: La Asfixia del Vacío (Parte 1) ---
+
+% --- Slide 5: Origen de la LPO ---
+\begin{frame}{Origen de la LPO}
+    \vspace{0.2cm}
+    
+    \vspace{0.5cm}
+    \normalsize
+    \begin{itemize}
+        \setlength\itemsep{0.4cm}
+        \item \textbf{Gottlob Frege (1879 -- \textit{Conceptografía}):} \\
+        Fundador real de la Lógica de Primer Orden. Introdujo por primera vez variables y cuantificadores ($\forall, \exists$) para revelar la estructura lógica oculta tras la gramática, superando los límites proposicionales.
+        
+        \item \textbf{Russell y Whitehead (1910--1913 -- \textit{Principia Mathematica}):} \\
+        Perfeccionaron y pulieron este lenguaje simbólico en su monumental obra fundacional.
+        
+    \end{itemize}
+\end{frame}
+
+% --- Slide 6: La Asfixia del Vacío (Parte 1) ---
 \begin{frame}{La Asfixia del Vacío}
     \begin{center}
         \Large ¿Verdadero o Falso?
@@ -61,7 +113,7 @@
     \end{center}
 \end{frame}
 
-% --- Slide 5: La Asfixia del Vacío (Parte 2) ---
+% --- Slide 7: La Asfixia del Vacío (Parte 2) ---
 \begin{frame}{El pecado capital de la lógica}
     \vspace{0.5cm}
     \Large
@@ -75,7 +127,7 @@
     \alert{El sistema formal evalúa diseños que tienen forma, pero no contenido.}
 \end{frame}
 
-% --- Slide 6: Sintaxis y Firma Lógica (Parte 1) ---
+% --- Slide 8: Sintaxis y Firma Lógica (Parte 1) ---
 \begin{frame}{Sintaxis y la Firma Lógica ($\mathcal{L}$)}
     \begin{center}
         \huge $\mathcal{L} = (\mathcal{F}, \mathcal{P}, ar)$
@@ -92,24 +144,39 @@
         \item $ar$: La \textbf{aridad} (número de argumentos) de cada símbolo.
     \end{itemize}
 \end{frame}
-
-% --- Slide 7: Sintaxis y Firma Lógica (Parte 2) ---
-\begin{frame}{El estado de las variables}
-    \vspace{0.5cm}
-    \Large \alert{\textbf{Anatomía de las variables:}}
+% --- Slide 8b: Ejemplo de Firma Lógica (Parte 1) ---
+\begin{frame}{Ejemplo: La Firma de la Aritmética de Peano ($\mathcal{L}_{PA}$)}
+    \vspace{0.3cm}
+    \Large \textbf{El alfabeto formal de los números naturales}
     
     \vspace{0.6cm}
     \normalsize
-    \begin{itemize}
-        \setlength\itemsep{0.6cm}
-        \item \textbf{Variables Libres:}\\ 
-        Esperando recibir un valor (un significado).
-        \item \textbf{Variables Ligadas:}\\ 
-        Atrapadas por la dictadura de un cuantificador ($\forall x$ o $\exists x$).
-    \end{itemize}
+    Definimos nuestra firma estricta $\mathcal{L}_{PA} = (\mathcal{F}, \mathcal{P}, ar)$ para construir el lenguaje que nos permite hablar sobre el orden y las operaciones elementales, sin presuponer aún su significado.
+    
+    \vspace{0.8cm}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \alert{\textbf{Símbolos de Función ($\mathcal{F}$):}}
+            \vspace{0.2cm}
+            \huge $$\mathcal{F} = \{0, S, +, \cdot\}$$
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \alert{\textbf{Símbolos de Predicado ($\mathcal{P}$):}}
+            \vspace{0.2cm}
+            \huge $$\mathcal{P} = \{<, \equiv\}$$
+        \end{column}
+    \end{columns}
 \end{frame}
-
-% --- Slide 8: Semántica (Parte 1) ---
+% --- Slide 8c: El Caos Sintáctico (Pregunta Pizarrón) ---
+\begin{frame}{El dictado del rigor}
+    \begin{center}
+        \alert{\huge ¿Cómo definirías formalmente la función de aridad?}
+        
+        \vspace{0.8cm}
+        \Large $ar: \text{ ? } \to \text{ ? }$
+    \end{center}
+\end{frame}
+% --- Slide 10: Semántica (Parte 1) ---
 \begin{frame}{La Semántica y el Mundo}
     \begin{center}
         \vspace{0.5cm}
@@ -121,7 +188,7 @@
     \end{center}
 \end{frame}
 
-% --- Slide 9: Semántica (Parte 2) ---
+% --- Slide 11: Semántica (Parte 2) ---
 \begin{frame}{El anclaje del significado}
     \vspace{0.5cm}
     \Large
@@ -131,44 +198,6 @@
     \normalsize
     \alert{Las verdades matemáticas no flotan en el vacío; existen \textbf{únicamente} relativas a un modelo.}
 \end{frame}
-
-% --- Slide 10: El Programa de Hilbert (Parte 1) ---
-\begin{frame}{El Delirio de Omnisciencia}
-    \begin{columns}
-        \begin{column}{0.4\textwidth}
-            \begin{center}
-                % Recuerda ajustar la ruta de esta imagen
-                \includegraphics[height=0.82\textheight]{../../assets/David-Hilbert.jpg} \\
-                \vspace{0.2cm}
-	\textbf{David Hilbert} \small{(1862 - 1943)}
-            \end{center}
-        \end{column}
-        \begin{column}{0.6\textwidth}
-            \begin{center}
-                \Large \textit{"Wir müssen wissen. \\ Wir werden wissen."}
-                
-                \vspace{0.4cm}
-                \normalsize (Debemos saber. Sabremos.)
-            \end{center}
-        \end{column}
-    \end{columns}
-\end{frame}
-
-% --- Slide 11: El Programa de Hilbert (Parte 2) ---
-\begin{frame}{El sueño absolutista (1920s)}
-    \vspace{0.5cm}
-    \Large \textbf{El Programa de Hilbert:}
-    
-    \vspace{0.6cm}
-    \normalsize
-    Mecanizar toda la matemática usando el lenguaje impecable de la Lógica de Primer Orden (FOL). 
-    
-    \vspace{0.6cm}
-    \alert{\textbf{El objetivo:}} \\
-    Erradicar cualquier intuición humana y probar de forma puramente sintáctica que el sistema estaba libre de contradicciones.
-\end{frame}
-
-% --- Slide 12: El Clímax (Parte 1) ---
 \begin{frame}{La victoria efímera}
     \begin{center}
         \Large \textbf{Teorema de Completitud de Gödel (1929)}
@@ -183,7 +212,100 @@
     La máquina sintáctica ($\vdash$) logra capturar toda la semántica ($\models$). El mundo creyó que Hilbert había ganado.
 \end{frame}
 
-% --- Slide 13: El Clímax (Parte 2) ---
+
+% --- Slide 12: Introducción Histórica (Parte 1) ---
+\begin{frame}{La Crisis de los Fundamentos}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{center}
+                % Sugerencia: Foto de Gottlob Frege o Bertrand Russell
+                \includegraphics[height=0.8\textheight]{../../assets/Gottlob-Frege.jpg} \\
+                \vspace{0.2cm}
+        \textbf{Gottlob Frege} \small{(1848 -- 1925)}
+            \end{center}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \vspace{0.5cm}
+            \Large \textbf{Principios del Siglo XX:}
+            
+            \vspace{0.4cm}
+            \normalsize
+            La matemática se fractura. La Teoría Ingenua de Conjuntos, que pretendía ser la base de todo, albergaba contradicciones letales.
+            
+            \vspace{0.6cm}
+            \alert{\textbf{La Paradoja de Russell (1901):}} \\
+            Sea $R$ el conjunto de todos los conjuntos que no se contienen a sí mismos. ¿$R \in R$?
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% --- Slide 13: Introducción Histórica (Parte 2) - Movido a su lugar correcto ---
+\begin{frame}{El terror a la contradicción}
+    \vspace{0.5cm}
+    \Large
+    Si un sistema formal permite derivar una sola contradicción ($P \land \neg P$), el Principio de Explosión (\textit{ex falso quodlibet}) destruye el sistema entero.
+    
+    \vspace{0.8cm}
+    \normalsize
+    \alert{\textbf{El pánico fundacional:}} \\
+    \vspace{0.3cm}
+    Si la base de la matemática es contradictoria, entonces cualquier teorema, desde $1+1=2$ hasta el Cálculo Diferencial, podría ser simultáneamente verdadero y falso. Había que blindar la Razón.
+\end{frame}
+
+% --- Slide 14: El Programa de Hilbert (Parte 1) - Movido a su lugar correcto ---
+\begin{frame}{El Delirio de Omnisciencia}
+    \begin{columns}
+        \begin{column}{0.4\textwidth}
+            \begin{center}
+                % Recuerda ajustar la ruta de esta imagen
+                \includegraphics[height=0.82\textheight]{../../assets/David-Hilbert.jpg} \\
+                \vspace{0.2cm}
+    \textbf{David Hilbert} \small{(1862 - 1943)}
+            \end{center}
+        \end{column}
+        \begin{column}{0.6\textwidth}
+            \begin{center}
+                \Large \textit{"Wir müssen wissen. \\ Wir werden wissen."}
+                
+                \vspace{0.4cm}
+                \normalsize (Debemos saber. Sabremos.)
+            \end{center}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% --- Slide 15: El Programa de Hilbert (Parte 2) ---
+\begin{frame}{El sueño absolutista (1920s)}
+    \vspace{0.5cm}
+    \Large \textbf{El Programa de Hilbert:}
+    
+    \vspace{0.6cm}
+    \normalsize
+    Mecanizar toda la matemática usando el lenguaje impecable de la Lógica de Primer Orden (FOL). 
+    
+    \vspace{0.6cm}
+    \alert{\textbf{El objetivo:}} \\
+    Erradicar cualquier intuición humana y probar de forma puramente sintáctica que el sistema estaba libre de contradicciones.
+\end{frame}
+
+% --- Slide 16: Los 3 Objetivos del Programa de Hilbert ---
+\begin{frame}{El Programa de Hilbert: Los 3 Pilares}
+    \normalsize
+    \begin{enumerate}
+        \setlength\itemsep{0.5cm}
+        \item \alert{\textbf{Completitud:}} \\
+        Todo enunciado matemático verdadero debe poder ser demostrado formalmente dentro del sistema ($\models \varphi \implies \vdash \varphi$).
+        
+        \item \alert{\textbf{Consistencia:}} \\
+        Debe existir una prueba matemática (finitaria) de que el sistema jamás producirá una contradicción.
+        
+        \item \alert{\textbf{Decidibilidad (\textit{Entscheidungsproblem}):}} \\
+        Debe existir un algoritmo mecánico que, dada cualquier fórmula, determine en tiempo finito si es verdadera o falsa.
+    \end{enumerate}
+\end{frame}
+
+% --- Slide 17: El Clímax (Parte 1) ---
+% --- Slide 18: El Clímax (Parte 2) ---
 \begin{frame}{El Susurro que Mató a Hilbert}
     \vspace{0.5cm}
     \Large \textbf{Congreso de Königsberg (1930):}
