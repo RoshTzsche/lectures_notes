@@ -23,6 +23,83 @@
 
 % --- Slide 1: Título ---
 \maketitle
+% --- Slide 12: Introducción Histórica (Parte 1) ---
+\begin{frame}{La Crisis de los Fundamentos}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{center}
+                % Sugerencia: Foto de Gottlob Frege o Bertrand Russell
+                \includegraphics[height=0.8\textheight]{../../assets/Gottlob-Frege.jpg} \\
+                \vspace{0.2cm}
+        \textbf{Gottlob Frege} \small{(1848 -- 1925)}
+            \end{center}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \vspace{0.5cm}
+            \Large \textbf{Principios del Siglo XX:}
+            
+            \vspace{0.4cm}
+            \normalsize
+            La matemática se fractura. La Teoría Ingenua de Conjuntos, que pretendía ser la base de todo, albergaba contradicciones letales.
+            
+            \vspace{0.6cm}
+            \alert{\textbf{La Paradoja de Russell (1901):}} \\
+            Sea $R$ el conjunto de todos los conjuntos que no se contienen a sí mismos. ¿$R \in R$?
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% --- Slide 14: El Programa de Hilbert (Parte 1) - Movido a su lugar correcto ---
+\begin{frame}{El Delirio de Omnisciencia}
+    \begin{columns}
+        \begin{column}{0.4\textwidth}
+            \begin{center}
+                % Recuerda ajustar la ruta de esta imagen
+                \includegraphics[height=0.82\textheight]{../../assets/David-Hilbert.jpg} \\
+                \vspace{0.2cm}
+    \textbf{David Hilbert} \small{(1862 - 1943)}
+            \end{center}
+        \end{column}
+        \begin{column}{0.6\textwidth}
+            \begin{center}
+                \Large \textit{"Wir müssen wissen. \\ Wir werden wissen."}
+                
+                \vspace{0.4cm}
+                \normalsize (Debemos saber. Sabremos.)
+            \end{center}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% --- Slide 15: El Programa de Hilbert (Parte 2) ---
+\begin{frame}{El sueño absolutista (1920s)}
+    \vspace{0.5cm}
+    \Large \textbf{El Programa de Hilbert:}
+    
+    \vspace{0.6cm}
+    \normalsize
+    Mecanizar toda la matemática usando el lenguaje impecable de la Lógica de Primer Orden (FOL). 
+    
+    \vspace{0.6cm}
+    \alert{\textbf{El objetivo:}} \\
+    Erradicar cualquier intuición humana y probar de forma puramente sintáctica que el sistema estaba libre de contradicciones.
+\end{frame}
+
+% --- Slide 16: Los 3 Objetivos del Programa de Hilbert ---
+\begin{frame}{El Programa de Hilbert: Los 3 Pilares}
+    \normalsize
+    \begin{enumerate}
+        \setlength\itemsep{0.5cm}
+        \item \alert{\textbf{Completitud:}} \\
+        Todo enunciado matemático verdadero debe poder ser demostrado formalmente dentro del sistema ($\models \varphi \implies \vdash \varphi$).
+        
+        \item \alert{\textbf{Consistencia:}} \\
+        Debe existir una prueba matemática (finitaria) de que el sistema jamás producirá una contradicción.
+        
+        \item \alert{\textbf{Decidibilidad (\textit{Entscheidungsproblem}):}} \\
+        Debe existir un algoritmo mecánico que, dada cualquier fórmula, determine en tiempo finito si es verdadera o falsa.
+    \end{enumerate}
+\end{frame}
 
 % --- Slide 2: El Triunfo de la Lógica Proposicional ---
 \begin{frame}{El Triunfo de la Lógica Proposicional}
@@ -43,6 +120,22 @@
     
     \vspace{0.2cm}
 \end{frame}
+
+
+% --- Slide 13: Introducción Histórica (Parte 2) - Movido a su lugar correcto ---
+\begin{frame}{El terror a la contradicción}
+    \vspace{0.5cm}
+    \Large
+    Si un sistema formal permite derivar una sola contradicción ($P \land \neg P$), el Principio de Explosión (\textit{ex falso quodlibet}) destruye el sistema entero.
+    
+    \vspace{0.8cm}
+    \normalsize
+    \alert{\textbf{El pánico fundacional:}} \\
+    \vspace{0.3cm}
+    Si la base de la matemática es contradictoria, entonces cualquier teorema, desde $1+1=2$ hasta el Cálculo Diferencial, podría ser simultáneamente verdadero y falso. Había que blindar la Razón.
+\end{frame}
+
+
 
 % --- Slide 3: El Puente Roto (Parte 1) ---
 \begin{frame}{El Puente Roto: La insuficiencia de Boole}
@@ -176,6 +269,17 @@
         \Large $ar: \text{ ? } \to \text{ ? }$
     \end{center}
 \end{frame}
+
+% --- Slide 11: Semántica (Parte 2) ---
+\begin{frame}{El anclaje del significado}
+    \vspace{0.5cm}
+    \Large
+    Para que la sintaxis cobre vida, necesitamos inyectarle un \textbf{Universo de Discurso} (Dominio) y mapear cada símbolo vacío a una relación real en ese universo.
+    
+    \vspace{0.8cm}
+    \normalsize
+    \alert{Las verdades matemáticas no flotan en el vacío; existen \textbf{únicamente} relativas a un modelo.}
+\end{frame}
 % --- Slide 10: Semántica (Parte 1) ---
 \begin{frame}{La Semántica y el Mundo}
     \begin{center}
@@ -188,16 +292,7 @@
     \end{center}
 \end{frame}
 
-% --- Slide 11: Semántica (Parte 2) ---
-\begin{frame}{El anclaje del significado}
-    \vspace{0.5cm}
-    \Large
-    Para que la sintaxis cobre vida, necesitamos inyectarle un \textbf{Universo de Discurso} (Dominio) y mapear cada símbolo vacío a una relación real en ese universo.
-    
-    \vspace{0.8cm}
-    \normalsize
-    \alert{Las verdades matemáticas no flotan en el vacío; existen \textbf{únicamente} relativas a un modelo.}
-\end{frame}
+
 \begin{frame}{La victoria efímera}
     \begin{center}
         \Large \textbf{Teorema de Completitud de Gödel (1929)}
@@ -211,99 +306,6 @@
     \normalsize
     La máquina sintáctica ($\vdash$) logra capturar toda la semántica ($\models$). El mundo creyó que Hilbert había ganado.
 \end{frame}
-
-
-% --- Slide 12: Introducción Histórica (Parte 1) ---
-\begin{frame}{La Crisis de los Fundamentos}
-    \begin{columns}
-        \begin{column}{0.5\textwidth}
-            \begin{center}
-                % Sugerencia: Foto de Gottlob Frege o Bertrand Russell
-                \includegraphics[height=0.8\textheight]{../../assets/Gottlob-Frege.jpg} \\
-                \vspace{0.2cm}
-        \textbf{Gottlob Frege} \small{(1848 -- 1925)}
-            \end{center}
-        \end{column}
-        \begin{column}{0.5\textwidth}
-            \vspace{0.5cm}
-            \Large \textbf{Principios del Siglo XX:}
-            
-            \vspace{0.4cm}
-            \normalsize
-            La matemática se fractura. La Teoría Ingenua de Conjuntos, que pretendía ser la base de todo, albergaba contradicciones letales.
-            
-            \vspace{0.6cm}
-            \alert{\textbf{La Paradoja de Russell (1901):}} \\
-            Sea $R$ el conjunto de todos los conjuntos que no se contienen a sí mismos. ¿$R \in R$?
-        \end{column}
-    \end{columns}
-\end{frame}
-
-% --- Slide 13: Introducción Histórica (Parte 2) - Movido a su lugar correcto ---
-\begin{frame}{El terror a la contradicción}
-    \vspace{0.5cm}
-    \Large
-    Si un sistema formal permite derivar una sola contradicción ($P \land \neg P$), el Principio de Explosión (\textit{ex falso quodlibet}) destruye el sistema entero.
-    
-    \vspace{0.8cm}
-    \normalsize
-    \alert{\textbf{El pánico fundacional:}} \\
-    \vspace{0.3cm}
-    Si la base de la matemática es contradictoria, entonces cualquier teorema, desde $1+1=2$ hasta el Cálculo Diferencial, podría ser simultáneamente verdadero y falso. Había que blindar la Razón.
-\end{frame}
-
-% --- Slide 14: El Programa de Hilbert (Parte 1) - Movido a su lugar correcto ---
-\begin{frame}{El Delirio de Omnisciencia}
-    \begin{columns}
-        \begin{column}{0.4\textwidth}
-            \begin{center}
-                % Recuerda ajustar la ruta de esta imagen
-                \includegraphics[height=0.82\textheight]{../../assets/David-Hilbert.jpg} \\
-                \vspace{0.2cm}
-    \textbf{David Hilbert} \small{(1862 - 1943)}
-            \end{center}
-        \end{column}
-        \begin{column}{0.6\textwidth}
-            \begin{center}
-                \Large \textit{"Wir müssen wissen. \\ Wir werden wissen."}
-                
-                \vspace{0.4cm}
-                \normalsize (Debemos saber. Sabremos.)
-            \end{center}
-        \end{column}
-    \end{columns}
-\end{frame}
-
-% --- Slide 15: El Programa de Hilbert (Parte 2) ---
-\begin{frame}{El sueño absolutista (1920s)}
-    \vspace{0.5cm}
-    \Large \textbf{El Programa de Hilbert:}
-    
-    \vspace{0.6cm}
-    \normalsize
-    Mecanizar toda la matemática usando el lenguaje impecable de la Lógica de Primer Orden (FOL). 
-    
-    \vspace{0.6cm}
-    \alert{\textbf{El objetivo:}} \\
-    Erradicar cualquier intuición humana y probar de forma puramente sintáctica que el sistema estaba libre de contradicciones.
-\end{frame}
-
-% --- Slide 16: Los 3 Objetivos del Programa de Hilbert ---
-\begin{frame}{El Programa de Hilbert: Los 3 Pilares}
-    \normalsize
-    \begin{enumerate}
-        \setlength\itemsep{0.5cm}
-        \item \alert{\textbf{Completitud:}} \\
-        Todo enunciado matemático verdadero debe poder ser demostrado formalmente dentro del sistema ($\models \varphi \implies \vdash \varphi$).
-        
-        \item \alert{\textbf{Consistencia:}} \\
-        Debe existir una prueba matemática (finitaria) de que el sistema jamás producirá una contradicción.
-        
-        \item \alert{\textbf{Decidibilidad (\textit{Entscheidungsproblem}):}} \\
-        Debe existir un algoritmo mecánico que, dada cualquier fórmula, determine en tiempo finito si es verdadera o falsa.
-    \end{enumerate}
-\end{frame}
-
 % --- Slide 17: El Clímax (Parte 1) ---
 % --- Slide 18: El Clímax (Parte 2) ---
 \begin{frame}{El Susurro que Mató a Hilbert}
