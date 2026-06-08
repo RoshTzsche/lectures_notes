@@ -2,341 +2,232 @@
 
 % --- Configuración del Tema ---
 \usetheme{metropolis}
-\usecolortheme{owl} % Fondo oscuro, alto contraste
+\usecolortheme{owl} 
 \usepackage[spanish]{babel}
 \usepackage[utf8]{inputenc}
 \usepackage{amsfonts, amsmath, amssymb, amsthm}
 \usepackage{graphicx}
 \usepackage{tikz}
 
+% --- Entornos Matemáticos ---
+\newtheorem{definicion}{Definición}
+\newtheorem{teorema}{Teorema}
+\newtheorem{lema}{Lema}
+
 % --- Colores Personalizados ---
 \definecolor{diagonalred}{RGB}{140, 20, 40}
-\definecolor{mitred}{RGB}{163, 31, 52}
 
 % --- Información del Título ---
 \title{Los Límites de la Razón}
-\subtitle{Sesión 4: Límites Metamatemáticos e Incompletitud}
+\subtitle{Sesión 4: El Logicismo, Peano y la Incompletitud}
 \author{Rosh Guadiana}
 \date{Junio 2026}
 
 \begin{document}
 
-% --- Slide 1: Título ---
 \maketitle
 
 % ==========================================
-% ACTO 1: ARITMETIZACIÓN DE LA SINTAXIS
+% INTRODUCCIÓN: EL LOGICISMO
 % ==========================================
 
-% --- Slide 2: El ADN de la Sintaxis ---
-\begin{frame}{Acto 1: La Aritmetización de la Sintaxis}
-    \begin{center}
-        \Large \textbf{El puente entre Símbolo y Número}
-        
-        \vspace{0.6cm}
-        \normalsize
-        Kurt Gödel descubrió un isomorfismo inyectivo para incrustar el álgebra de la sintaxis lógica dentro del tejido de la aritmética pura.
-        
-        \vspace{0.8cm}
-        \alert{\textbf{La herramienta clave:}} \\
-        \vspace{0.2cm}
-        La unicidad de la factorización prima garantizada por el \textbf{Teorema Fundamental de la Aritmética}.
-    \end{center}
-\end{frame}
-
-% --- Slide 3: El Código de Gödel ---
-\begin{frame}{Notación: Números de Gödel}
-    \vspace{0.3cm}
-    Sea un alfabeto ordenado de símbolos $S = \{s_1, s_2, \dots, s_n\}$ con códigos numéricos únicos $c(s_i)$. 
+\begin{frame}{El Logicismo: Principia Mathematica}
+    \begin{definicion}[Logicismo]
+        Programa fundacional que postula la reducción estricta de la matemática a la lógica. Se articula en dos tesis:
+        \begin{enumerate}
+            \item Toda constante matemática es definible mediante vocabulario puramente lógico.
+            \item Todo teorema matemático es derivable a partir de axiomas lógicos mediante reglas de inferencia formales.
+        \end{enumerate}
+    \end{definicion}
     
     \vspace{0.4cm}
-    Una secuencia de símbolos (fórmula) $\phi = s_{i_1} s_{i_2} \dots s_{i_k}$ se convierte en un único entero colosal mediante:
-    
-    \vspace{0.6cm}
-    \huge
-    $$\ulcorner \phi \urcorner = 2^{c(s_{i_1})} \cdot 3^{c(s_{i_2})} \cdot 5^{c(s_{i_3})} \cdots p_k^{c(s_{i_k})}$$
-    
-    \vspace{0.6cm}
-    \normalsize
-    \begin{center}
-        Donde $p_k$ representa el $k$-ésimo número primo absoluto.
-    \end{center}
-\end{frame}
-
-% --- Slide 4: Desglose del Mecanismo ---
-\begin{frame}{Mecánica de la Codificación}
-    \vspace{0.4cm}
-    \Large \textbf{El procesamiento sin pérdida:}
-    
-    \vspace{0.6cm}
-    \normalsize
-    \begin{itemize}
-        \setlength\itemsep{0.4cm}
-        \item \textbf{Asignación base:} Se asignan enteros a los operadores de la firma ($\exists \to 4, \, = \to 5, \, 0 \to 6$).
-        \item \textbf{Amalgama prima:} Se elevan los primos sucesivos a las potencias de dichos códigos.
-        \item \textbf{Decodificación infalible:} Para extraer la fórmula original a partir del megaentero, basta con aplicar el operador aritmético de factorización. Los exponentes exactos reconstruyen el orden del texto lógico.
-    \end{itemize}
-\end{frame}
-
-% --- Slide 5: Metáfora Bio-Lógica ---
-\begin{frame}{Metáfora: La Autoconsciencia del Número}
-    \vspace{0.5cm}
-    \Large \alert{\textbf{No es un truco criptográfico; es biología matemática.}}
-    
-    \vspace{0.6cm}
-    \normalsize
-    Así como las secuencias de nucleótidos (A, T, C, G) se combinan para codificar las instrucciones de un organismo vivo complejo dentro de una molécula química...
-    
-    \vspace{0.6cm}
-    \textbf{Gödel incrustó la estructura del pensamiento lógico dentro del cuerpo de los números primos.} Hizo que la aritmética adquiriera las herramientas para hablar de sí misma.
+    \alert{\textbf{El Isomorfismo de la Consistencia:}} \\
+    La reducción buscaba garantizar que si el sistema lógico $\mathcal{L}$ es consistente ($\mathcal{L} \not\vdash \bot$), la aritmética heredaría automáticamente dicha consistencia.
 \end{frame}
 
 % ==========================================
-% ACTO 2: LA ORACIÓN G Y EL PRIMER TEOREMA
+% LA ARITMÉTICA DE PEANO
 % ==========================================
 
-% --- Slide 6: El Primer Teorema de Incompletitud ---
-\begin{frame}{Acto 2: El Primer Teorema de Incompletitud}
-    \vspace{0.4cm}
-    \Large \textbf{El enunciado del colapso formal (1931)}
+\begin{frame}{Sintaxis: La Firma de Peano ($\mathcal{L}_{PA}$)}
+    \begin{definicion}[Firma Aritmética]
+        El lenguaje de primer orden $\mathcal{L}_{PA} = (\mathcal{F}, \mathcal{P}, ar)$ consta de:
+    \end{definicion}
     
-    \vspace{0.6cm}
-    \normalsize
-    Para cualquier sistema formal axiomático $F$ recursivamente enumerable y lo suficientemente fuerte como para describir la aritmética elemental (como $PA$):
-    
-    \vspace{0.8cm}
-    \begin{center}
-        \alert{\Large \textbf{Si $F$ es consistente, entonces $F$ es incompleto.}}
-    \end{center}
-    
-    \vspace{0.4cm}
-    \begin{center}
-        Existen enunciados aritméticos verdaderos que el sistema no puede demostrar ni refutar.
-    \end{center}
-\end{frame}
-
-% --- Slide 7: La Ecuación del Punto Fijo ---
-\begin{frame}{La Oración de Gödel ($G$)}
-    \vspace{0.3cm}
-    Apoyándose en el Lema Diagonal, Gödel forzó la existencia de un punto fijo sintáctico para el predicado de demostrabilidad $\text{Prov}_{PA}(x)$:
-    
-    \vspace{0.6cm}
-    \huge
-    $$PA \vdash G \leftrightarrow \neg \text{Prov}_{PA}(\ulcorner G \urcorner)$$
-    
-    \vspace{0.6cm}
-    \normalsize
-    \begin{center}
-        Donde $\text{Prov}_{PA}(\ulcorner G \urcorner)$ afirma aritméticamente: \\
-        \textit{"Existe el número de una secuencia de pasos válidos que demuestra la cadena $G$".}
-    \end{center}
-\end{frame}
-
-% --- Slide 8: Desglose de la Bifurcación ---
-\begin{frame}{Anatomía de la Verdad Distinta a la Demostrabilidad}
-    \vspace{0.4cm}
-    \Large \textbf{Rompiendo la Paradoja del Mentiroso:}
-    
-    \vspace{0.5cm}
-    \normalsize
-    \begin{itemize}
-        \setlength\itemsep{0.3cm}
-        \item $G$ no dice "Soy falsa". $G$ afirma estrictamente: \textit{"No soy demostrable dentro de este sistema"}.
-        \item \textbf{Si $G$ fuera demostrable:} El sistema probaría una fórmula que dice que no es demostrable. Estaríamos ante un sistema que demuestra falsedades (\textbf{Inconsistente}).
-        \item \textbf{Si el sistema es Consistente:} Por lo tanto, $G$ no tiene demostración formal.
-        \item \alert{\textbf{La Estocada:}} Puesto que $G$ afirma no ser demostrable, y efectivamente no lo es... \textbf{$G$ es Verdadera}.
-    \end{itemize}
-\end{frame}
-
-% --- Slide 9: El Castillo Inexpugnable ---
-\begin{frame}{Metáfora: El Plano del Castillo}
-    \begin{center}
-        \Large \textbf{La paradoja del arquitecto}
-        
-        \vspace{0.5cm}
-        \normalsize
-        Imagina a David Hilbert como un arquitecto supremo construyendo un castillo inexpugnable (el Sistema Axiomático Universal). Cada bloque de piedra es un axioma puro.
-        
-        \vspace{0.6cm}
-        % Espacio conceptual de alta tensión
-        \alert{\Large Gödel demostró que, al colocar la última piedra, siempre habrá un ladrillo en los cimientos que tiene grabado:}
-        
-        \vspace{0.4cm}
-        \textit{"Este castillo no posee los planos mecánicos para fabricar este ladrillo específico."}
-    \end{center}
-\end{frame}
-
-% ==========================================
-% ACTO 3: EL SEGUNDO TEOREMA Y VON NEUMANN
-% ==========================================
-
-% --- Slide 10: El Segundo Teorema de Incompletitud ---
-\begin{frame}{Acto 3: El Fin del Formalismo Absoluto}
-    \vspace{0.4cm}
-    \Large \textbf{La demolición de la Consistencia Interna}
-    
-    \vspace{0.6cm}
-    \normalsize
-    Si un sistema formal $F$ es consistente y contiene a la aritmética básica, entonces la maquinaria formal es estructuralmente incapaz de certificar su propia validez.
-    
-    \vspace{0.8cm}
-    \begin{center}
-        \huge
-        $$\text{Si } F \text{ es consistente, entonces } F \not\vdash \text{Con}(F)$$
-    \end{center}
-\end{frame}
-
-% --- Slide 11: Desglose Algebraico del Fin ---
-\begin{frame}{El Encadenamiento Lógico del Segundo Teorema}
-    \vspace{0.3cm}
-    \normalsize
-    Definimos la consistencia como la imposibilidad de demostrar una contradicción flagrante: $\text{Con}(F) := \neg \text{Prov}_{F}(\ulcorner 0 = 1 \urcorner)$.
-    
-    \vspace{0.4cm}
-    \Large \textbf{La deducción matemática en el pasillo:}
-    
-    \vspace{0.4cm}
-    \normalsize
-    \begin{enumerate}
-        \setlength\itemsep{0.3cm}
-        \item El Primer Teorema de Gödel se puede formalizar dentro del sistema: $F \vdash \text{Con}(F) \to G$.
-        \item Si el sistema fuese capaz de demostrar analíticamente su propia consistencia ($\vdash \text{Con}(F)$)...
-        \item Por la regla de inferencia mecánica de \textbf{Modus Ponens}, el sistema inmediatamente deduciría $\vdash G$.
-        \item Pero ya se demostró que $F$ no puede probar $G$. Por tanto, el sistema \textbf{jamás} puede demostrar $\text{Con}(F)$.
-    \end{enumerate}
-\end{frame}
-
-% --- Slide 12: Metáfora Jurídica ---
-\begin{frame}{Metáfora: La Declaración del Sospechoso}
-    \begin{center}
-        \vspace{0.6cm}
-        \Large \textit{"Un tribunal jamás puede aceptar como prueba irrefutable de inocencia la mera declaración verbal del acusado diciendo: 'Soy inocente'."}
-        
-        \vspace{1.0cm}
-        \normalsize
-        Un sistema formal que es capaz de certificar su propia cordura matemática... es, por definición, un sistema que está bajo profunda sospecha de esquizofrenia lógica.
-    \end{center}
-\end{frame}
-
-% ==========================================
-% ACTO 4: ALAN TURING Y LA PARADA
-% ==========================================
-
-% --- Slide 13: Alan Turing y el Problema de la Parada ---
-\begin{frame}{Acto 4: La Corporización del Límite}
+    \vspace{0.2cm}
     \begin{columns}
-        \begin{column}{0.4\textwidth}
-            \begin{center}
-                \includegraphics[height=0.65\textheight]{../../assets/sky-and-water.jpg} \\
-                \vspace{0.2cm}
-                \small El paso de la sintaxis pura al motor físico.
-            \end{center}
+        \begin{column}{0.5\textwidth}
+            \alert{\textbf{Símbolos de Función ($\mathcal{F}$):}}
+            \begin{itemize}
+                \item $0$ (Constante, $ar=0$)
+                \item $S$ (Sucesor, $ar=1$)
+                \item $+, \cdot$ (Operadores, $ar=2$)
+            \end{itemize}
         \end{column}
-        \begin{column}{0.6\textwidth}
-            \vspace{0.4cm}
-            \Large \textbf{Alan Turing (1936): El Halting Problem}
-            
-            \vspace{0.4cm}
-            \normalsize
-            No existe ningún algoritmo general y absoluto capaz de determinar si un programa informático arbitrario se detendrá o se ciclará indefinidamente bajo una entrada dada.
+        \begin{column}{0.5\textwidth}
+            \alert{\textbf{Símbolos de Predicado ($\mathcal{P}$):}}
+            \begin{itemize}
+                \item $=$ (Igualdad, $ar=2$)
+                \item $<$ (Orden, $ar=2$)
+            \end{itemize}
         \end{column}
     \end{columns}
 \end{frame}
 
-% --- Slide 14: Demostración por Contradicción del Destructor ---
-\begin{frame}{La Reducción al Absurdo de Turing}
-    \vspace{0.2cm}
-    Supongamos que existe una máquina infalible de predicción $H(P, I)$.
+\begin{frame}{Los Axiomas de Peano ($PA$)}
+    \footnotesize
+    \textbf{1. Cero y Sucesor:} 
+    $$PA_1: \forall x \, (S(x) \neq 0)$$
+    $$PA_2: \forall x \forall y \, (S(x) = S(y) \to x = y)$$
     
-    \vspace{0.4cm}
-    Construimos una máquina rebelde $D$ (El Destructor) que recibe el código de un programa $X$ y consulta a $H(X,X)$:
+    \textbf{2. Definición Recursiva de Operaciones:}
+    $$PA_3: \forall x \, (x + 0 = x) \quad \quad PA_4: \forall x \forall y \, (x + S(y) = S(x + y))$$
+    $$PA_5: \forall x \, (x \cdot 0 = 0) \quad \quad PA_6: \forall x \forall y \, (x \cdot S(y) = (x \cdot y) + x)$$
     
-    \vspace{0.4cm}
-    \begin{center}
-        \large
-        \begin{tabular}{lcl}
-            Si $H(X,X)$ dice "Se detiene" & \longrightarrow & $D$ entra en un bucle infinito. \\
-            Si $H(X,X)$ dice "Se cicla" & \longrightarrow & $D$ se detiene de inmediato. \\
-        \end{tabular}
-    \end{center}
-    
-    \vspace{0.4cm}
-    \alert{\textbf{El Cortocircuito Metamatemático:}} ¿Qué ocurre al ejecutar $D(D)$? \\
-    Si se detiene, se cicla. Si se cicla, se detiene. \textbf{$H$ no puede existir.}
+    \textbf{3. Esquema Axiomático de Inducción:}
+    $$PA_7: (\phi(0) \land \forall x \, (\phi(x) \to \phi(S(x)))) \to \forall x \, \phi(x)$$
 \end{frame}
 
-% --- Slide 15: El Telépata Insoportable ---
-\begin{frame}{Metáfora: El Combate contra el Adivino}
-    \vspace{0.5cm}
-    \Large \textbf{El colapso del determinismo informático}
+% ==========================================
+% CONSISTENCIA Y ENUMERABILIDAD
+% ==========================================
+
+\begin{frame}{Propiedades Metamatemáticas}
+    \begin{definicion}[Consistencia Sintáctica]
+        Un sistema formal $F$ es consistente si no existe una fórmula $\phi$ tal que $F \vdash \phi$ y $F \vdash \neg \phi$. Equivalentemente, $F \not\vdash \bot$.
+    \end{definicion}
     
     \vspace{0.4cm}
-    \normalsize
-    Imagina que contratas a un adivino místico ($H$) que predice con total exactitud matemática cuál será tu próximo movimiento físico. 
+    \begin{definicion}[Enumerabilidad Recursiva]
+        Un sistema $F$ es recursivamente enumerable si el conjunto de los números de Gödel de sus teoremas $T = \{ \ulcorner \phi \urcorner \mid F \vdash \phi \}$ es el rango de una función recursiva parcial. Existe una máquina de Turing que lista todos y cada uno de los teoremas de $F$.
+    \end{definicion}
+\end{frame}
+
+% ==========================================
+% LIMITACIONES SEMÁNTICAS (TARSKI)
+% ==========================================
+
+\begin{frame}{El Límite Semántico: El Teorema de Tarski}
+    \textbf{La Paradoja del Mentiroso:} \textit{"Este enunciado es falso"}. \\
+    \vspace{0.2cm}
+    Carente de valor formal, pues la "verdad" es un concepto semántico, no sintáctico.
+    
+    \vspace{0.4cm}
+    \begin{teorema}[Indefinibilidad de la Verdad de Tarski, 1936]
+        Para cualquier sistema formal $F$ que contenga a la aritmética de Peano, no existe una fórmula $\text{True}(x)$ en el lenguaje de $F$ tal que para toda fórmula $\phi$:
+        $$F \vdash \text{True}(\ulcorner \phi \urcorner) \leftrightarrow \phi$$
+    \end{teorema}
+    
+    \alert{Conclusión:} Ningún sistema lo suficientemente potente puede definir su propio predicado de verdad.
+\end{frame}
+
+% ==========================================
+% ARITMETIZACIÓN DE LA SINTAXIS
+% ==========================================
+
+\begin{frame}{Aritmetización: La Función de Gödel}
+    \begin{definicion}[Número de Gödel]
+        Isomorfismo inyectivo entre el álgebra sintáctica y $\mathbb{N}$. Sea una asignación $c: \Sigma \to \mathbb{N}$. Para una secuencia de símbolos $\phi = s_1 s_2 \dots s_k$, su número de Gödel es:
+        $$\ulcorner \phi \urcorner = \prod_{i=1}^k p_i^{c(s_i)}$$
+        donde $p_i$ es el $i$-ésimo número primo.
+    \end{definicion}
+    
+    \vspace{0.2cm}
+    \begin{definicion}[Predicado de Demostrabilidad]
+        $\text{Prov}_F(x)$ es una relación recursiva primitiva tal que $\text{Prov}_F(\ulcorner \phi \urcorner)$ es verdadera en $\mathbb{N}$ si y solo si $F \vdash \phi$.
+    \end{definicion}
+\end{frame}
+
+% ==========================================
+% TEOREMAS DE INCOMPLETITUD
+% ==========================================
+
+\begin{frame}{El Punto Fijo Sintáctico}
+    \begin{lema}[Lema Diagonal / Lema de Autorreferencia]
+        Sea $F$ un sistema formal que extiende $PA$. Para toda fórmula $\psi(x)$ con una variable libre, existe un enunciado $\delta$ tal que:
+        $$F \vdash \delta \leftrightarrow \psi(\ulcorner \delta \urcorner)$$
+    \end{lema}
+
+    \vspace{0.4cm}
+    \alert{\textbf{Construcción de la Oración $G$:}} \\
+    Sea $\psi(x) := \neg \text{Prov}_F(x)$. Por el Lema Diagonal, existe $G$ tal que:
+    $$F \vdash G \leftrightarrow \neg \text{Prov}_F(\ulcorner G \urcorner)$$
+\end{frame}
+
+\begin{frame}{El Primer Teorema de Gödel}
+    \begin{columns}
+        \begin{column}{0.3\textwidth}
+            \begin{center}
+                \includegraphics[height=0.55\textheight]{../../assets/Kurt-Godel.jpg} \\
+                \vspace{0.2cm}
+                \textbf{Kurt Gödel} \\
+                \small (1906 -- 1978)
+            \end{center}
+        \end{column}
+        \begin{column}{0.7\textwidth}
+            \begin{teorema}[Primer Teorema de Incompletitud, 1931]
+                Cualquier sistema axiomático $F$ recursivamente enumerable, que sea consistente y lo suficientemente expresivo para contener la aritmética ($F \supseteq PA$), es incompleto.
+            \end{teorema}
+            
+            \vspace{0.2cm}
+            \textbf{Corolario:} $\exists G$ tal que $F \not\vdash G$ y $F \not\vdash \neg G$. \\
+            Puesto que $G$ no es demostrable, y $G$ afirma no serlo, $G$ es \textbf{verdadera en $\mathbb{N}$}, separando irremediablemente verdad de demostrabilidad ($\models \neq \vdash$).
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{El Segundo Teorema de Gödel}
+    \begin{teorema}[Segundo Teorema de Incompletitud]
+        Sea $F$ un sistema axiomático consistente que contenga a la aritmética ($F \supseteq PA$). Entonces, $F$ no puede demostrar su propia consistencia.
+    \end{teorema}
     
     \vspace{0.6cm}
-    Tú decides aplicar libre albedrío puro mediante una regla de contradicción programada ($D$): le preguntas qué mano vas a levantar, con la firme instrucción interna de \textbf{levantar exactamente la mano opuesta} a su predicción.
-    
-    \vspace{0.4cm}
-    \begin{center}
-        \alert{\Large El cerebro del adivino estalla en un bucle de retroalimentación.}
-    \end{center}
+    \textbf{Formulación Lógica:} \\
+    Definimos $\text{Con}(F) \equiv \neg \text{Prov}_F(\ulcorner \bot \urcorner)$. El teorema establece que:
+    $$F \not\vdash \text{Con}(F)$$
 \end{frame}
 
 % ==========================================
-% ACTO 5: EL HILO ROJO (EL CLÍMAX)
+% ALAN TURING Y LA INDECIDIBILIDAD
 % ==========================================
 
-% --- Slide 16: El Hilo Rojo del Destino Formal ---
-\begin{frame}{Acto 5: El Hilo Rojo (La Diagonalización)}
-    \begin{center}
-        \Large \textbf{La topología subyacente que unifica el universo}
-        
-        \vspace{0.5cm}
-        \normalsize
-        Existe una única e idéntica firma geométrica detrás del colapso del infinito de Cantor, la incompletitud sintáctica de Gödel y la indecidibilidad de Turing.
-        
-        \vspace{0.8cm}
-        \huge
-        $$\forall f: A \to \mathcal{P}(A), \quad \exists S = \{ x \in A \mid x \notin f(x) \}$$
-        
-        \vspace{0.6cm}
-        \normalsize
-        \alert{\textbf{El teorema de Cantor:}} Ninguna función puede cubrir por completo su conjunto potencia. Siempre hay un elemento que escapa.
-    \end{center}
+\begin{frame}{Indecidibilidad Computacional: Alan Turing}
+    \begin{columns}
+        \begin{column}{0.3\textwidth}
+            \begin{center}
+                \includegraphics[height=0.55\textheight]{../../assets/Alan-Turing.jpg} \\
+                \vspace{0.2cm}
+                \textbf{Alan Turing} \\
+                \small (1912 -- 1954)
+            \end{center}
+        \end{column}
+        \begin{column}{0.7\textwidth}
+            \begin{definicion}[Máquina de Turing]
+                Un autómata definido por la 7-tupla $M = \langle Q, \Gamma, b, \Sigma, \delta, q_0, F \rangle$, donde $\delta: (Q \setminus F) \times \Gamma \to Q \times \Gamma \times \{L, R\}$ es la función de transición.
+            \end{definicion}
+            
+            \begin{teorema}[Indecidibilidad del Halting Problem, 1936]
+                El lenguaje universal $HALT = \{ \langle M, w \rangle \mid M \text{ se detiene con entrada } w \}$ es recursivamente enumerable, pero \textbf{no es decidible} (no es recursivo). No existe máquina de Turing que compute la función característica de $HALT$.
+            \end{teorema}
+        \end{column}
+    \end{columns}
 \end{frame}
 
-% --- Slide 17: La Trinidad Diagonal ---
-\begin{frame}{La Trinidad de los Puntos Ciegos}
-    \vspace{0.4cm}
-    \normalsize
-    Tres mentes compartiendo el mismo patrón estructural para vulnerar los sistemas absolutos:
+% ==========================================
+% DIAGONALIZACIÓN UNIVERSAL
+% ==========================================
+
+\begin{frame}{La Topología del Límite Absoluto: Diagonalización}
+    \begin{teorema}[Teorema de Cantor]
+        Para todo conjunto $A$, la cardinalidad de su conjunto potencia es estrictamente mayor que la de $A$. Es decir, $\not\exists f: A \to \mathcal{P}(A)$ que sea suprayectiva.
+    \end{teorema}
     
-    \vspace{0.5cm}
-    \begin{itemize}
-        \setlength\itemsep{0.4cm}
-        \item \textbf{Cantor (1891):} Altera sistemáticamente el $i$-ésimo dígito del $i$-ésimo número decimal de una lista. El nuevo número real \textbf{escapa a la infinitud de la lista}.
-        \item \textbf{Gödel (1931):} Sustituye el número de una fórmula en su propio predicado de no-demostrabilidad. La oración $G$ \textbf{escapa a la capacidad de prueba del sistema}.
-        \item \textbf{Turing (1936):} Invierte la salida del predictor universal al evaluar la diagonal de la matriz de computabilidad. La máquina $D$ \textbf{escapa a la computabilidad}.
-    \end{itemize}
-\end{frame}
-
-% --- Slide 18: Judo Intelectual ---
-\begin{frame}{Metáfora Final: El Judo Metamatemático}
-    \begin{center}
-        \Large \textbf{El punto ciego inevitable}
-        
-        \vspace{0.6cm}
-        \normalsize
-        No se destruyeron los sistemas trayendo paradojas externas. Se utilizó la táctica universal del Judo intelectual:
-        
-        \vspace{0.5cm}
-        \alert{\Large Tomar las propias fuerzas, leyes y armas del universo en cuestión para apuntarlas directamente contra su propia estructura.}
-        
-        \vspace{0.6cm}
-        \small
-        Las cadenas infinitas, las reglas de inferencia y el código computacional se devoraron a sí mismos. La razón ha encontrado sus fronteras infranqueables.
-    \end{center}
+    \vspace{0.4cm}
+    \alert{\textbf{El Conjunto Diagonal (El Punto Ciego):}} \\
+    Para cualquier función evaluadora $f$, el elemento que colapsa el sistema se construye sistemáticamente como:
+    $$S = \{ x \in A \mid x \notin f(x) \}$$
+    \vspace{0.2cm}
+    \footnotesize \textit{Cantor lo usó en los reales, Gödel en la sintaxis aritmética, Turing en la computabilidad. Las reglas de un sistema absoluto son su propia arma de destrucción.}
 \end{frame}
 
 \end{document}
