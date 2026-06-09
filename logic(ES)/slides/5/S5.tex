@@ -1,0 +1,193 @@
+\documentclass[10pt, aspectratio=169]{beamer}
+
+% --- Configuración del Tema ---
+\usetheme{metropolis}
+\usecolortheme{owl} 
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsfonts, amsmath, amssymb, amsthm}
+\usepackage{graphicx}
+\usepackage{tikz}
+
+% --- Colores Personalizados ---
+\definecolor{diagonalred}{RGB}{140, 20, 40}
+
+% --- Información del Título ---
+\title{Los Límites de la Razón}
+\subtitle{Sesión 6: El Colapso de lo Abstracto en lo Físico}
+\author{Rosh Guadiana}
+\date{Junio 2026}
+
+\begin{document}
+
+\maketitle
+
+% ==========================================
+% SHANNON Y EL FINITISMO
+% ==========================================
+
+\begin{frame}{El Isomorfismo de Shannon}
+    \vspace{0.3cm}
+    \Large \textbf{La respuesta finita a Hilbert}
+    
+    \vspace{0.4cm}
+    \normalsize
+    El paso del espacio de estados infinito de Turing al espacio discreto finito. El Álgebra de Boole se revela como un Anillo Conmutativo Unitario $\langle \mathbb{Z}_2, \oplus, \cdot \rangle$.
+    
+    \vspace{0.5cm}
+    \alert{\textbf{El mapeo físico:}} \\
+    La reducción de la Máquina de Turing a compuertas combinacionales binarias en silicio. La equivalencia estructural entre la disyunción exclusiva y la suma en el anillo $\mathbb{GF}(2)$ se formaliza como:
+    
+    \vspace{0.4cm}
+    \Large
+    $$A \oplus B = (A \land \neg B) \lor (\neg A \land B)$$
+\end{frame}
+
+% ==========================================
+% VON NEUMANN Y MATRICES
+% ==========================================
+
+\begin{frame}{Von Neumann y el Constructor Universal}
+    \vspace{0.3cm}
+    \Large \textbf{De la cinemática a la matriz bidimensional}
+    
+    \vspace{0.4cm}
+    \normalsize
+    Para eliminar el cabezal móvil de Turing y lograr computar estructuras autorreplicantes, Von Neumann mapeó la cinta infinita en un plano discreto. 
+    
+    \vspace{0.5cm}
+    \alert{\textbf{Autómatas Celulares de 29 estados:}} \\
+    El ``cabezal'' es ahora una perturbación del estado de las celdas circundantes. Definimos rigurosamente la vecindad de Von Neumann extendida en el retículo:
+    
+    \vspace{0.4cm}
+    \Large
+    $$N(x,y) = \{(x+i, y+j) \mid |i| + |j| \le 1\}$$
+\end{frame}
+
+% ==========================================
+% REGLA 30 Y CANTOR
+% ==========================================
+
+\begin{frame}{Regla 30: Diagonalización en Topologías Discretas}
+    \vspace{0.2cm}
+    \Large \textbf{La irreducibilidad computacional}
+    
+    \vspace{0.4cm}
+    \normalsize
+    Un sistema localmente determinado que genera un espacio de configuraciones no numerable. No existen ``atajos gödelianos'' analíticos para saltar el tiempo $t$.
+    
+    \vspace{0.4cm}
+    \begin{columns}
+        \begin{column}{0.6\textwidth}
+            \alert{\textbf{Evolución local combinatoria (ECA):}}
+            \large
+            $$a_i^{t+1} = a_{i-1}^t \pmod 2 \oplus (a_i^t \lor a_{i+1}^t)$$
+        \end{column}
+        \begin{column}{0.4\textwidth}
+            \small
+            \textbf{El Cono de Luz Computacional:} \\
+            La alteración de un bit propaga un error con pendiente máxima $\Delta x / \Delta t = 1$, evidenciando caos determinista.
+        \end{column}
+    \end{columns}
+    
+    \vspace{0.4cm}
+    % Sugerencia: Aquí puedes insertar el gráfico de la Regla 30
+    % \begin{center} \includegraphics[height=0.3\textheight]{../../assets/regla30.png} \end{center}
+\end{frame}
+
+% ==========================================
+% CONWAY Y TURING
+% ==========================================
+
+\begin{frame}{Conway y la Turing-Complejidad en $\mathbb{Z}^2$}
+    \vspace{0.3cm}
+    \Large \textbf{El Entscheidungsproblem en un tablero de Go}
+    
+    \vspace{0.4cm}
+    \normalsize
+    Emergencia topológica: las reglas del Juego de la Vida son capaces de simular cualquier Máquina Universal de Turing mediante puertas lógicas formadas por colisiones de \textit{Gliders}.
+    
+    \vspace{0.6cm}
+    \alert{\textbf{El problema de la parada reencarnado:}} \\
+    Resulta matemáticamente indecidible crear un algoritmo general que determine si una configuración inicial arbitraria en este retículo se extinguirá o proliferará infinitamente.
+\end{frame}
+
+% ==========================================
+% SINTAXIS Y SEMÁNTICA
+% ==========================================
+
+\begin{frame}{La Perspectiva de Manuel Morsa}
+    \begin{center}
+        \Large \textbf{El espejismo del observador}
+        
+        \vspace{0.8cm}
+        \huge \textit{``La inteligencia es un efecto óptico\\ del observador.''}
+        \vspace{0.8cm}
+    \end{center}
+    
+    \normalsize
+    \alert{\textbf{Sintaxis $\neq$ Semántica:}} \\
+    Los autómatas celulares son desiertos semánticos. Ejecutan transformaciones homotópicas de cadenas de bits. La comprensión es una proyección desde el exterior del sistema.
+    
+    \vspace{0.4cm}
+    \begin{center}
+        \large Mapeo Formal [Sintaxis] $\longrightarrow$ Interpretación [Semántica]
+    \end{center}
+\end{frame}
+
+% ==========================================
+% ASFIXIA TERMODINÁMICA
+% ==========================================
+
+\begin{frame}{La Asfixia Termodinámica}
+    \vspace{0.2cm}
+    \Large \textbf{El choque contra el Principio de Landauer}
+    
+    \vspace{0.4cm}
+    \normalsize
+    La máquina de Turing ideal carece de fricción. En la realidad, \textbf{el bit es un grado de libertad termodinámico}.
+    
+    \vspace{0.4cm}
+    \begin{columns}
+        \begin{column}{0.48\textwidth}
+            \alert{\textbf{Principio de Landauer:}} \\
+            \vspace{0.1cm}
+            \small Borrar o cambiar información disipa un mínimo innegociable de calor al entorno.
+            \Large
+            $$\Delta Q \ge k_B T \ln 2$$
+        \end{column}
+        \begin{column}{0.48\textwidth}
+            \alert{\textbf{Sistemas Lineales:}} \\
+            \vspace{0.1cm}
+            \small En un sistema lineal ($V_{out} = \alpha V_{in} + \xi$), la varianza del ruido de Johnson-Nyquist ($\sigma^2$) diverge tras $n$ iteraciones de la regla.
+        \end{column}
+    \end{columns}
+    
+    \vspace{0.6cm}
+    \begin{center}
+        \textbf{\color{diagonalred} La entropía física destruye la consistencia sintáctica.}
+    \end{center}
+\end{frame}
+
+% ==========================================
+% NO-LINEALIDAD Y ATRACTORES
+% ==========================================
+
+\begin{frame}{La Ley Innegociable de la No-Linealidad}
+    \vspace{0.3cm}
+    \Large \textbf{El redentor físico del bit}
+    
+    \vspace{0.4cm}
+    \normalsize
+    Para que las verdades lógico-matemáticas sobrevivan, el hardware debe violar la proporcionalidad lineal y aplastar las fluctuaciones térmicas activamente.
+    
+    \vspace{0.4cm}
+    \alert{\textbf{Contracción del espacio de fases:}} \\
+    Requerimos funciones de transferencia no lineales con regiones asintóticas de saturación donde la ganancia diferencial disipe el ruido hacia atractores fijos ($V_{DD}$ o Tierra):
+    
+    \vspace{0.3cm}
+    \Large
+    $$A_v = \frac{dV_{out}}{dV_{in}}, \quad \text{con zonas estables donde } |A_v| < 1$$
+\end{frame}
+
+\end{document}
