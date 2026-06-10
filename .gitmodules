@@ -1,0 +1,3 @@
+[submodule "logic/lsystems"]
+	path = logic/lsystems
+	url = git@github.com:zac-garby/lsystems.git
