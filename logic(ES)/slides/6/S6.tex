@@ -54,8 +54,7 @@
     \begin{columns}
         \begin{column}{0.4\textwidth}
             \begin{center}
-                % IMAGEN: Retrato de Claude Shannon
-                \includegraphics[height=0.65\textheight]{../../assets/Claude-Shannon.jpg} \\
+                \includegraphics[height=0.79\textheight]{../../assets/Claude-Shannon.jpg} \\
                 \vspace{0.2cm}
                 \textbf{Claude Shannon} \\
                 \small (1916 -- 2001)
@@ -95,7 +94,7 @@
             \node at (1.5, 2.1) {$A$};
             \node at (3.5, 2.1) {$B$};
 
-            % Circuito en Paralelo (OR)
+	    
             \begin{scope}[shift={(6, 0)}]
                 \node at (2, 3) {\alert{\textbf{Operación OR ($A \lor B$)}}};
                 \draw (0,1.5) -- (0.5,1.5) -- (0.5,2) -- (1,2);
@@ -125,10 +124,8 @@
 % ==========================================
 
 \begin{frame}{Definición Formal: Autómata Finito (FSA)}
-    \begin{definicion}[Autómata Finito]
         Una máquina de estados finitos es una construcción matemática rigurosa definida por la 5-tupla:
         $$M = \langle Q, \Sigma, \delta, q_0, F \rangle$$
-    \end{definicion}
     
     \vspace{0.2cm}
     \textbf{Donde:}
@@ -149,21 +146,21 @@
 % ==========================================
 \begin{frame}{El Proyecto Los Álamos: La Autorreplicación}
     \begin{columns}
-        \begin{column}{0.3\textwidth}
+        \begin{column}{0.4\textwidth}
             \begin{center}
                 % IMAGEN: Retrato de John von Neumann
-                \includegraphics[height=0.4\textheight]{../../assets/John-von-Neumann.jpg} \\
+                \includegraphics[height=0.3\textheight]{../../assets/John-von-Neumann.jpg} \\
                 \vspace{0.1cm}
                 \footnotesize \textbf{John von Neumann} \\ (1903 -- 1957)
                 
                 \vspace{0.3cm}
                 % IMAGEN: Retrato de Stanislaw Ulam
-                \includegraphics[height=0.4\textheight]{../../assets/Stanislaw-Ulam.jpg} \\
+                \includegraphics[height=0.3\textheight]{../../assets/Stanislaw-Ulam.jpg} \\
                 \vspace{0.1cm}
                 \footnotesize \textbf{Stanislaw Ulam} \\ (1909 -- 1984)
             \end{center}
         \end{column}
-        \begin{column}{0.7\textwidth}
+        \begin{column}{0.6\textwidth}
             \vspace{0.5cm}
             \Large \textbf{Los Primeros Autómatas Celulares}
             
@@ -173,7 +170,7 @@
             
             \vspace{0.4cm}
             \alert{\textbf{El dogma mecanicista:}} \\
-            Von Neumann asumía erróneamente que, para que un sistema generara comportamiento complejo y autorreplicante, requería obligatoriamente una \textit{unidad de control central}.
+            Von Neumann asumía que, para que un sistema generara comportamiento complejo y autorreplicante, requería obligatoriamente una \textit{unidad de control central}.
         \end{column}
     \end{columns}
 \end{frame}
@@ -181,12 +178,10 @@
 
 \begin{frame}{Definición Formal: Autómata Celular (AC)}
     \vspace{0.2cm}
-    Pasamos de un solo torniquete, a un universo infinito de máquinas interconectadas.
     
-    \begin{definicion}[Autómata Celular]
         Un sistema dinámico espacial y temporalmente discreto definido por la 4-tupla:
         $$AC = \langle \mathbb{Z}^d, S, N, \delta \rangle$$
-    \end{definicion}
+   
 
     \vspace{0.2cm}
     \begin{itemize}
@@ -198,10 +193,6 @@
 \end{frame}
 
 \begin{frame}{Dinámica del Universo}
-    \vspace{0.6cm}
-    \Large \textbf{El Reloj Universal}
-    
-    \vspace{0.4cm}
     \normalsize
     Un autómata celular requiere una actualización simultánea. Definimos la \textbf{Configuración Global} del universo en un instante $t$ como:
     $$C = S^{\mathbb{Z}^d}$$
@@ -231,7 +222,7 @@
         \end{column}
         \begin{column}{0.6\textwidth}
             \vspace{0.5cm}
-            Dado un vecindario de 3 celdas binarias, hay $2^3 = 8$ estados vecinales posibles (desde $111$ hasta $000$).
+           \\  Dado un vecindario de 3 celdas binarias, hay $2^3 = 8$ estados vecinales posibles (desde $111$ hasta $000$).
             
             \vspace{0.4cm}
             Por permutación, existen exactamente $2^8 = \alert{\textbf{256 reglas o universos posibles}}$.
@@ -267,28 +258,11 @@
 
 \begin{frame}{La Iteración del Tiempo}
     \begin{center}
-        \Large \textbf{Estallido desde el vacío}
+        \Large \textbf{Caos desde el vacío}
         
-        \vspace{0.4cm}
-        \normalsize
-        Iniciamos un universo muerto de ceros infinitos, con un único $1$ como chispa inicial.
-        
-        \vspace{0.6cm}
-        \large
-        $t=0$: \quad $\dots \quad 0 \quad 0 \quad 0 \quad [\mathbf{1}] \quad 0 \quad 0 \quad 0 \quad \dots$
-        
-        \vspace{0.4cm}
-        \alert{$\delta(0,0,1)=1 \quad \delta(0,1,0)=1 \quad \delta(1,0,0)=1$}
-        
-        \vspace{0.4cm}
-        $t=1$: \quad $\dots \quad 0 \quad 0 \quad [\mathbf{1} \quad \mathbf{1} \quad \mathbf{1}] \quad 0 \quad 0 \quad \dots$
-        
-        \vspace{0.4cm}
-        $t=2$: \quad $\dots \quad 0 \quad \mathbf{1} \quad \mathbf{1} \quad 0 \quad 0 \quad \mathbf{1} \quad 0 \quad \dots$
-        
-        \vspace{0.6cm}
-        \normalsize
-        \textit{La asimetría de la regla XOR/OR acaba de romper el vacío.}
+      
+     
+	\normalsize
     \end{center}
 \end{frame}
 
@@ -302,7 +276,7 @@
     
     \vspace{0.6cm}
     \alert{\textbf{El fracaso de Von Neumann:}} \\
-    Creíamos que para crear complejidad se requería un diseño maestro altamente intrincado. La Regla 30 demuestra la \textit{Irreducibilidad Computacional}: un nivel incomprensible de caos y complejidad termodinámica puede emanar de manera determinista de tres simples celdas ejecutando el álgebra de Boole más primitiva.
+La Regla 30 demostró la irreducibilidad computacional: la naturaleza no necesita de un gran arquitecto divino o un código de millones de líneas. Un nivel incomprensible de caos y complejidad termodinámica puede emanar de manera determinista e irreversible de tres simples celdas ejecutando el álgebra booleana más primitiva.
     
     \vspace{0.4cm}
     \textbf{La naturaleza no necesita código complejo; solo necesita iteración profunda.}
@@ -312,13 +286,13 @@
         \begin{column}{0.4\textwidth}
             \begin{center}
                 % IMAGEN: Retrato de John Conway
-                \includegraphics[height=0.65\textheight]{../../assets/John-Conway.jpg} \\
+                \includegraphics[height=0.78\textheight]{../../assets/John-Conway.jpg} \\
                 \vspace{0.2cm}
                 \textbf{John Conway} \\
                 \small (1937 -- 2020)
             \end{center}
         \end{column}
-        \begin{column}{0.6\textwidth}
+        \begin{column}{0.7\textwidth}
             \vspace{0.5cm}
             \Large \textbf{El Juego de la Vida (1970)}
             
@@ -350,10 +324,10 @@
         \vspace{0.4cm}
         % PLANTILLA PARA IMÁGENES DEL JUEGO DE LA VIDA
         % Aquí insertas un mosaico o un GIF/imagen de un Glider, un Gosper Glider Gun, etc.
-        \includegraphics[height=0.6\textheight]{../../assets/conway-patterns.png} \\ % Reemplaza con tus imágenes
+        \includegraphics[height=0.6\textheight]{../../assets/conway-pattern.png} \\ % Reemplaza con tus imágenes
         
         \vspace{0.2cm}
-        \footnotesize \textit{Planeadores (Gliders), Osciladores y Naves Espaciales.}
+        \footnotesize \textit{https://www.researchgate.net/figure/Examples-of-stable-patterns-in-Conways-Game-of-Life_fig2_320019435}
     \end{center}
 \end{frame}
 
@@ -366,7 +340,7 @@
         \begin{column}{0.4\textwidth}
             \begin{center}
                 % IMAGEN: Retrato de Aristid Lindenmayer
-                \includegraphics[height=0.65\textheight]{../../assets/Aristid-Lindenmayer.jpg} \\
+                \includegraphics[height=0.78\textheight]{../../assets/Aristid-Lindenmayer.jpg} \\
                 \vspace{0.2cm}
                 \textbf{Aristid Lindenmayer} \\
                 \small (1925 -- 1989)
@@ -390,44 +364,64 @@
 
 \begin{frame}{La Máquina de Dibujar Biología}
     \begin{columns}
-        \begin{column}{0.4\textwidth}
-            \begin{center}
-                % IMAGEN: Retrato de Seymour Papert
-                \includegraphics[height=0.65\textheight]{../../assets/Seymour-Papert.jpg} \\
-                \vspace{0.2cm}
-                \textbf{Seymour Papert} \\
-                \small (1928 -- 2016)
-            \end{center}
-        \end{column}
         \begin{column}{0.6\textwidth}
-            \vspace{0.5cm}
+             \vspace{0.5cm}
             \Large \textbf{El lenguaje Logo y la Tortuga}
             
             \vspace{0.4cm}
             \normalsize
-            Pionero de la inteligencia artificial en el MIT. Al obligar a su robot virtual ("la tortuga") a ejecutar los axiomas recursivos de Lindenmayer mediante comandos ciegos de giro y avance...
-            
-            \vspace{0.4cm}
-            \alert{\textbf{La pantalla generó ecosistemas.}}
+Matemático sudafricano que trabajó en Ginebra junto a Jean Piaget (padre de la epistemología genética). Co-fundador del Laboratorio de Inteligencia Artificial del MIT junto a Marvin Minsky.
+              
         \end{column}
+        \begin{column}{0.4\textwidth}
+		\begin{center} 
+  \includegraphics[height=0.78\textheight]{../../assets/Seymour-Papert.jpg} \\
+                \vspace{0.2cm}
+                \textbf{Seymour Papert} \\
+                \small (1928 -- 2016)
+	\end{center}
+	\end{column}
     \end{columns}
 \end{frame}
+\begin{frame}{El Lenguaje Logo y la Geometría de la Tortuga (1968)}
+    \normalsize
+    Papert y su equipo crearon \textbf{Logo}, un lenguaje de programación funcional. Su mayor innovación fue su cursor físico/virtual: \alert{La Tortuga}.
+    
+    \vspace{0.4cm}
+    \begin{itemize}
+        \setlength\itemsep{0.4cm}
+        \item \textbf{El Fin del Plano Cartesiano:} La tortuga ignora las coordenadas absolutas $(x,y)$. Utiliza una \textit{geometría intrínseca} basada en su propio estado: posición y vector de dirección (\texttt{AVANZA}, \texttt{GIRA}).
+        \item \textbf{La Ceguera Eficiente:} El autómata no sabe qué figura está dibujando; solo ejecuta rígidamente la siguiente instrucción en su cola de memoria.
+        \item \textbf{El Vínculo con Lindenmayer:} Al alimentar a la tortuga con las reglas recursivas de L-Systems ($A \to AB$), comandos simples se iteraron hasta el infinito.
 
+    \end{itemize}
+
+            \alert{\textbf{Guiada por sintaxis ciega... la pantalla generó ecosistemas.}}
+\end{frame}
 \begin{frame}{Fractales Orgánicos: L-Systems en Acción}
     \begin{center}
         \Large \textbf{La ejecución mecánica del árbol}
         
         \vspace{0.4cm}
-        % PLANTILLA PARA IMÁGENES DE LINDENMAYER
-        % Aquí insertas las imágenes de árboles generados por L-Systems
-        \includegraphics[height=0.6\textheight]{../../assets/lsystems-trees.png} \\ % Reemplaza con tus imágenes
+        \includegraphics[height=0.5\textheight]{../../assets/lsystem.png} \\ 
         
         \vspace{0.2cm}
-        \footnotesize \textit{Geometría fractal generada por sintaxis estricta.}
+        \footnotesize \textit{Geometría fractal generada por sintaxis estricta. https://jsantell.com/l-systems/}
+    \end{center}
+\end{frame}
+\begin{frame}{Fractales Orgánicos: L-Systems en Acción}
+    \begin{center}
+        \Large \textbf{La ejecución mecánica del árbol}
+        
+        \vspace{0.4cm}
+        \includegraphics[height=0.5\textheight]{../../assets/lsystem2.png} \\ % Reemplaza con tus imágenes
+        
+        \vspace{0.2cm}
+        \footnotesize \textit{https://allenpike.com/modeling-plants-with-l-systems/}
     \end{center}
 \end{frame}
 
-\begin{frame}{El Cierre Filosófico: La Inteligencia Aparente}
+\begin{frame}{La Inteligencia Aparente}
     \vspace{0.8cm}
     \begin{center}
         \huge \textit{``No hay nadie en casa.''}
@@ -436,7 +430,7 @@
     \vspace{0.8cm}
     \normalsize
     \alert{\textbf{El espejismo del diseñador:}} \\
-    Al ver a la tortuga dibujar árboles o al autómata simular vida, el cerebro humano proyecta consciencia. Es una ilusión. La máquina no "entiende" el árbol; no "comprende" la vida. Solo está moviendo cargas eléctricas obedeciendo sintaxis ciega.
+    Al ver a la tortuga dibujar árboles o al autómata simular vida, el cerebro humano proyecta consciencia. Es una ilusión. La máquina no ''entiende''' el árbol; no ''comprende" la vida. Solo está moviendo cargas eléctricas obedeciendo sintaxis ciega. \\ -Manuel López Michelone
 \end{frame}
 
 % ==========================================
@@ -450,24 +444,12 @@
         
         \vspace{0.8cm}
         \normalsize
-        Antes de 1948, la "información" era un concepto filosófico abstracto. Shannon matematizó la sorpresa. Definió que la información no trata sobre el "significado", sino sobre la \textbf{reducción de la incertidumbre}.
+        Antes de 1948, la ''información'' era un concepto filosófico abstracto. Shannon matematizó la sorpresa. Definió que la información no trata sobre el "significado", sino sobre la \textbf{reducción de la incertidumbre}.
         
         \vspace{0.6cm}
         \alert{\textbf{El Bit (Binary Digit):}} \\
         La unidad fundamental geométrica del universo de la información. Representa la cantidad de información necesaria para resolver la incertidumbre entre dos opciones igualmente probables.
     \end{center}
-\end{frame}
-
-\begin{frame}{La Entropía de Shannon}
-    \vspace{0.4cm}
-    
-    \begin{definicion}[Entropía de la Información]
-        Dado un conjunto de eventos posibles con probabilidades $P(x_i)$, la cantidad promedio de información (incertidumbre) del sistema se define estrictamente como:
-        
-        \vspace{0.2cm}
-        \huge
-        $$H(X) = - \sum_{i=1}^n P(x_i) \log_2 P(x_i)$$
-    \end{definicion}
 \end{frame}
 
 \begin{frame}{El Universalismo del Bit}
@@ -481,52 +463,15 @@
     
 \end{frame}
 
-\begin{frame}{El Choque Termodinámico}
-    \begin{definicion}[La Materia del Bit]
-        El bit exige un portador energético físico. \textbf{No existe la información inmaterial.}
+\begin{frame}{La Entropía de Shannon}
+    \vspace{0.4cm}
+    
+    \begin{definicion}[Entropía de la Información]
+        Dado un conjunto de eventos posibles con probabilidades $P(x_i)$, la cantidad promedio de información (incertidumbre) del sistema se define estrictamente como:
+        
+        \vspace{0.2cm}
+        \huge
+        $$H(X) = - \sum_{i=1}^n P(x_i) \log_2 P(x_i)$$
     \end{definicion}
-
-    \vspace{0.6cm}
-    \Large \textbf{El asalto de la Termodinámica}
-    
-    \vspace{0.4cm}
-    \normalsize
-    Para computar, movemos electrones. Nuestro universo tiene una temperatura $> 0$ K. El movimiento molecular estocástico de los átomos de cobre introduce al destructor de la información: \alert{\textbf{El ruido térmico}}.
 \end{frame}
-
-\begin{frame}{La Asfixia Matérica}
-    \vspace{0.2cm}
-    \Large \textbf{El colapso de los sistemas pasivos (lineales)}
-    
-    \vspace{0.4cm}
-    \normalsize
-    Si intentamos construir autómatas usando solo metales y resistores, el circuito se rige por atenuación lineal:
-    $$V_{out} = \alpha V_{in} + V_{ruido} \quad (\text{donde } 0 < \alpha < 1)$$
-    
-    \vspace{0.4cm}
-    \alert{\textbf{La destrucción de la Lógica:}} \\
-    Tras encadenar múltiples compuertas lógicas, la señal cuadrada original de $5\text{V}$ (el "1") se atenúa inexorablemente por $\alpha$, mientras el ruido del universo se suma. Eventualmente, la señal muere ahogada. La sintaxis colapsa ante la física.
-\end{frame}
-
-% ==========================================
-% ACTO 5: LA LEY DE LA NO-LINEALIDAD
-% ==========================================
-
-\begin{frame}{Acto 5: La Ley de la No-Linealidad}
-    \begin{center}
-        \Large \textbf{El requisito innegociable de la computación física}
-        
-        \vspace{0.6cm}
-        \normalsize
-        Para que las simulaciones formales de L-Systems y autómatas sobrevivan a la termodinámica, es matemáticamente imposible utilizar medios lineales.
-        
-        \vspace{0.8cm}
-        \alert{\Large \textbf{Necesitamos amplificación asimétrica y no lineal.}}
-        
-        \vspace{0.6cm}
-        \normalsize
-        Requerimos un dispositivo físico capaz de discriminar la señal del ruido, que \textbf{regenere} activamente los voltajes a sus umbrales perfectos en cada etapa, inyectando energía al sistema.
-    \end{center}
-\end{frame}
-
 \end{document}
