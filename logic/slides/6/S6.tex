@@ -265,7 +265,133 @@
 	\normalsize
     \end{center}
 \end{frame}
+\begin{frame}{¿Qué es el Caos?}
 
+\textbf{Un sistema dinámico es caótico si presenta:}
+
+\vspace{0.4cm}
+
+\begin{enumerate}
+    \item Sensibilidad a las condiciones iniciales.
+    
+    \vspace{0.2cm}
+    
+    \item Mezcla topológica del espacio de estados.
+    
+    \vspace{0.2cm}
+    
+    \item Órbitas periódicas densas.
+\end{enumerate}
+
+\vspace{0.4cm}
+
+En términos intuitivos:
+
+\begin{quote}
+Pequeñas diferencias iniciales pueden producir
+evoluciones radicalmente distintas.
+\end{quote}
+
+\vspace{0.4cm}
+
+En autómatas celulares, una modificación de una sola
+celda puede propagarse a todo el sistema.
+
+\end{frame}
+
+\begin{frame}{Exponentes de Lyapunov}
+
+Sean dos estados inicialmente cercanos:
+
+\[
+d(x_0,y_0) \ll 1
+\]
+Su separación evoluciona aproximadamente como:
+
+\[
+d(x_t,y_t)
+=
+d(x_0,y_0)e^{\lambda t}
+\]
+
+donde:
+
+\[
+\lambda
+\]
+
+es el \textbf{exponente de Lyapunov}.
+
+
+\end{frame}
+\begin{frame}{Caos en Autómatas Celulares}
+
+La distancia entre configuraciones suele medirse mediante
+la \textbf{distancia de Hamming}:
+
+\[
+H(x,y)
+\]
+
+que cuenta cuántas celdas poseen estados diferentes.
+
+\vspace{0.4cm}
+
+Si inicialmente:
+
+\[
+H_0 = 1
+\]
+
+y después de varias iteraciones:
+
+\[
+H_t \gg 1
+\]
+
+el sistema muestra sensibilidad a las condiciones
+iniciales.
+
+
+\end{frame}
+\begin{frame}{Computabilidad e Indecidibilidad}
+
+\textbf{Computabilidad}
+
+\vspace{0.2cm}
+
+Un problema es computable si existe un algoritmo capaz
+de resolverlo en tiempo finito.
+
+\vspace{0.4cm}
+
+\textbf{Decidibilidad}
+
+\vspace{0.2cm}
+
+Un problema es decidible si siempre existe un algoritmo
+que responde correctamente:
+
+\[
+\text{Sí}
+\qquad \text{o} \qquad
+\text{No}
+\]
+
+para cualquier entrada.
+\end{frame}
+\begin{frame}{Irreducibilidad Computacional}
+
+\begin{center}
+\includegraphics[height=0.45\textheight]{../../assets/Stephen-Wolfram.jpg}
+
+\Large \textbf{"La única forma de conocer el resultado es ejecutar el proceso."} 
+\vspace{0.2cm}
+\\ \normalsize - Stephen Wolfram
+
+\end{center}
+
+\end{frame}
 \begin{frame}{El Resultado Filosófico: Irreducibilidad Computacional}
     \vspace{0.4cm}
     \Large \textbf{La Muerte del Arquitecto Central}
@@ -414,12 +540,35 @@ Matemático sudafricano que trabajó en Ginebra junto a Jean Piaget (padre de la
 \begin{frame}{Fractales Orgánicos: L-Systems en Acción}
     \begin{center}
         
-        \includegraphics[height=0.5\textheight]{../../assets/lsystem2.png} \\ % Reemplaza con tus imágenes
+        \includegraphics[height=0.7\textheight]{../../assets/lsystem2.png} \\ % Reemplaza con tus imágenes
         
         \vspace{0.2cm}
         \footnotesize \textit{https://allenpike.com/modeling-plants-with-l-systems/}
     \end{center}
 \end{frame}
+
+\begin{frame}{Fractales Orgánicos: L-Systems en Acción}
+    \begin{center}
+        
+        \includegraphics[height=0.7\textheight]{../../assets/lsystems4.png} \\ % Reemplaza con tus imágenes
+        
+        \vspace{0.2cm}
+        \footnotesize \textit{The Algorithmic Beauty of Plants
+ - p.25
+}
+    \end{center}
+\end{frame}
+
+
+
+\begin{frame}{Fractales Orgánicos: L-Systems en Acción}
+    \begin{center}
+        
+	    \huge \textbf{Veamoslo en acción} \\ 
+	    \small ../lsystems/lsystem.py
+    \end{center}
+\end{frame}
+
 
 \begin{frame}{La Inteligencia Aparente}
     \vspace{0.8cm}
