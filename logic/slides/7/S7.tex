@@ -29,7 +29,7 @@
 \maketitle
 
 % ==========================================
-% ACTO 1: LA ASFIXIA DE LA INFORMACIÓN
+% ACTO 1: EL SUEÑO LÓGICO Y LA PESADILLA TERMODINÁMICA
 % ==========================================
 
 \begin{frame}{El Regreso a la Materia}
@@ -37,6 +37,7 @@
         \begin{column}{0.4\textwidth}
             \begin{center}
                 \includegraphics[height=0.65\textheight]{../../assets/Claude-Shannon.jpg} \\
+        
                 \vspace{0.2cm}
                 \textbf{Claude Shannon} \\
                 \small (1916 -- 2001)
@@ -48,10 +49,10 @@
             
             \vspace{0.4cm}
             \normalsize
-            Hemos establecido que la lógica de Boole puede mapearse en relés e interruptores. 
+            En 1938, Shannon demostró que el álgebra de Boole puede mapearse en relés e interruptores.
             
             \vspace{0.4cm}
-            Sin embargo, al sacar la sintaxis del vacío matemático y forzarla a existir en la \textbf{materia física}, surge un enemigo inevitable: las leyes de la termodinámica.
+            El bit nace como concepto, pero al sacar la sintaxis del vacío matemático y forzarla a existir en un sustrato de \textbf{materia física}, surge un enemigo inevitable: las leyes de la termodinámica.
         \end{column}
     \end{columns}
 \end{frame}
@@ -62,10 +63,24 @@
     
     \vspace{0.6cm}
     \normalsize
-    Imagina enviar una señal lógica pura (un 1 y un 0) a través de un conductor metálico lineal ordinario, como un cable de cobre.
+    Imagina enviar una señal lógica pura (un $1$ y un $0$) a través de un conductor metálico lineal ordinario, como un cable de cobre.
     
     \vspace{0.4cm}
-    El universo no está estático; está lleno de \alert{\textbf{ruido térmico}}. Los electrones en el metal chocan aleatoriamente debido a la temperatura. Esta entropía natural se opone a cualquier estructura ordenada de información.
+    El universo no está estático; está lleno de \alert{\textbf{ruido térmico}}. Los electrones en el metal chocan aleatoriamente debido a la temperatura de la materia. Esta entropía natural se opone fuertemente a cualquier estructura ordenada de información.
+\end{frame}
+
+\begin{frame}{La Asfixia Térmica y el Ruido Lineal}
+    \vspace{0.4cm}
+    \Large \textbf{La derrota por ruido de Johnson-Nyquist}
+    
+    \vspace{0.4cm}
+    \normalsize
+    En materiales conductores lineales, el ruido térmico destruye la señal digital. La densidad espectral de este ruido se modela matemáticamente como:
+    
+    $$v_n=\sqrt{4k_B T R \Delta f}$$
+    
+    \vspace{0.4cm}
+    \textbf{Conclusión:} La materia lineal es completamente incapaz de sostener la certeza deductiva del $1$ y el $0$. La agitación térmica arruina la sintaxis.
 \end{frame}
 
 \begin{frame}{La Decadencia de la Señal Perfecta}
@@ -106,8 +121,38 @@
 \end{frame}
 
 % ==========================================
-% ACTO 2: EL CRISTAL Y LA BARRERA LÓGICA
+% ACTO 2: LA FUERZA BRUTA Y SUS LÍMITES
 % ==========================================
+
+\begin{frame}{El Primer Gran Interruptor: El Tubo de Vacío}
+    \vspace{0.4cm}
+    \Large \textbf{El Triodo (1906)}
+    
+    \vspace{0.4cm}
+    \normalsize
+    Antes de dominar la materia a nivel cuántico, recurrimos a la fuerza bruta. Lee De Forest inventó una "rejilla" central capaz de controlar el flujo de electrones emitidos por un filamento caliente dentro de un tubo de vidrio al vacío.
+    
+    \vspace{0.4cm}
+    \textbf{El problema termodinámico:}
+    \begin{itemize}
+        \item Consumían cantidades brutales de energía y se fundían constantemente.
+        \item El calor generado impedía físicamente la miniaturización. Computadoras como la ENIAC eran hornos insostenibles de componentes frágiles.
+    \end{itemize}
+\end{frame}
+
+% ==========================================
+% ACTO 3: LA ARQUITECTURA CUÁNTICA DE LA LÓGICA
+% ==========================================
+
+\begin{frame}{El Espectro de la Materia}
+    \vspace{0.6cm}
+    \begin{itemize}
+        \setlength\itemsep{0.3cm}
+        \item \textbf{Conductores:} Sus bandas de energía están superpuestas. El flujo es incontrolable y vulnerable al ruido térmico.
+        \item \textbf{Aislantes:} Tienen una brecha de energía insalvable. Son inútiles para procesar flujo de información lógica.
+        \item \textbf{Semiconductores (Silicio/Germanio):} El punto medio perfecto. Su brecha es lo suficientemente grande para bloquear el caos térmico, pero lo suficientemente pequeña para ser controlada externamente.
+    \end{itemize}
+\end{frame}
 
 \begin{frame}{La Búsqueda de una Barrera}
     \vspace{0.4cm}
@@ -121,13 +166,12 @@
     No necesitamos metales que dejen fluir la corriente libremente. Necesitamos \alert{\textbf{silicio}}.
 \end{frame}
 
-\begin{frame}{La Analogía del Vaso de Agua}
+\begin{frame}{Estados cuánticos}
     \vspace{0.4cm}
-    \Large \textbf{Llenando los estados cuánticos}
     
     \vspace{0.4cm}
     \normalsize
-    Imagina los electrones en un cristal de silicio. Por leyes cuánticas, no pueden ocupar el mismo espacio ni el mismo estado de energía a la vez. 
+    Imagina los electrones en un cristal de silicio. Por leyes cuánticas, no pueden ocupar el mismo espacio ni el mismo estado de energía a la vez.
     
     \vspace{0.4cm}
     \begin{itemize}
@@ -139,17 +183,15 @@
 
 \begin{frame}{La Brecha Prohibida ($E_g$)}
     \begin{center}
-        \textbf{El Foso Arquitectónico}
         
-        \vspace{0.4cm}
         \begin{tikzpicture}[scale=1]
             % Banda de Valencia
-            \fill[blue!30] (0,0) rectangle (4,2);
+            \fill[blue!90] (0,0) rectangle (4,2);
             \node at (2,1) {\textbf{Banda de Valencia}};
             \node[below] at (2,0) {(Electrones fijos)};
             
             % Banda de Conducción
-            \fill[red!30] (0,4) rectangle (4,6);
+            \fill[red!90] (0,4) rectangle (4,6);
             \node at (2,5) {\textbf{Banda de Conducción}};
             \node[above] at (2,6) {(Corriente libre)};
             
@@ -180,11 +222,11 @@
     \end{itemize}
     
     \vspace{0.2cm}
-    $$ \textbf{Regla del Diseño Físico:} \quad E_g \gg k_B T $$
+    $$\textbf{Condición de Diseño Físico:} \quad E_g \gg k_B T$$
 \end{frame}
 
 % ==========================================
-% ACTO 3: LA RUPTURA DE SIMETRÍA
+% ACTO 4: ROMPIENDO LA SIMETRÍA
 % ==========================================
 
 \begin{frame}{La Aburrición del Silicio Puro}
@@ -193,19 +235,19 @@
     
     \vspace{0.6cm}
     \normalsize
-    El silicio puro tiene una estructura cristalina perfecta. Cada átomo comparte sus 4 electrones con sus vecinos. Es simétrico, estable y, tecnológicamente hablando, inútil para procesar lógica.
+    El silicio puro tiene una estructura cristalina perfecta. Cada átomo comparte sus 4 electrones con sus vecinos. Es simétrico, estable y, tecnológicamente hablando, completamente inerte e inútil para procesar lógica.
     
     \vspace{0.4cm}
-    Para vencer al ruido termodinámico de forma activa, debemos corromper esta perfección cristalina.
+    Para vencer al ruido termodinámico de forma activa, debemos corromper esta perfección cristalina y obligar a la materia a actuar.
 \end{frame}
 
 \begin{frame}{El Dopaje: Rompiendo la Simetría}
     \vspace{0.4cm}
-    \Large \textbf{Inyectando Impurezas}
+    \Large \textbf{Inyectando Impurezas Estratégicas}
     
     \vspace{0.6cm}
     \normalsize
-    Sustituimos estratégicamente átomos de silicio por otros elementos químicos:
+    Sustituimos estratégicamente átomos de silicio por otros elementos químicos para corromper su inercia:
     
     \vspace{0.4cm}
     \begin{itemize}
@@ -217,35 +259,14 @@
 
 \begin{frame}{El Choque: La Unión PN}
     \begin{center}
-        \Large \textbf{El nacimiento del control electrostático}
+        \textbf{El nacimiento del control electrostático}
         
         \vspace{0.4cm}
-        \begin{tikzpicture}[scale=1]
-            % Material P
-            \draw[thick, fill=red!10] (0,0) rectangle (3,3);
-            \node at (1.5, 2.5) {\textbf{Tipo P}};
-            \node at (1, 1) {$\oplus \quad \oplus$};
-            \node at (2, 1.5) {$\oplus$};
-            
-            % Material N
-            \draw[thick, fill=blue!10] (3,0) rectangle (6,3);
-            \node at (4.5, 2.5) {\textbf{Tipo N}};
-            \node at (5, 1) {$\ominus \quad \ominus$};
-            \node at (4, 1.5) {$\ominus$};
-            
-            % Zona de agotamiento
-            \draw[thick, fill=gray!30] (2.2,0) rectangle (3.8,3);
-            \node at (3, 3.5) {\alert{Zona de Agotamiento}};
-            
-            % Cargas fijas en la zona de agotamiento
-            \node at (2.6, 2) {$\ominus$};
-            \node at (2.6, 1) {$\ominus$};
-            \node at (3.4, 2) {$\oplus$};
-            \node at (3.4, 1) {$\oplus$};
-            
-            % Campo eléctrico
-            \draw[->, ultra thick, red] (3.4, 0.5) -- (2.6, 0.5) node[midway, below] {$\vec{E} (V_0)$};
-        \end{tikzpicture}
+        % Reemplaza "zona_agotamiento.png" por el nombre exacto de tu archivo
+        \includegraphics[height=0.55\textheight]{../../assets/zona_agotamiento.png}
+        
+        \vspace{0.4cm}
+        \footnotesize \textit{La asimetría de la materia fuerza la migración de electrones, creando un campo eléctrico de contención.}
     \end{center}
 \end{frame}
 
@@ -255,7 +276,7 @@
     
     \vspace{0.6cm}
     \normalsize
-    Al unir el Tipo P y el Tipo N:
+    Al unir la materia Tipo P y la Tipo N ocurre un choque inevitable:
     \begin{enumerate}
         \item Los electrones del Tipo N cruzan la frontera para llenar los "huecos" del Tipo P.
         \item Al hacerlo, dejan iones positivos atrás y crean iones negativos donde llegan.
@@ -263,7 +284,7 @@
     \end{enumerate}
     
     \vspace{0.4cm}
-    Ese campo eléctrico es un escudo. Impide que sigan cruzando electrones por accidente.
+    Ese campo eléctrico es un escudo termodinámico. Impide que sigan cruzando electrones por accidente.
 \end{frame}
 
 \begin{frame}{La Victoria sobre la Materia Lineal}
@@ -274,39 +295,36 @@
     
     \vspace{0.8cm}
     \normalsize
-    Acabamos de construir el \textbf{Diodo}. Al intentar pasar corriente, este dispositivo actúa como una válvula de un solo sentido. 
+    Acabamos de construir el \textbf{Diodo}. Al intentar pasar corriente, este dispositivo actúa como la primera gran \textbf{válvula física de un solo sentido}.
     
     \vspace{0.4cm}
-    Esta \alert{\textbf{no linealidad}} es la primera pieza de materia forzada físicamente a rectificar el caos térmico para proteger la lógica.
+    Esta \alert{\textbf{no linealidad}} significa que la termodinámica ha sido domesticada. La corriente fluye únicamente si el operador impone la diferencia de potencial correcta de manera intencional.
 \end{frame}
 
-% ==========================================
-% ACTO 4: EL DRAMA DE BELL LABS
-% ==========================================
 
 \begin{frame}{El Proyecto en Bell Labs (1947)}
     \vspace{0.4cm}
-    \Large \textbf{El Factor Humano detrás del Hardware}
+    \Large \textbf{El Salto al Estado Sólido}
     
     \vspace{0.6cm}
     \normalsize
-    Después de la Segunda Guerra Mundial, los laboratorios Bell querían reemplazar los frágiles tubos de vacío de vidrio que hacían funcionar las computadoras y los teléfonos.
+    Después de la Segunda Guerra Mundial, los laboratorios Bell querían reemplazar urgentemente los frágiles tubos de vacío de vidrio.
     
     \vspace{0.4cm}
-    El objetivo: un dispositivo en estado sólido capaz de \textbf{amplificar} una señal y actuar como el \textbf{interruptor lógico perfecto}.
+    El objetivo: un dispositivo en estado sólido capaz de \textbf{amplificar} una señal y actuar como el \textbf{interruptor lógico perfecto} sin depender de filamentos calientes.
 \end{frame}
 
 \begin{frame}{El Director del Proyecto}
     \begin{columns}
         \begin{column}{0.4\textwidth}
             \begin{center}
-                \includegraphics[height=0.65\textheight]{../../assets/William-Shockley.jpg} \\
+                \includegraphics[height=0.5\textheight]{../../assets/William-Shockley.jpg} \\
                 \vspace{0.2cm}
                 \textbf{William Shockley} \\
                 \small (1910 -- 1989)
             \end{center}
         \end{column}
-        \begin{column}{0.6\textwidth}
+        \begin{column}{0.5\textwidth}
             \vspace{0.5cm}
             \Large \textbf{El Teórico Formidable}
             
@@ -324,13 +342,13 @@
     \begin{columns}
         \begin{column}{0.4\textwidth}
             \begin{center}
-                \includegraphics[height=0.65\textheight]{../../assets/John-Bardeen.jpg} \\
+                \includegraphics[height=0.55\textheight]{../../assets/John-Bardeen.jpg} \\
                 \vspace{0.2cm}
                 \textbf{John Bardeen} \\
                 \small (1908 -- 1991)
             \end{center}
         \end{column}
-        \begin{column}{0.6\textwidth}
+        \begin{column}{0.5\textwidth}
             \vspace{0.5cm}
             \Large \textbf{El Genio Silencioso}
             
@@ -362,7 +380,7 @@
     \end{columns}
 \end{frame}
 
-\begin{frame}{El "Mes Mágico" y la Traición}
+\begin{frame}{El ''Mes Mágico'' y la Traición}
     \vspace{0.4cm}
     \Large \textbf{Diciembre de 1947}
     
@@ -380,13 +398,155 @@
     
     \vspace{0.6cm}
     \normalsize
-    Shockley, consumido por la furia de quedar fuera de la patente, se encerró en una habitación de hotel en Chicago. 
+    Shockley, consumido por la furia de quedar fuera de la patente, se encerró en una habitación de hotel en Chicago.
     
     \vspace{0.4cm}
-    Impulsado por pura rabia para demostrar su superioridad intelectual frente a sus subordinados, desarrolló durante semanas y sobre el papel toda la teoría de las uniones PN que acabamos de ver.
+    Impulsado por pura rabia para demostrar su superioridad intelectual frente a sus subordinados, desarrolló durante semanas y sobre el papel toda la teoría de las uniones PN. Ahí inventó el \alert{\textbf{Transistor de Unión Bipolar (BJT)}}, un diseño inmensamente superior.
+\end{frame}
+\begin{frame}{Inventores}
+    \begin{columns}
+        \begin{column}{0.4\textwidth}
+            \begin{center}
+                \includegraphics[height=0.65\textheight]{../../assets/3papeadores.jpg} \\
+                \vspace{0.2cm}
+            \end{center}
+        \end{column}
+        \begin{column}{0.6\textwidth}
+            \vspace{0.5cm}
+            \Large \textbf{Un Nobel de física (1956)}
+            
+            \vspace{0.4cm}
+            \normalsize
+            Por la invención del primer transistor funcional de la historia.
+        \end{column}
+    \end{columns}
+\end{frame}
+
+
+\begin{frame}{El Límite del BJT: La Potencia Estática}
+    \vspace{0.4cm}
+    \Large \textbf{El calor regresa como enemigo}
     
     \vspace{0.4cm}
-    Ahí inventó el \alert{\textbf{Transistor de Unión Bipolar}}, un diseño inmensamente superior que cambiaría el curso de la historia tecnológica para siempre.
+    \normalsize
+    A pesar de ser un salto revolucionario sin vacío ni filamentos, el Transistor Bipolar de Shockley tiene un límite fatal para la lógica digital masiva: requiere una corriente continua de base ($I_B$) para mantenerse encendido.
+    
+    \vspace{0.4cm}
+    Esto provoca una disipación constante de potencia estática por efecto Joule:
+    $$P=I_C V_{CE}$$
+    
+    \vspace{0.2cm}
+    \textbf{Conclusión:} Escalar esta arquitectura a miles de millones de compuertas derritiría cualquier microchip moderno. La fuerza bruta estructural ya no es suficiente.
+\end{frame}
+% ==========================================
+% ACTO 5: LA ELEGANCIA DEL CMOS
+% ==========================================
+
+\begin{frame}{La Lucha Complementaria: MOSFETs}
+     \begin{columns}
+        \begin{column}{0.4\textwidth}
+            \begin{center}
+                \includegraphics[height=0.55\textheight]{../../assets/mosfet.png} \\
+                \vspace{0.2cm}
+            \end{center}
+        \end{column}
+        \begin{column}{0.6\textwidth}
+            \vspace{0.5cm}
+    
+    \vspace{0.4cm}
+    \normalsize
+    Para superar el límite de disipación de calor del BJT, la industria evolucionó hacia la topología MOSFET, basada puramente en el efecto de un campo eléctrico externo sin necesidad de corrientes continuas de base.
+    
+    \vspace{0.4cm}
+    Tenemos dos guerreros lógicos fundamentales:
+    \begin{itemize}
+        \item \textbf{Transistor NMOS:} Conduce cuando recibe un \alert{$1$} lógico.
+        \item \textbf{Transistor PMOS:} Conduce cuando recibe un \alert{$0$} lógico.
+    \end{itemize}
+            
+        \end{column}
+    \end{columns}
+\vspace{0.4cm}
+
+\end{frame}
+
+\begin{frame}{La Magia del CMOS (1963)}
+    \vspace{0.4cm}
+    \Large \textbf{El invento de Frank Wanlass}
+    
+    \vspace{0.4cm}
+    \normalsize
+    Wanlass resolvió el problema del calor conectando un PMOS y un NMOS en un arreglo push-pull complementario, naciendo así el \textbf{CMOS} (Complementary Metal-Oxide-Semiconductor).
+    
+    \vspace{0.4cm}
+    \textbf{El Principio Fundamental:} \alert{Nunca están encendidos al mismo tiempo.}
+    
+    \vspace{0.4cm}
+    Esto significa que en estado de reposo, la ruta directa entre la fuente de voltaje ($V_{DD}$) y la tierra está físicamente cortada.
+\end{frame}
+
+\begin{frame}{El Milagro Físico: Potencia Estática Cero}
+    \vspace{0.4cm}
+    \Large \textbf{El dominio de la eficiencia energética}
+    
+    \vspace{0.6cm}
+    \normalsize
+    Al no existir un camino directo a tierra, la potencia estática se vuelve virtualmente cero. El consumo de energía ocurre casi exclusivamente durante el rápido instante de cambio de estado (la evaluación de la lógica en sí):
+    
+    $$P_{\text{dinámica}}=\alpha C V_{DD}^2 f$$
+    
+    \vspace{0.4cm}
+    Esta fórmula permitió que la computación escalara a miles de millones de transistores en un solo bloque de silicio sin fundirse.
+\end{frame}
+
+% ==========================================
+% ACTO 6: EL CLÍMAX SINTÁCTICO
+% ==========================================
+
+\begin{frame}{El Inversor Lógico (NOT)}
+    \vspace{0.4cm}
+    \Large \textbf{La compuerta física más simple}
+    
+    \vspace{0.4cm}
+    \normalsize
+    Construyendo el inversor con CMOS: un PMOS conectado a voltaje (arriba) y un NMOS conectado a tierra (abajo), ambos compartiendo la misma entrada.
+    
+    \begin{itemize}
+        \setlength\itemsep{0.3cm}
+        \item Si la entrada es \textbf{Alta ($1$)}, el NMOS se enciende y tira de la salida hacia tierra (\textbf{Baja, $0$}). El PMOS se apaga, protegiendo contra cortocircuitos.
+        \item Si la entrada es \textbf{Baja ($0$)}, el PMOS se enciende y tira de la salida hacia el voltaje (\textbf{Alta, $1$}). El NMOS se apaga.
+    \end{itemize}
+    
+    \vspace{0.2cm}
+    La función puramente abstracta $f(A)=\neg A$ se materializa físicamente frente a nosotros.
+\end{frame}
+
+\begin{frame}{La Puerta NAND Universal}
+    \vspace{0.4cm}
+    \Large \textbf{El Trazo de Sheffer en Silicio}
+    
+    \vspace{0.4cm}
+    \normalsize
+    Para construir la operación lógica de la cual derivan todas las demás:
+    
+    \begin{itemize}
+        \item \textbf{Red Pull-down (Tierra):} Usamos dos transistores NMOS en \textbf{serie}. Para que la salida llegue a tierra, *ambos* deben activarse. Esto modela el operador lógico AND ($A \land B$).
+        \item \textbf{Red Pull-up (Voltaje):} Usamos dos transistores PMOS en \textbf{paralelo}. Si cualquiera de los dos (o ambos) recibe un $0$, la salida se conecta a voltaje. Esto modela el operador OR con las entradas negadas ($\neg A \lor \neg B$).
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Las Leyes de De Morgan en Hardware}
+    \vspace{0.6cm}
+    \Large \textbf{La dualidad topológica de la materia}
+    
+    \vspace{0.6cm}
+    \normalsize
+    Al colocar una red Pull-down en serie contra una red Pull-up en paralelo dentro del chip, no solo construimos un circuito, sino que grabamos físicamente en el silicio el teorema matemático de Augustus De Morgan:
+    
+    $$\neg(A \land B)=\neg A \lor \neg B$$
+    
+    \vspace{0.4cm}
+    La estructura geométrica de los transistores obedece estrictamente a las leyes del álgebra de Boole.
 \end{frame}
 
 \begin{frame}{Hacia la Arquitectura Moderna}
@@ -397,10 +557,91 @@
     
     \vspace{0.8cm}
     \normalsize
-    Toda la computación moderna, la inteligencia artificial, el software... todo existe gracias a que resolvimos físicamente cómo evitar que el calor mezcle los ceros y los unos.
+    \textbf{No hay nadie en casa.} Toda máquina Turing-completa moderna, desde calculadoras hasta centros de inteligencia artificial, se reduce a miles de millones de estas diminutas estructuras geométricas evaluando álgebra booleana a la velocidad de la luz, evadiendo la asfixia del calor.
     
     \vspace{0.6cm}
-    \textbf{Próxima Sesión (Sesión 8):} Usaremos transistores (CMOS) para construir físicamente la compuerta NAND, la semilla del universo de Boole.
 \end{frame}
+% ==========================================
+% EL ÉXODO Y EL CATALIZADOR
+% ==========================================
+
+\begin{frame}{El Éxodo a California}
+    \begin{columns}
+        \begin{column}{0.6\textwidth}
+            \begin{center}
+                % Placeholder para imagen de los laboratorios o de Shockley
+                \includegraphics[height=0.4\textheight]{../../assets/shockley_lab.jpg} 
+                
+                \vspace{0.2cm}
+                \footnotesize \textit{Shockley Semiconductor Laboratory}
+            \end{center}
+        \end{column}
+        \begin{column}{0.4\textwidth}
+            
+            \vspace{0.4cm}
+            \normalsize
+            Convencido de que su genio merecía su propio imperio, William Shockley abandonó Bell Labs. Se mudó a Mountain View, California, para estar cerca de su madre anciana.
+            
+            \vspace{0.4cm}
+            Allí fundó el \textbf{Shockley Semiconductor Laboratory}. Al llevar la tecnología del silicio a la costa oeste, se convirtió inadvertidamente en el catalizador absoluto de lo que hoy conocemos como \alert{\textbf{Silicon Valley}}.
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% ==========================================
+% PARANOIA Y LOS OCHO TRAIDORES
+% ==========================================
+
+\begin{frame}{La Paranoia y los "Ocho Traidores"}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \vspace{0.2cm}
+            \Large \textbf{El Colapso del Liderazgo}
+            
+            \vspace{0.4cm}
+            \normalsize
+            Shockley era un físico brillante, pero un gerente desastroso. Su estilo de gestión abusivo, sumado a una paranoia creciente (llegó a exigir pruebas de polígrafo a sus empleados por proyectos fallidos), volvió el ambiente insostenible.
+            
+            \vspace{0.4cm}
+            En 1957, sus ocho ingenieros y científicos más brillantes decidieron abandonarlo en bloque. Shockley los bautizó resentido como los \alert{\textbf{''Ocho Traidores"}}.
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{center}
+                % Placeholder para la foto de los 8 traidores
+                \includegraphics[width=0.9\textwidth]{../../assets/traitorous_eight.jpg}
+                
+                \vspace{0.2cm}
+                \footnotesize \textit{Entre ellos se encontraban \textbf{Robert Noyce} y \textbf{Gordon Moore}.}
+            \end{center}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{El Legado de la Traición}
+    \vspace{0.8cm}
+    \begin{center}
+        \huge \textbf{Fairchild e Intel}
+    \end{center}
+    
+    \vspace{0.8cm}
+    \normalsize
+    Al huir de Shockley, este grupo fundó \textbf{Fairchild Semiconductor}, la empresa que crearía los primeros circuitos integrados comercialmente viables. 
+    
+    \vspace{0.4cm}
+    Poco después, Noyce y Moore darían el siguiente gran paso fundando \textbf{Intel}. El imperio tecnológico moderno nació directamente del rechazo a la tiranía de Shockley.
+\end{frame}
+\begin{frame}{Hacia la Arquitectura Moderna}
+    \vspace{0.8cm}
+    \begin{center}
+        \huge \textit{¿Puede una máquina pensar?
+	\\ Deep Learning}
+    \end{center}
+    
+    \vspace{0.8cm}
+    \normalsize
+    
+    \vspace{0.6cm}
+\end{frame}
+
 
 \end{document}
