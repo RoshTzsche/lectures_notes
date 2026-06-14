@@ -54,7 +54,8 @@
 \newtcolorbox{objetivos}{
   colback=lightgray, colframe=mitred,
   fonttitle=\bfseries\small, title=Objetivos de Aprendizaje,
-  left=4pt, right=4pt, top=4pt, bottom=4pt, boxrule=0.6pt, breakable}
+  left=4pt, right=4pt, top=4pt, bottom=4pt, 
+  boxrule=0.6pt, breakable}
 
 \newtcolorbox{lecturas}{
   colback=white, colframe=accentblue,
@@ -116,7 +117,7 @@ a la F\'isica del Transistor}
 
 \begin{tabular}{ll}
 \textbf{Modalidad:}           & Presencial \\[3pt]
-\textbf{Duraci\'on:}          & 8 sesiones $\times$ 2 horas (16 horas totales) \\[3pt]
+\textbf{Duraci\'on:}          & 7 sesiones $\times$ 2 horas (14 horas totales) \\[3pt]
 \textbf{Teaching Assistant:}  & Rosh Guadiana \\[3pt]
 \textbf{Prerequisitos:}       & Curiosidad, gusto por matem\'aticas, \'algebra lineal b\'asica \\[3pt]
 \end{tabular}
@@ -128,11 +129,12 @@ a la F\'isica del Transistor}
   colback=mitred!4, colframe=mitred,
   boxrule=0.8pt, left=10pt, right=10pt, top=8pt, bottom=8pt]
 {\small\itshape
-Sabemos que nos mienten. Lo que nadie nos ha ense\~nado es la diferencia entre
-una opini\'on y una demostraci\'on. Este curso existe para corregir eso
+Sabemos que nos mienten.
+Lo que nadie nos ha ense\~nado es la diferencia entre
+una opini\'on y una demostraci\'on.
+Este curso existe para corregir eso
 --- y para mostrar que incluso la demostraci\'on tiene l\'imites
 que se pueden probar con rigor.
-
 \medskip
 No hay respuestas que memorizar. Hay una sola exigencia:
 si se afirma, debe demostrarse.}
@@ -143,11 +145,12 @@ si se afirma, debe demostrarse.}
 \begin{tcolorbox}[
   colback=white, colframe=diagonalred,
   boxrule=0.6pt, left=8pt, right=8pt, top=6pt, bottom=6pt]
-{\footnotesize\textbf{Hilo rojo del curso:} El argumento diagonal de Cantor. Un solo hilo matem\'atico que conducir\'a desde la naturaleza del infinito hasta los l\'imites fundamentales de la computaci\'on f\'isica.}
+{\footnotesize\textbf{Hilo rojo del curso:} El argumento diagonal de Cantor.
+Un solo hilo matem\'atico que conducir\'a desde la naturaleza del infinito hasta los l\'imites fundamentales de la computaci\'on f\'isica.}
 \end{tcolorbox}
 
 \vfill
-{\small\textcolor{darkgray}{Junio 2026}}
+{\small\textcolor{darkgray}{Verano 2026}}
 \end{center}
 \end{titlepage}
 
@@ -163,15 +166,14 @@ si se afirma, debe demostrarse.}
 \section*{Dinámica del Curso}
 \addcontentsline{toc}{section}{Dinámica del Curso}
 
-
-
 \textbf{1. La frustraci\'on productiva.}
-Se presentar\'an conceptos que no ser\'an asimilados en la primera exposici\'on. Ese es el dise\~no intencional del programa. El objetivo es que la interrogante permanezca, se analice individualmente, y se esclarezca posteriormente mediante el razonamiento estructural. Ese momento de claridad constituye el aprendizaje real.
+Se presentar\'an conceptos que no ser\'an asimilados en la primera exposici\'on. Ese es el dise\~no intencional del programa.
+El objetivo es que la interrogante permanezca, se analice individualmente, y se esclarezca posteriormente mediante el razonamiento estructural.
+Ese momento de claridad constituye el aprendizaje real.
 
 \textbf{2. La contradicci\'on es bienvenida.}
-Si en cualquier momento se percibe que un postulado est\'a mal demostrado o que existe una falacia en el argumento, debe se\~nalarse. Todo cuestionamiento con base argumentativa es fomentado y representa exactamente el tipo de an\'alisis que este curso busca producir.
-
-
+Si en cualquier momento se percibe que un postulado est\'a mal demostrado o que existe una falacia en el argumento, debe se\~nalarse.
+Todo cuestionamiento con base argumentativa es fomentado y representa exactamente el tipo de an\'alisis que este curso busca producir.
 \vspace{2cm}
 
 \begin{center}
@@ -185,7 +187,6 @@ Est\'a escrito en lenguaje matem\'atico.''}\\[0.3em]
 {\footnotesize --- Galileo Galilei, \textit{Il Saggiatore} (1623)}\\
 \textcolor{mitred}{\rule{0.5\linewidth}{0.6pt}}
 \end{center}
-
 
 \newpage
 
@@ -207,15 +208,14 @@ Est\'a escrito en lenguaje matem\'atico.''}\\[0.3em]
 \midrule
 \multicolumn{4}{c}{\textcolor{outdoorgreen}{\textbf{--- Sesi\'on 5: Di\'alogo al Aire Libre ---}}} \\
 \midrule
-6  & \textit{El Puente}: Boole, Shannon y L\'imites & $\downarrow$ Creciente & \\
-7  & Termodin\'amica L\'ogica: $E_g$ y la Uni\'on PN & & \\
-8  & El Modus Ponens F\'isico: MOSFET y CMOS     & $\downarrow$ M\'inima & \\
+6  & Aut\'omatas Celulares y Teor\'ia de la Informaci\'on & $\downarrow$ Creciente & \\
+7  & Termodin\'amica L\'ogica y Arquitectura CMOS   & $\downarrow$ M\'inima & \\
 \bottomrule
 \end{tabular}
 \end{center}
 
 \vspace{0.4em}
-\end{nota}
+
 
 \newpage
 
@@ -229,7 +229,9 @@ Ninguno. Este es el punto cero formal del curso.
 \end{prereqs}
 
 \subsection*{Motivaci\'on}
-Los sistemas tecnol\'ogicos que clasifican y relacionan informaci\'on descansan sobre una noci\'on primitiva: la \emph{colecci\'on}. Sin este vocabulario es imposible definir rigurosamente un axioma, una m\'aquina de Turing o el estado de un cristal. Esta sesi\'on funda el andamiaje entero.
+Los sistemas tecnol\'ogicos que clasifican y relacionan informaci\'on descansan sobre una noci\'on primitiva: la \emph{colecci\'on}.
+Sin este vocabulario es imposible definir rigurosamente un axioma, una m\'aquina de Turing o el estado de un cristal.
+Esta sesi\'on funda el andamiaje entero.
 
 \subsection{Contenidos}
 
@@ -246,8 +248,8 @@ Los sistemas tecnol\'ogicos que clasifican y relacionan informaci\'on descansan 
 \end{itemize}
 
 \begin{diagonal}{Primera aparici\'on}
-\textbf{El argumento diagonal de Cantor (1891):} Al suponer que es posible listar exhaustivamente todos los n\'umeros reales entre 0 y 1 ($r_1, r_2, \ldots$), se construye un n\'umero $d$ cuya $n$-\'esima cifra decimal difiere de la $n$-\'esima cifra de $r_n$. Por dise\~no, $d$ no est\'a en la lista. Conclusi\'on: $|\mathbb{R}|>|\mathbb{N}|$. El continuo escapa a lo contable.
-
+\textbf{El argumento diagonal de Cantor (1891):} Al suponer que es posible listar exhaustivamente todos los n\'umeros reales entre 0 y 1 ($r_1, r_2, \ldots$), se construye un n\'umero $d$ cuya $n$-\'esima cifra decimal difiere de la $n$-\'esima cifra de $r_n$.
+Por dise\~no, $d$ no est\'a en la lista. Conclusi\'on: $|\mathbb{R}|>|\mathbb{N}|$. El continuo escapa a lo contable.
 \medskip
 \textit{N\'otese la estructura geom\'etrica: un objeto construido deliberadamente para diferir de cada elemento de una lista pretendidamente completa.}
 \end{diagonal}
@@ -440,9 +442,7 @@ Se aborda el recorrido hist\'orico y las consecuencias personales padecidas por 
 \begin{tcolorbox}[colback=outdoorgreen!5, colframe=outdoorgreen, boxrule=0.7pt, left=8pt, right=8pt, top=6pt, bottom=6pt]
 {\itshape ``Si las redes neuronales biol\'ogicas operan bajo principios f\'isicos computables, los teoremas de G\"odel y Turing dictaminan la existencia de verdades que la estructura cognitiva ser\'ia incapaz de demostrar algor\'itmicamente desde su propia constituci\'on.
 
-Sin embargo, al observar la f\'ormula $G$ de G\"odel, se adquiere la \emph{comprensi\'on} metamatem\'atica externa de su veracidad.
-
-¿Sugiere este fen\'omeno que la conciencia humana es capaz de procesar heur\'isticas no-computables (Penrose)? ¿O es dicha sensaci\'on de "comprensi\'on" una propiedad emergente e ilusoria producto de una arquitectura cognitiva fundamentada en bucles extra\~nos auto-referenciales (Hofstadter)?''}
+Sin embargo, al observar la f\'ormula $G$ de G\"odel, se adquiere la \emph{comprensi\'on} metamatem\'atica externa de su veracidad. ¿Sugiere este fen\'omeno que la conciencia humana es capaz de procesar heur\'isticas no-computables (Penrose)? ¿O es dicha sensaci\'on de "comprensi\'on" una propiedad emergente e ilusoria producto de una arquitectura cognitiva fundamentada en bucles extra\~nos auto-referenciales (Hofstadter)?''}
 
 \medskip
 \hfill --- Apertura al di\'alogo.
@@ -459,51 +459,54 @@ Sin embargo, al observar la f\'ormula $G$ de G\"odel, se adquiere la \emph{compr
 \newpage
 
 % ============================================================
-%  SESIÓN 6 — EL PUENTE
+%  SESIÓN 6
 % ============================================================
-\section{Sesi\'on 6 --- \textit{El Puente}: Boole, Shannon y los L\'imites Mat\'ericos}
+\section{Sesi\'on 6 --- Aut\'omatas Celulares y Teor\'ia de la Informaci\'on}
 
-\textcolor{mitred}{\textbf{Inicia el descenso a la f\'isica. La transici\'on de la l\'ogica a la materia.}}
+\textcolor{mitred}{\textbf{Inicia el descenso a la materia. La transici\'on de la l\'ogica al caos emergente.}}
 
 \begin{prereqs}
-Sesiones 2 y 4. Entendimiento riguroso de completitud funcional (NAND) y m\'aquinas de Turing.
+Sesiones 2 y 4. Entendimiento riguroso de m\'aquinas de Turing e indecidibilidad.
 \end{prereqs}
 
 \subsection*{Motivaci\'on}
-Establecidos los l\'imites te\'oricos del c\'omputo, el siguiente paso es la implementaci\'on f\'isica. Shannon prob\'o la correspondencia isomorfa entre rel\'es f\'isicos y el \'algebra booleana. A\'un m\'as cr\'itico es comprender por qu\'e la estabilizaci\'on de estados l\'ogicos demanda imperativamente el uso de sistemas con din\'amicas f\'isicas no lineales.
+Establecidos los l\'imites te\'oricos del c\'omputo, abordamos cómo la sintaxis abstracta se instanció inicialmente en el isomorfismo de Shannon (el Bit) y cómo reglas atómicas simples ejecutadas ciegamente destruyen la necesidad de un "Arquitecto Central". Se explora la emergencia del caos computacional y la ilusión de la inteligencia en sistemas deterministas.
 
 \subsection{Contenidos}
 
-\subsubsection{6.1 --- El Isomorfismo de Shannon (1938)}
+\subsubsection{6.1 --- El Isomorfismo de Shannon y el Bit}
 \begin{itemize}
-  \item \'Algebra de Boole $(B,+,\cdot,\bar{\phantom{x}},0,1)$.
-  \item Formulaci\'on del mapeo directo y bidireccional entre la abstracci\'on de funciones l\'ogicas y las topolog\'ias el\'ectricas de conmutaci\'on.
+  \item Tesis de Shannon (1938): Mapeo bidireccional entre el \'algebra booleana y topolog\'ias de conmutaci\'on f\'isica.
+  \item La reducci\'on de la incertidumbre: El \emph{Bit} como unidad fundamental de la teor\'ia de la informaci\'on, y la Entrop\'ia de Shannon ($H(X) = - \sum P(x_i) \log_2 P(x_i)$).
 \end{itemize}
 
-\subsubsection{6.2 --- Anatom\'ia del C\'omputo Secuencial}
+\subsubsection{6.2 --- Aut\'omatas Celulares y Emergencia del Caos}
 \begin{itemize}
-  \item An\'alisis de la arquitectura de Von Neumann concebida como una m\'aquina de Turing finita instanciada.
-  \item Funci\'on del reloj, los biestables (registros) y la sincronizaci\'on del ciclo de instrucci\'on.
+  \item M\'aquinas de estado finito (FSA) y la ceguera algor\'itmica local sin memoria.
+  \item \textbf{Regla 30 de Wolfram:} El fracaso del paradigma central de Von Neumann. C\'omo 3 reglas at\'omicas elementales ($c_i^{t+1} = c_{i-1}^t \oplus (c_i^t \lor c_{i+1}^t)$) generan caos pseudoaleatorio e \emph{irreducibilidad computacional}.
+  \item \textbf{El Juego de la Vida de Conway:} Emergencia de estructuras estables, destructoras y autorreplicantes ("Gliders") partiendo de tres axiomas de ceguera local.
 \end{itemize}
 
-\subsubsection{6.3 --- La F\'isica del "Bit" y la No-Linealidad Necesaria}
+\subsubsection{6.3 --- La Sintaxis de la Vida Org\'anica}
 \begin{itemize}
-  \item El bit no es un s\'imbolo idealizado; constituye un \emph{grado de libertad termodin\'amico} estabilizado f\'isicamente.
-  \item \textbf{La insuficiencia de los sistemas lineales:} Todo sistema el\'ectrico pasivo y lineal ($V_\text{out}=\alpha V_\text{in}$) sufre atenuaci\'on y degrada la precisi\'on de la se\~nal progresivamente por adici\'on de ruido t\'ermico.
-  \item \textbf{La exigencia de no-linealidad:} La regeneraci\'on de estados asim\'etricos ("1" y "0") requiere invariablemente la implementaci\'on de materiales con curvas de ganancia altamente no lineales. Los conductores met\'alicos simples son insuficientes.
+  \item \textbf{L-Systems:} Lindenmayer y el crecimiento morfol\'ogico modelado como gram\'atica generativa recursiva ($A \to AB$).
+  \item La Geometr\'ia de la Tortuga (Seymour Papert): Simulaci\'on de vida y fractales org\'anicos dictados por sintaxis mecanicista pura.
+  \item La ilusi\'on cognitiva: El hardware ejecuta impulsos sin comprensi\'on; "no hay nadie en casa".
 \end{itemize}
 
 \begin{objetivos}
 \begin{itemize}
-  \item Demostrar algebraicamente la equivalencia funcional entre conectivos proposicionales y circuitos.
-  \item Justificar termodin\'amica y el\'ectricamente por qu\'e el hardware digital robusto rechaza topolog\'ias de componentes puramente pasivos.
+  \item Demostrar la equivalencia funcional entre conectivos proposicionales y circuitos.
+  \item Entender la formaci\'on de complejidad y comportamientos pseudoaleatorios mediante autómatas celulares sin unidad central de control.
+  \item Calcular la entrop\'ia informacional en sistemas discretos.
 \end{itemize}
 \end{objetivos}
 
 \begin{lecturas}
 \begin{itemize}
   \item[$(\star)$] \textbf{Shannon, C. E.} (1938) --- ``A Symbolic Analysis of Relay and Switching Circuits''.
-  \item \textbf{Tanenbaum, A. S., \& Austin, T.} --- \emph{Structured Computer Organization}. Cap\'itulo~1.
+  \item[$(\star)$] \textbf{Wolfram, S.} --- \emph{A New Kind of Science}. (Secciones selectas sobre la Regla 30 e irreducibilidad computacional).
+  \item \textbf{Prusinkiewicz, P., \& Lindenmayer, A.} --- \emph{The Algorithmic Beauty of Plants}. Cap\'itulo 1.
 \end{itemize}
 \end{lecturas}
 
@@ -512,91 +515,54 @@ Establecidos los l\'imites te\'oricos del c\'omputo, el siguiente paso es la imp
 % ============================================================
 %  SESIÓN 7
 % ============================================================
-\section{Sesi\'on 7 --- Termodin\'amica L\'ogica: El L\'imite Mat\'erico}
+\section{Sesi\'on 7 --- Termodin\'amica L\'ogica y Arquitectura CMOS}
 
 \begin{prereqs}
-Sesi\'on 6. La dependencia tecnol\'ogica hacia la no-linealidad.
+Sesi\'on 6. El concepto de Bit, isomorfismo f\'isico y reglas l\'ogicas at\'omicas.
 \end{prereqs}
 
 \subsection*{Motivaci\'on}
-El dise\~no arquitect\'onico l\'ogico exige un componente capaz de conmutar se\~nales rechazando la entrop\'ia t\'ermica. En lugar de derivar la mec\'anica estad\'istica profunda, nos enfocaremos en la \emph{filosof\'ia f\'isica}: c\'omo la brecha prohibida ($E_g$) a\'isla la conducci\'on del caos termodin\'amico y c\'omo el dopaje rompe la simetr\'ia material para estabilizar el "bit".
+Con la l\'ogica abstracta definida, necesitamos un sustrato material donde instalarla. El gran enemigo de la l\'ogica es el caos termodin\'amico. Exploraremos el viaje desde el aislamiento del bit frente al ruido t\'ermico, las batallas de ingenier\'ia en Silicon Valley, hasta ensamblar tecnol\'ogicamente el Modus Ponens absoluto: la compuerta universal CMOS.
 
 \subsection{Contenidos}
 
-\subsubsection{7.1 --- El Cristal y la Brecha Prohibida}
+\subsubsection{7.1 --- El Ruido de Johnson-Nyquist y el L\'imite Lineal}
 \begin{itemize}
-  \item La brecha prohibida (\emph{bandgap}) $E_g$: el umbral de energ\'ia que a\'isla la informaci\'on estructurada del ruido t\'ermico.
-  \item La amenaza de la termodin\'amica: c\'omo el incremento de la temperatura tiende a destruir el estado de aislamiento, comprometiendo la viabilidad del c\'omputo.
+  \item El conflicto: el voltaje de ruido térmico ($v_n = \sqrt{4k_B TR\Delta f}$) destruye inevitablemente las se\~nales booleanas continuas a lo largo de conductores lineales.
+  \item La insuficiencia de la fuerza bruta y el fracaso energ\'etico de los tubos de vac\'io (Triodo).
 \end{itemize}
 
-\subsubsection{7.2 --- Ruptura de Simetr\'ia: Dopaje y la Uni\'on PN}
+\subsubsection{7.2 --- Ruptura de Simetr\'ia: La Uni\'on PN}
 \begin{itemize}
-  \item Control material: el dopaje como m\'etodo f\'isico para inducir asimetr\'ia en un cristal el\'ectricamente neutro.
-  \item La uni\'on PN como frontera termodin\'amica: creaci\'on de la regi\'on de agotamiento y el campo el\'ectrico de equilibrio.
-  \item \textbf{El nacimiento de la no-linealidad:} El diodo no como una ecuaci\'on diferencial abstracta, sino como la primera pieza de materia que logramos obligar a rectificar informaci\'on unidireccionalmente, estabilizando el c\'omputo frente al caos termodin\'amico.
+  \item \textbf{La Brecha Prohibida ($E_g$):} El umbral mec\'anico cu\'antico en los semiconductores que a\'isla la sintaxis de la cat\'astrofe termodin\'amica ($E_g \gg k_B T$).
+  \item \textbf{Dopaje y Asimetr\'ia:} Corrupci\'on intencional del silicio (P y N) para forzar un campo el\'ectrico de freno.
+  \item Nacimiento del Diodo: La invenci\'on de la no-linealidad en estado s\'olido.
+\end{itemize}
+
+\subsubsection{7.3 --- Del Transistor al Modus Ponens F\'isico}
+\begin{itemize}
+  \item \textbf{Historia y Traici\'on:} De Shockley y el transistor de uni\'on en los laboratorios Bell (1947), la paranoia, y la fuga de los "Ocho Traidores" para fundar Fairchild y finalmente Intel.
+  \item El agotamiento t\'ermico del BJT y la evoluci\'on necesaria hacia el efecto de campo (\textbf{MOSFET}).
+  \item \textbf{El Milagro de Frank Wanlass (CMOS):} Uso del arreglo complementario Push-Pull (NMOS/PMOS) para lograr un consumo de potencia est\'atica virtualmente nulo.
+  \item \textbf{S\'intesis L\'ogica Final:} Ensamblaje topol\'ogico de la compuerta NAND est\'atica empleando redes en serie (Pull-Down) y en paralelo (Pull-Up), encarnando en silicio las leyes matemáticas de De Morgan.
 \end{itemize}
 
 \begin{objetivos}
 \begin{itemize}
-  \item Explicar conceptualmente c\'omo la brecha prohibida protege la integridad l\'ogica del bit f\'isico.
-  \item Comprender la necesidad tecnol\'ogica de romper la simetr\'ia el\'ectrica mediante la uni\'on PN para lograr un comportamiento no lineal.
+  \item Justificar termodin\'amicamente por qu\'e el hardware digital robusto demanda semiconductores de estado s\'olido no lineales en lugar de conductores lineales pasivos.
+  \item Comprender cómo la arquitectura CMOS evade las restricciones de disipación térmica (efecto Joule).
+  \item Conectar directamente la completitud axiom\'atica de Turing y el isomorfismo de Boole con la red física de transistores que constituyen la compuerta NAND universal.
 \end{itemize}
 \end{objetivos}
 
 \begin{lecturas}
 \begin{itemize}
-  \item[$(\star)$] \textbf{Streetman, B. G., \& Banerjee, S. K.} --- \emph{Solid State Electronic Devices}. (Enfoque selectivo y conceptual en $E_g$ y la operaci\'on de la uni\'on, omitiendo derivaciones estad\'isticas duras).
-  \item \textbf{Feynman, R. P.} --- \emph{Feynman Lectures on Computation}. Cap\'itulo 5 (C\'omputo y termodin\'amica).
+  \item[$(\star)$] \textbf{Feynman, R. P.} --- \emph{Feynman Lectures on Computation}. Cap\'itulo 5 (C\'omputo y Termodin\'amica).
+  \item \textbf{Streetman, B. G., \& Banerjee, S. K.} --- \emph{Solid State Electronic Devices}. (Enfoque conceptual en $E_g$ y la operaci\'on de la uni\'on PN).
+  \item \textbf{Sedra, A. S., \& Smith, K. C.} --- \emph{Microelectronic Circuits}, 7.a ed. Cap\'itulo~14 \S14.1 (L\'ogica CMOS Digital).
 \end{itemize}
 \end{lecturas}
 
-\newpage
-
-% ============================================================
-%  SESIÓN 8
-% ============================================================
-\section{Sesi\'on 8 --- El Modus Ponens F\'isico: Arquitectura CMOS}
-
-\begin{prereqs}
-Sesiones 2, 6 y 7. Convergencia del modelo axiom\'atico abstractivo y los dispositivos de ruptura de simetr\'ia.
-\end{prereqs}
-
-\subsection*{Motivaci\'on}
-La formalizaci\'on axiom\'atica requiere conectivos como el operador NAND. Esta sesi\'on ensambla la tecnolog\'ia CMOS utiliz\'andola como el lienzo final, cerrando la trayectoria desde el axioma metamatem\'atico hasta la f\'isica aplicada mediante la pura topolog\'ia de interruptores.
-
-\subsection{Contenidos}
-
-\subsubsection{8.1 --- El Transistor como Interruptor Ideal}
-\begin{itemize}
-  \item El MOSFET conceptual: descripci\'on de la separaci\'on funcional estricta entre la se\~nal de control (compuerta) y la v\'ia de conducci\'on (canal).
-  \item Abstracci\'on del dispositivo de estado s\'olido a un interruptor controlado por voltaje, eliminando el c\'alculo anal\'itico de saturaci\'on.
-\end{itemize}
-
-\subsubsection{8.2 --- La Arquitectura L\'ogica CMOS}
-\begin{itemize}
-  \item Resoluci\'on topol\'ogica del alto consumo de energ\'ia: c\'omo enga\~nar a las leyes de la termodin\'amica mediante simetr\'ia complementaria.
-  \item Ensamble estructural: La evaluaci\'on de la funci\'on $f$ recae en la red de canal N (Pull-Down), mientras la red de canal P (Pull-Up) garantiza mec\'anicamente la entrega del complemento l\'ogico $\neg f$.
-\end{itemize}
-
-\subsubsection{8.3 --- S\'intesis Final: Implementaci\'on del NAND Universal}
-\begin{itemize}
-  \item Taller topol\'ogico: Dise\~no esquem\'atico de la compuerta NAND est\'atica mediante redes de transistores.
-  \item \textbf{El arco argumental completo:} Conexi\'on axiom\'atica de la f\'ormula formal $\neg(A \land B)$ con la carga cu\'antica modulada por voltajes. Demostraci\'on final de c\'omo atrapamos la completitud l\'ogica de Turing y la diagonalizaci\'on de Cantor dentro de un microchip de silicio.
-\end{itemize}
-
-\begin{objetivos}
-\begin{itemize}
-  \item Dise\~nar las redes sim\'etricas Pull-Up y Pull-Down requeridas para sintetizar el operador l\'ogico NAND.
-  \item Conectar expl\'icitamente la abstracci\'on matem\'atica de la completitud funcional con la arquitectura f\'isica del transistor.
-\end{itemize}
-\end{objetivos}
-
-\begin{lecturas}
-\begin{itemize}
-  \item[$(\star)$] \textbf{Sedra, A. S., \& Smith, K. C.} --- \emph{Microelectronic Circuits}, 7.a ed. Cap\'itulo~14 \S14.1 (L\'ogica CMOS Digital).
-  \item \textbf{Weste, N. H. E., \& Harris, D.} --- \emph{CMOS VLSI Design}. Cap\'itulo~1.
-\end{itemize}
-\end{lecturas}
 \newpage
 
 % ============================================================
@@ -613,24 +579,23 @@ La formalizaci\'on axiom\'atica requiere conectivos como el operador NAND. Esta 
 
 \subsection*{Metamatem\'atica, Incompletitud y Computabilidad}
 \begin{itemize}
-	
   \item \textbf{Hofstadter, D. R.} --- \emph{G\"odel, Escher, Bach: An Eternal Golden Braid}. Basic Books, 1979. \textit{[Lectura transversal obligatoria.]}
   \item \textbf{Nagel, E., \& Newman, J. R.} --- \emph{G\"odel's Proof}, ed.\ revisada. NYU Press, 2001.
   \item \textbf{Sipser, M.} --- \emph{Introduction to the Theory of Computation}, 3.a ed. Cengage, 2012.
 \end{itemize}
 
-\subsection*{Filosof\'ia de la Conciencia y el Computo}
+\subsection*{Filosof\'ia de la Conciencia, Caos y Computo}
 \begin{itemize}
+  \item \textbf{Wolfram, S.} --- \emph{A New Kind of Science}. Wolfram Media, 2002.
+  \item \textbf{Prusinkiewicz, P., \& Lindenmayer, A.} --- \emph{The Algorithmic Beauty of Plants}. Springer-Verlag, 1990.
   \item \textbf{Penrose, R.} --- \emph{The Emperor's New Mind}. Oxford University Press, 1989.
   \item \textbf{Nagel, T.} --- ``What Is It Like to Be a Bat?''. \textit{The Philosophical Review}, 1974.
-  \item \textbf{Feynman, R. P.} --- \emph{Feynman Lectures on Computation}. 
-\
-
+  \item \textbf{Feynman, R. P.} --- \emph{Feynman Lectures on Computation}. CRC Press, 1996.
 \end{itemize}
 
 \subsection*{\'Algebra de Boole y F\'isica del Silicio}
 \begin{itemize}
-  \item \textbf{Shannon, C. E.} (1938) --- ``A Symbolic Analysis of Relay and Switching Circuits''.
+  \item \textbf{Shannon, C. E.} (1938) --- ``A Symbolic Analysis of Relay and Switching Circuits''. \textit{Transactions of the American Institute of Electrical Engineers}.
   \item \textbf{Streetman, B. G., \& Banerjee, S. K.} --- \emph{Solid State Electronic Devices}, 7.a ed. Pearson, 2015. 
   \item \textbf{Sedra, A. S., \& Smith, K. C.} --- \emph{Microelectronic Circuits}, 7.a ed. Oxford University Press, 2014. 
 \end{itemize}
